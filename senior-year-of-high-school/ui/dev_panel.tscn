@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://bnkl8vwr3s7sk"]
+[gd_scene load_steps=4 format=3 uid="uid://bnkl8vwr3s7sk"]
+
+[ext_resource type="Script" uid="uid://1qns8fwfg0g0" path="res://ui/dev_panel.gd" id="1_cbhbn"]
+[ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="2_b5ddx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5ddx"]
+bg_color = Color(0.043137256, 0.19607843, 0.29411766, 0.19607843)
 
 [node name="DevPanel" type="CanvasLayer"]
+script = ExtResource("1_cbhbn")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b5ddx")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b5ddx")
