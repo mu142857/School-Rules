@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 
 GameManager="*res://autoload/game_manager.gd"
 DevPanel="*res://ui/dev_panel.tscn"
+StatsSystem="*res://autoload/stats_system.gd"
+TimeSystem="*res://autoload/time_system.gd"
 
 [display]
 
