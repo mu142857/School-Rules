@@ -31,7 +31,7 @@ You are a transfer student arriving at a prestigious high school with only three
 
 ## Team / 团队
 
-- **Game Design & Art / 游戏设计 & 美术**: 高艺晨 (Yichen Gao)
+- **Game Design, Art & Story / 游戏设计, 美术, 和剧情**: 高艺晨 (Yichen Gao)
 - **Programming & Music / 编程 & 音乐**: 上官嘉木 (Jiamu Shangguan)
 
 ---
