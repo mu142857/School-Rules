@@ -25,6 +25,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="Panel/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b5ddx")
+
+[node name="DevButtonsContainer" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="StatsLabel" type="Label" parent="Panel/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_b5ddx")
+
+[node name="ActionButtonsContainer" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="BuffLabel" type="Label" parent="Panel/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_b5ddx")
