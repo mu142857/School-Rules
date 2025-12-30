@@ -37,6 +37,7 @@ func clear_class_buffs():
 	# 上完课清除的buff
 	active_buffs.erase("FRESH")      # 口香糖清新
 	active_buffs.erase("FOCUSED")    # 柠檬水专注
+	active_buffs.erase("ENERGETIC")  # 能量饮料精力充沛
 
 # 应用被动 Buff（根据状态自动判定）
 func apply_passive_buffs():
@@ -120,6 +121,10 @@ func get_efficiency_modifier(subject: String) -> int:
 	# 柠檬水专注
 	if has_buff("FOCUSED"):
 		modifier += 2
+	
+	# 能量饮料精力充沛
+	if has_buff("ENERGETIC"):
+		modifier += 3
 	
 	return modifier
 

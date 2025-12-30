@@ -4,15 +4,18 @@
 [ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="2_b5ddx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5ddx"]
-bg_color = Color(0.043137256, 0.19607843, 0.29411766, 0.19607843)
+bg_color = Color(0.043137256, 0.19607843, 0.29411766, 0.5882353)
 
 [node name="DevPanel" type="CanvasLayer"]
+layer = 1000
 script = ExtResource("1_cbhbn")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_b5ddx")

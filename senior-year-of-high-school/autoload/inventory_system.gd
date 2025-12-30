@@ -10,6 +10,7 @@ var consumables: Dictionary = {
 	"GUM": 0,            # 口香糖
 	"BISCUIT": 0,        # 压缩饼干
 	"LEMONADE": 0,       # 柠檬水
+	"ENERGY_DRINK": 0,   # 能量饮料
 	"NORMAL_MILK": 0,    # 普通奶
 	"PREMIUM_MILK": 0,   # 高级奶
 }
@@ -43,18 +44,14 @@ func use_consumable(item_name: String) -> bool:
 	match item_name:
 		"SODA":
 			GameManager.pressure = max(0, GameManager.pressure - 10)
-			BuffSystem.add_buff("DIGESTING", 5)
 		"BEEF_SNACK":
 			GameManager.pressure = max(0, GameManager.pressure - 4)
 			GameManager.hunger = min(100, GameManager.hunger + 4)
-			BuffSystem.add_buff("DIGESTING", 3)
+			BuffSystem.add_buff("DIGESTING", 4)
 		"LEIBI":
 			GameManager.pressure = max(0, GameManager.pressure - 10)
-			BuffSystem.add_buff("DIGESTING", 5)
 		"SAUSAGE":
-			GameManager.pressure = max(0, GameManager.pressure - 5)
-			GameManager.hunger = min(100, GameManager.hunger + 15)
-			BuffSystem.add_buff("DIGESTING", 7)
+			GameManager.hunger = min(100, GameManager.hunger + 10)
 		"GUM":
 			GameManager.pressure = max(0, GameManager.pressure - 1)
 			BuffSystem.add_buff("FRESH", -1)
@@ -65,7 +62,10 @@ func use_consumable(item_name: String) -> bool:
 		"LEMONADE":
 			GameManager.pressure = max(0, GameManager.pressure - 3)
 			BuffSystem.add_buff("FOCUSED", -1)
-			BuffSystem.add_buff("DIGESTING", 3)
+		"ENERGY_DRINK":
+			GameManager.pressure = max(0, GameManager.pressure - 3)
+			GameManager.hunger = min(100, GameManager.hunger + 3)
+			BuffSystem.add_buff("ENERGETIC", -1)
 		"NORMAL_MILK":
 			GameManager.pressure = max(0, GameManager.pressure - 10)
 			GameManager.hunger = min(100, GameManager.hunger + 5)
