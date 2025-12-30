@@ -12,8 +12,11 @@ var last_minute: int = -1
 func _process(_delta):
 	if GameManager.minute != last_minute:
 		last_minute = GameManager.minute
-		update_buffs()
-		apply_passive_buffs()
+		on_minute_passed()
+
+func on_minute_passed():
+	update_buffs()
+	apply_passive_buffs()
 
 # 每分钟更新 Buff
 func update_buffs():
@@ -29,6 +32,11 @@ func update_buffs():
 				to_remove.append(buff_name)
 	for buff_name in to_remove:
 		active_buffs.erase(buff_name)
+
+func clear_class_buffs():
+	# 上完课清除的buff
+	active_buffs.erase("FRESH")      # 口香糖清新
+	active_buffs.erase("FOCUSED")    # 柠檬水专注
 
 # 应用被动 Buff（根据状态自动判定）
 func apply_passive_buffs():
@@ -104,6 +112,14 @@ func get_efficiency_modifier(subject: String) -> int:
 	# 极饿
 	if has_buff("STARVING"):
 		modifier -= 1
+	
+	# 口香糖清新
+	if has_buff("FRESH"):
+		modifier += 1
+	
+	# 柠檬水专注
+	if has_buff("FOCUSED"):
+		modifier += 2
 	
 	return modifier
 

@@ -52,6 +52,13 @@ var current_scene: String = ""
 # === 开发者模式 ===
 var dev_mode: bool = false
 
+# === 历史数据（用于图表）===
+var knowledge_history: Array = []  # [{day, month, Chinese, Math, ...}, ...]
+var time_allocation_history: Array = []  # [{day, month, sleep, study, eat, ...}, ...]
+
+# 最多存90天数据（3个月）
+const MAX_HISTORY_DAYS: int = 90
+
 func _input(event):
 	if event.is_action_pressed("ui_dev_toggle"):
 		dev_mode = !dev_mode

@@ -4,6 +4,9 @@ extends Node
 # 时间流速（每现实秒 = 多少游戏分钟）
 var time_scale: float = 0.1  # 可调整（计划0.5）
 var time_accumulator: float = 0.0
+var is_paused: bool = false
+var pause_reason: String = ""  # "CLASS" 或 "SLEEP"
+var last_period: String = ""
 
 # 特殊日期 {[month, day]: "event_name"}
 var special_dates: Dictionary = {
@@ -21,7 +24,9 @@ var special_dates: Dictionary = {
 }
 
 func _process(delta):
-	advance_time(delta)
+	if not is_paused:
+		advance_time(delta)
+	check_auto_pause()
 
 # 时间流动
 func advance_time(delta):
@@ -140,3 +145,69 @@ func get_current_period() -> String:
 		return "DORM_RETURN"
 	else:
 		return "SLEEPING"
+
+# 跳过指定分钟（同时更新数值）
+func skip_minutes(minutes: int):
+	for i in range(minutes):
+		GameManager.minute += 1
+		if GameManager.minute >= 60:
+			GameManager.minute = 0
+			GameManager.hour += 1
+		if GameManager.hour >= 24:
+			GameManager.hour = 0
+			GameManager.day += 1
+		var days_in_month = [0, 0, 0, 31, 30, 31, 30]
+		if GameManager.day > days_in_month[GameManager.month]:
+			GameManager.day = 1
+			GameManager.month += 1
+		
+		# 触发数值更新
+		StatsSystem.on_minute_passed()
+		BuffSystem.on_minute_passed()
+
+# 检查是否需要自动暂停
+func check_auto_pause():
+	var current_period = get_current_period()
+	
+	# 时段变化时检查
+	if current_period != last_period:
+		last_period = current_period
+		
+		# 上课时间暂停
+		if current_period.begins_with("CLASS"):
+			pause_for_class()
+		
+		# 睡觉时间暂停（22:30后每次时段变化都检查）
+		if current_period == "SLEEPING":
+			pause_for_sleep()
+
+# 上课暂停
+func pause_for_class():
+	is_paused = true
+	pause_reason = "CLASS"
+
+# 睡觉暂停
+func pause_for_sleep():
+	is_paused = true
+	pause_reason = "SLEEP"
+
+# 继续时间（选择完成后调用）
+func resume_time():
+	is_paused = false
+	pause_reason = ""
+
+# 获取当前课程对应的学科
+func get_current_subject() -> String:
+	var period = get_current_period()
+	var weekday = get_weekday()
+	
+	# 简化版课表：根据课程编号和星期决定学科
+	# 之后可以做完整课表
+	var subjects = ["Chinese", "Math", "English", "Physics", "Geography", "Biology"]
+	
+	if period.begins_with("CLASS_"):
+		var class_num = int(period.split("_")[1])
+		var index = (class_num + weekday) % 6
+		return subjects[index]
+	
+	return "Chinese"

@@ -45,3 +45,6 @@ layout_mode = 2
 [node name="BuffLabel" type="Label" parent="Panel/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_b5ddx")
+
+[node name="ItemButtonsContainer" type="VBoxContainer" parent="Panel/ScrollContainer/HBoxContainer"]
+layout_mode = 2

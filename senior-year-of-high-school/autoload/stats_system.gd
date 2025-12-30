@@ -5,15 +5,35 @@ extends Node
 var hunger_decay: float = 0.023     # 饱食度下降
 
 # === 每日结算用 ===
+var last_minute: int = -1
+var last_day: int = -1
 var today_study_minutes: int = 0
 var today_sleep_minutes: int = 0
-var last_day: int = -1
-var last_minute: int = -1
 
 func _process(_delta):
 	if GameManager.minute != last_minute:
 		last_minute = GameManager.minute
-		update_stats()
+		on_minute_passed()
+
+func on_minute_passed():
+	var period = TimeSystem.get_current_period()
+	
+	# 检测新的一天
+	if GameManager.day != last_day:
+		if last_day != -1:
+			daily_settlement()
+		last_day = GameManager.day
+		today_study_minutes = 0
+		today_sleep_minutes = 0
+
+	# 记录今日时间分配
+	if period == "SLEEPING" or period == "NAP":
+		today_sleep_minutes += 1
+	elif period.begins_with("CLASS") or period.ends_with("SELF_STUDY") or period == "MORNING_READ":
+		today_study_minutes += 1
+	
+	# 饱食度下降
+	GameManager.hunger = max(0, GameManager.hunger - hunger_decay)
 
 func update_stats():
 	var period = TimeSystem.get_current_period()
@@ -37,11 +57,38 @@ func update_stats():
 
 # === 每日结算（睡觉后触发）===
 func daily_settlement():
+	# 记录今日知识点到历史
+	var knowledge_record = {
+		"month": GameManager.month,
+		"day": GameManager.day,
+	}
+	for subject in GameManager.knowledge:
+		knowledge_record[subject] = GameManager.knowledge[subject]
+	GameManager.knowledge_history.append(knowledge_record)
+	
+	# 记录今日时间分配
+	var total_minutes = today_sleep_minutes + today_study_minutes
+	var other_minutes = 1440 - total_minutes  # 一天1440分钟
+	var time_record = {
+		"month": GameManager.month,
+		"day": GameManager.day,
+		"sleep": today_sleep_minutes,
+		"study": today_study_minutes,
+		"other": other_minutes
+	}
+	GameManager.time_allocation_history.append(time_record)
+	
+	# 限制历史数据长度
+	if GameManager.knowledge_history.size() > GameManager.MAX_HISTORY_DAYS:
+		GameManager.knowledge_history.pop_front()
+	if GameManager.time_allocation_history.size() > GameManager.MAX_HISTORY_DAYS:
+		GameManager.time_allocation_history.pop_front()
+	
 	# 知识点每天减少4点
 	for subject in GameManager.knowledge:
 		GameManager.knowledge[subject] = max(0, GameManager.knowledge[subject] - 4)
 	
-	# 紧迫感：第三次月考后每天压力+5%
+	# 紧迫感
 	if BuffSystem.has_buff("URGENCY"):
 		GameManager.pressure = min(100, GameManager.pressure + 5)
 
@@ -92,12 +139,18 @@ func attend_class(subject: String, effort_level: int):
 	# 加上 Buff 修正
 	var buff_mod = BuffSystem.get_efficiency_modifier(subject)
 	
-	var total_points = base_points + efficiency_mod + buff_mod
+	# 物品加成(说的就是你口香糖)
+	var item_bonus = InventorySystem.get_and_clear_class_bonus()
+	
+	var total_points = base_points + efficiency_mod + buff_mod + item_bonus
 	GameManager.knowledge[subject] += total_points
 	
 	# 上课压力变化
 	var pressure_change = BuffSystem.get_class_pressure_change()
 	GameManager.pressure = clamp(GameManager.pressure + pressure_change, 0, 100)
+
+	# 清除上课后消失的buff
+	BuffSystem.clear_class_buffs()
 
 # === 睡觉（跳到第二天）===
 func sleep_to_next_day():

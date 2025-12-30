@@ -21,6 +21,7 @@ DevPanel="*res://ui/dev_panel.tscn"
 StatsSystem="*res://autoload/stats_system.gd"
 TimeSystem="*res://autoload/time_system.gd"
 BuffSystem="*res://autoload/buff_system.gd"
+InventorySystem="*res://autoload/inventory_system.gd"
 
 [display]
 
