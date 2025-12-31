@@ -181,6 +181,10 @@ func check_auto_pause():
 		if current_period == "SLEEPING":
 			pause_for_sleep()
 
+		# 午休暂停（需要在座位上）
+		if current_period == "NAP":
+			pause_for_nap()
+
 # 上课暂停
 func pause_for_class():
 	is_paused = true
@@ -190,6 +194,11 @@ func pause_for_class():
 func pause_for_sleep():
 	is_paused = true
 	pause_reason = "SLEEP"
+
+# 午休暂停
+func pause_for_nap():
+	is_paused = true
+	pause_reason = "NAP"
 
 # 继续时间（选择完成后调用）
 func resume_time():
@@ -211,3 +220,42 @@ func get_current_subject() -> String:
 		return subjects[index]
 	
 	return "Chinese"
+
+# 熬夜检测（每分钟调用）
+func check_staying_up():
+	var t = GameManager.hour * 100 + GameManager.minute
+	# 22:30后还没睡
+	if t >= 2230 or t < 530:
+		if not is_paused or pause_reason != "SLEEP":
+			GameManager.stayed_up_minutes += 1
+			# 每30分钟增加3%起床失败概率
+			@warning_ignore("integer_division")
+			GameManager.wake_up_fail_chance = (GameManager.stayed_up_minutes / 30) * 3.0
+	
+	# 处理入睡
+func handle_sleep():
+	if GameManager.stayed_up_minutes > 0:
+		# 计算起床失败
+		var roll = randf() * 100
+		if roll < GameManager.wake_up_fail_chance:
+			# 睡过头：从入睡时间往后8小时
+			var sleep_hour = GameManager.hour
+			GameManager.overslept_until_hour = (sleep_hour + 8) % 24
+			BuffSystem.add_violation()
+		
+		# 熬夜了就加疲惫buff
+		BuffSystem.add_buff("TIRED", -1)
+	
+	# 重置熬夜计数
+	GameManager.stayed_up_minutes = 0
+	GameManager.wake_up_fail_chance = 0
+
+# 处理睡过头醒来
+func handle_oversleep_wake():
+	if GameManager.overslept_until_hour > 0:
+		# 跳到醒来时间
+		GameManager.hour = GameManager.overslept_until_hour
+		GameManager.minute = 0
+		GameManager.overslept_until_hour = -1
+		# 疲惫buff解除（睡够了）
+		BuffSystem.remove_buff("TIRED")

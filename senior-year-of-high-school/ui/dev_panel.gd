@@ -153,6 +153,7 @@ func create_action_buttons():
 	add_label(action_buttons, "--- 睡觉 ---")
 	add_button(action_buttons, "入睡", func(): sleep_action())
 	add_button(action_buttons, "熬夜", func(): stay_up_action())
+	add_button(action_buttons, "午休学习", func(): study_during_nap_action())
 
 # === 零食和活动按钮 ===
 func create_item_buttons():
@@ -214,9 +215,25 @@ func skip_to_period_end():
 	TimeSystem.skip_minutes(40)
 
 func sleep_action():
-	if TimeSystem.pause_reason != "SLEEP":
+	if TimeSystem.pause_reason != "SLEEP" and TimeSystem.pause_reason != "NAP":
 		return
-	StatsSystem.sleep_to_next_day()
+	
+	# 处理入睡逻辑
+	TimeSystem.handle_sleep()
+	
+	if TimeSystem.pause_reason == "NAP":
+		# 午觉：跳到午休结束，解除疲惫
+		TimeSystem.skip_minutes(70)  # 午休大约70分钟
+		BuffSystem.remove_buff("TIRED")
+	else:
+		# 晚上睡觉
+		if GameManager.overslept_until_hour > 0:
+			# 睡过头
+			TimeSystem.handle_oversleep_wake()
+		else:
+			# 正常睡觉
+			StatsSystem.sleep_to_next_day()
+	
 	TimeSystem.resume_time()
 
 func stay_up_action():
@@ -236,3 +253,11 @@ func add_button(container: Control, text: String, callback: Callable):
 	btn.add_theme_font_override("font", pixel_font)
 	btn.pressed.connect(callback)
 	container.add_child(btn)
+
+func study_during_nap_action():
+	if TimeSystem.pause_reason != "NAP":
+		return
+	# 不睡午觉获得疲惫buff
+	BuffSystem.add_buff("TIRED", -1)
+	TimeSystem.resume_time()
+	

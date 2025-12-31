@@ -59,6 +59,11 @@ var time_allocation_history: Array = []  # [{day, month, sleep, study, eat, ...}
 # 最多存90天数据（3个月）
 const MAX_HISTORY_DAYS: int = 90
 
+# 熬夜状况
+var stayed_up_minutes: int = 0      # 熬夜分钟数
+var wake_up_fail_chance: float = 0  # 起床失败概率
+var overslept_until_hour: int = -1  # 睡过头醒来时间（-1表示正常）
+
 func _input(event):
 	if event.is_action_pressed("ui_dev_toggle"):
 		dev_mode = !dev_mode

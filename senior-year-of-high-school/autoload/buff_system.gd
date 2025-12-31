@@ -125,6 +125,10 @@ func get_efficiency_modifier(subject: String) -> int:
 	# 能量饮料精力充沛
 	if has_buff("ENERGETIC"):
 		modifier += 3
+
+	# 疲惫buff
+	if has_buff("TIRED"):
+		modifier -= 1
 	
 	return modifier
 
@@ -172,3 +176,27 @@ func get_buff_list() -> String:
 		else:
 			names.append(buff_name)
 	return ", ".join(names)
+
+func add_violation():
+	GameManager.violation_points += 1
+	if GameManager.violation_points >= 3:
+		trigger_reflection_week()
+
+# 回家反省一周
+func trigger_reflection_week():
+	GameManager.violation_points = 0
+	# 跳过7天
+	for i in range(7):
+		GameManager.day += 1
+		var days_in_month = [0, 0, 0, 31, 30, 31, 30]
+		if GameManager.day > days_in_month[GameManager.month]:
+			GameManager.day = 1
+			GameManager.month += 1
+	# 重置状态
+	GameManager.hour = 5
+	GameManager.minute = 30
+	GameManager.hunger = 80
+	GameManager.toilet_desire = 0
+	GameManager.pressure += 0
+	for subject in GameManager.knowledge:
+		GameManager.knowledge[subject] = max(0, GameManager.knowledge[subject] - 20)
