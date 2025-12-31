@@ -23,6 +23,8 @@ var special_dates: Dictionary = {
 	[6, 7]: "GAOKAO"               # 高考
 }
 
+var is_staying_up: bool = false  # 是否在熬夜状态
+
 func _process(delta):
 	if not is_paused:
 		advance_time(delta)
@@ -168,8 +170,8 @@ func skip_minutes(minutes: int):
 
 # 检查是否需要自动暂停
 func check_auto_pause():
-	var current_period = get_current_period()
 	var t = GameManager.hour * 100 + GameManager.minute
+	var current_period = get_current_period()
 	
 	# 时段变化时检查
 	if current_period != last_period:
@@ -178,22 +180,18 @@ func check_auto_pause():
 		# 上课时间暂停
 		if current_period.begins_with("CLASS"):
 			pause_for_class()
-			
+		
 		# 午休暂停（需要在座位上）
 		if current_period == "NAP":
 			pause_for_nap()
 	
-	# 22:30后随时可以选择睡觉（持续检测）
-	if t >= 2230 and not is_paused:
+	# 22:30暂停（只在非熬夜状态时触发一次）
+	if t == 2230 and not is_paused and not is_staying_up:
 		pause_for_sleep()
 	
-	# 24:00强制睡觉
-	if GameManager.hour == 0 and GameManager.minute == 0 and not is_paused:
-		force_sleep()
-
-func force_sleep():
-	handle_sleep()
-	StatsSystem.sleep_to_next_day()
+	# 24:00强制入睡
+	if GameManager.hour == 0 and GameManager.minute == 0 and is_staying_up:
+		force_sleep_at_midnight()
 
 # 上课暂停
 func pause_for_class():
@@ -233,39 +231,65 @@ func get_current_subject() -> String:
 
 # 熬夜检测（每分钟调用）
 func check_staying_up():
-	var t = GameManager.hour * 100 + GameManager.minute
-	# 22:30后还没睡
-	if t >= 2230 or t < 530:
-		if not is_paused or pause_reason != "SLEEP":
-			GameManager.stayed_up_minutes += 1
-			# 每30分钟增加3%起床失败概率
-			@warning_ignore("integer_division")
-			GameManager.wake_up_fail_chance = (GameManager.stayed_up_minutes / 30) * 3.0
-	
-	# 处理入睡
-func handle_sleep():
+	if is_staying_up:
+		GameManager.stayed_up_minutes += 1
+		GameManager.wake_up_fail_chance = (GameManager.stayed_up_minutes / 30.0) * 3.0
+
+# 选择熬夜
+func choose_stay_up():
+	is_staying_up = true
+	resume_time()
+
+# 选择入睡（22:30直接入睡，或熬夜中途入睡）
+func choose_sleep():
+	# 跳转到24:00
+	GameManager.hour = 0
+	GameManager.minute = 0
+	is_staying_up = false
+	# 暂停等待点击"第二天"
+	is_paused = true
+	pause_reason = "NEXT_DAY"
+
+# 24:00强制入睡
+func force_sleep_at_midnight():
+	is_staying_up = false
+	is_paused = true
+	pause_reason = "NEXT_DAY"
+
+# 点击"第二天"按钮
+func go_to_next_day():
+	# 如果熬夜了，加疲惫buff
 	if GameManager.stayed_up_minutes > 0:
+		BuffSystem.add_buff("TIRED", -1)
+		
 		# 计算起床失败
 		var roll = randf() * 100
 		if roll < GameManager.wake_up_fail_chance:
-			# 睡过头：从入睡时间往后8小时
-			var sleep_hour = GameManager.hour
-			GameManager.overslept_until_hour = (sleep_hour + 8) % 24
+			GameManager.overslept_until_hour = 8
 			BuffSystem.add_violation()
-		
-		# 熬夜了就加疲惫buff
-		BuffSystem.add_buff("TIRED", -1)
 	
 	# 重置熬夜计数
 	GameManager.stayed_up_minutes = 0
 	GameManager.wake_up_fail_chance = 0
-
-# 处理睡过头醒来
-func handle_oversleep_wake():
+	is_staying_up = false
+	
+	# 日期+1
+	GameManager.day += 1
+	var days_in_month = [0, 0, 0, 31, 30, 31, 30]
+	if GameManager.day > days_in_month[GameManager.month]:
+		GameManager.day = 1
+		GameManager.month += 1
+	
+	# 跳到起床时间
 	if GameManager.overslept_until_hour > 0:
-		# 跳到醒来时间
 		GameManager.hour = GameManager.overslept_until_hour
 		GameManager.minute = 0
 		GameManager.overslept_until_hour = -1
-		# 疲惫buff解除（睡够了）
-		BuffSystem.remove_buff("TIRED")
+	else:
+		GameManager.hour = 5
+		GameManager.minute = 30
+	
+	# 每日结算
+	StatsSystem.daily_settlement()
+	
+	resume_time()

@@ -154,10 +154,12 @@ func attend_class(subject: String, effort_level: int):
 	# 清除上课后消失的buff
 	BuffSystem.clear_class_buffs()
 
-# === 睡觉（跳到第二天）===
 func sleep_to_next_day():
 	# 完整睡眠减压
 	GameManager.pressure = max(0, GameManager.pressure - 5)
+	
+	# 解除疲惫buff
+	BuffSystem.remove_buff("TIRED")
 	
 	# 跳到第二天 5:30
 	GameManager.day += 1
@@ -167,6 +169,10 @@ func sleep_to_next_day():
 		GameManager.month += 1
 	GameManager.hour = 5
 	GameManager.minute = 30
+	
+	# 重置熬夜计数
+	GameManager.stayed_up_minutes = 0
+	GameManager.wake_up_fail_chance = 0
 	
 	# 触发每日结算
 	daily_settlement()

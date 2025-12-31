@@ -153,6 +153,7 @@ func create_action_buttons():
 	add_label(action_buttons, "--- 睡觉 ---")
 	add_button(action_buttons, "入睡", func(): sleep_action())
 	add_button(action_buttons, "熬夜", func(): stay_up_action())
+	add_button(action_buttons, "第二天", func(): next_day_action())
 	add_button(action_buttons, "午休学习", func(): study_during_nap_action())
 
 # === 零食和活动按钮 ===
@@ -215,31 +216,22 @@ func skip_to_period_end():
 	TimeSystem.skip_minutes(40)
 
 func sleep_action():
-	if TimeSystem.pause_reason != "SLEEP" and TimeSystem.pause_reason != "NAP":
-		return
-	
-	# 处理入睡逻辑
-	TimeSystem.handle_sleep()
-	
-	if TimeSystem.pause_reason == "NAP":
-		# 午觉：跳到午休结束，解除疲惫
-		TimeSystem.skip_minutes(70)  # 午休大约70分钟
+	# 22:30选择入睡 或 熬夜中途入睡
+	if TimeSystem.pause_reason == "SLEEP" or TimeSystem.is_staying_up:
+		TimeSystem.choose_sleep()
+	# 午休入睡
+	elif TimeSystem.pause_reason == "NAP":
+		TimeSystem.skip_minutes(70)
 		BuffSystem.remove_buff("TIRED")
-	else:
-		# 晚上睡觉
-		if GameManager.overslept_until_hour > 0:
-			# 睡过头
-			TimeSystem.handle_oversleep_wake()
-		else:
-			# 正常睡觉
-			StatsSystem.sleep_to_next_day()
-	
-	TimeSystem.resume_time()
+		TimeSystem.resume_time()
 
 func stay_up_action():
-	if TimeSystem.pause_reason != "SLEEP":
-		return
-	TimeSystem.resume_time()
+	if TimeSystem.pause_reason == "SLEEP":
+		TimeSystem.choose_stay_up()
+
+func next_day_action():
+	if TimeSystem.pause_reason == "NEXT_DAY":
+		TimeSystem.go_to_next_day()
 
 func add_label(container: Control, text: String):
 	var lbl = Label.new()
