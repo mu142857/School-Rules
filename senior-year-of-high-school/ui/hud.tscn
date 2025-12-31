@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://pt6lw3l3eruu"]
+[gd_scene load_steps=6 format=3 uid="uid://pt6lw3l3eruu"]
 
 [ext_resource type="Script" uid="uid://d36xriy5y14ro" path="res://ui/hud.gd" id="1_546lt"]
 [ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="1_rbyyf"]
-[ext_resource type="Texture2D" uid="uid://b7uou7jm5rgao" path="res://icon.svg" id="2_276te"]
+[ext_resource type="Texture2D" uid="uid://cumjgs4plfno5" path="res://ui/icons/student_card.png" id="3_546lt"]
+[ext_resource type="Texture2D" uid="uid://c0col6ictetkj" path="res://ui/icons/rope.png" id="3_en2x2"]
+[ext_resource type="Texture2D" uid="uid://up084x0d5yew" path="res://ui/icons/student_card_outlined.png" id="4_7ihmi"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_546lt")
@@ -39,10 +41,57 @@ offset_top = 56.0
 offset_right = 40.0
 offset_bottom = 96.0
 
-[node name="InfoButton" type="TextureButton" parent="Control"]
+[node name="InfoButtonPack" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 39.0
+offset_right = 79.0
+offset_bottom = 40.0
+pivot_offset = Vector2(1163, 12)
+mouse_filter = 1
+
+[node name="Rope2" type="Sprite2D" parent="Control/InfoButtonPack"]
+modulate = Color(0.800125, 0.76817954, 0.84054166, 1)
+position = Vector2(1167.9999, 20)
+rotation = -2.8286495
+scale = Vector2(0.5485588, -0.46032158)
+texture = ExtResource("3_en2x2")
+
+[node name="InfoButton" type="TextureButton" parent="Control/InfoButtonPack"]
 layout_mode = 0
-offset_left = 1117.0
-offset_top = 18.0
-offset_right = 1245.0
-offset_bottom = 146.0
-texture_normal = ExtResource("2_276te")
+offset_left = 1102.0
+offset_top = 34.0
+offset_right = 1230.0
+offset_bottom = 162.0
+texture_normal = ExtResource("3_546lt")
+texture_pressed = ExtResource("4_7ihmi")
+texture_hover = ExtResource("4_7ihmi")
+
+[node name="Rope1" type="Sprite2D" parent="Control/InfoButtonPack"]
+position = Vector2(1157, 16.000015)
+rotation = 0.17677246
+scale = Vector2(0.53427523, 0.5228985)
+texture = ExtResource("3_en2x2")
+
+[node name="NameTag" type="Label" parent="Control/InfoButtonPack"]
+layout_mode = 0
+offset_left = 1125.0
+offset_top = 107.0
+offset_right = 1205.0
+offset_bottom = 127.0
+theme_override_fonts/font = ExtResource("1_rbyyf")
+theme_override_font_sizes/font_size = 20
+text = "林嘉木"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClassTag" type="Label" parent="Control/InfoButtonPack"]
+layout_mode = 0
+offset_left = 1134.0
+offset_top = 126.0
+offset_right = 1198.0
+offset_bottom = 141.0
+theme_override_fonts/font = ExtResource("1_rbyyf")
+theme_override_font_sizes/font_size = 10
+text = "高三二班"
+horizontal_alignment = 1
+vertical_alignment = 1
