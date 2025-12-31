@@ -2,7 +2,7 @@
 extends Node
 
 # 时间流速（每现实秒 = 多少游戏分钟）
-var time_scale: float = 0.1  # 可调整（计划0.5）
+var time_scale: float = 0.01  # 可调整（计划0.5）
 var time_accumulator: float = 0.0
 var is_paused: bool = false
 var pause_reason: String = ""  # "CLASS" 或 "SLEEP"
@@ -27,6 +27,7 @@ func _process(delta):
 	if not is_paused:
 		advance_time(delta)
 	check_auto_pause()
+	check_staying_up() 
 
 # 时间流动
 func advance_time(delta):
@@ -168,6 +169,7 @@ func skip_minutes(minutes: int):
 # 检查是否需要自动暂停
 func check_auto_pause():
 	var current_period = get_current_period()
+	var t = GameManager.hour * 100 + GameManager.minute
 	
 	# 时段变化时检查
 	if current_period != last_period:
@@ -176,14 +178,22 @@ func check_auto_pause():
 		# 上课时间暂停
 		if current_period.begins_with("CLASS"):
 			pause_for_class()
-		
-		# 睡觉时间暂停（22:30后每次时段变化都检查）
-		if current_period == "SLEEPING":
-			pause_for_sleep()
-
+			
 		# 午休暂停（需要在座位上）
 		if current_period == "NAP":
 			pause_for_nap()
+	
+	# 22:30后随时可以选择睡觉（持续检测）
+	if t >= 2230 and not is_paused:
+		pause_for_sleep()
+	
+	# 24:00强制睡觉
+	if GameManager.hour == 0 and GameManager.minute == 0 and not is_paused:
+		force_sleep()
+
+func force_sleep():
+	handle_sleep()
+	StatsSystem.sleep_to_next_day()
 
 # 上课暂停
 func pause_for_class():

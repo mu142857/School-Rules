@@ -127,6 +127,8 @@ func use_toilet():
 func attend_class(subject: String, effort_level: int):
 	# effort_level: 0=睡觉, 1=消极, 2=普通, 3=认真, 4=积极
 	if effort_level == 0:
+		# 移除疲惫
+		BuffSystem.remove_buff("TIRED")
 		# 上课睡觉：压力不变，知识点不变
 		return
 	

@@ -149,22 +149,6 @@ func get_class_pressure_change() -> float:
 	
 	return change
 
-# === 回家休息两天 ===
-func trigger_home_rest():
-	# 跳过两天
-	for i in range(2):
-		GameManager.day += 1
-		var days_in_month = [0, 0, 0, 31, 30, 31, 30]
-		if GameManager.day > days_in_month[GameManager.month]:
-			GameManager.day = 1
-			GameManager.month += 1
-	# 恢复状态
-	GameManager.hunger = 80.0
-	GameManager.toilet_desire = 0.0
-	GameManager.pressure = max(0, GameManager.pressure - 20)
-	GameManager.hour = 5
-	GameManager.minute = 30
-
 # === 获取当前所有 Buff 名称（给开发者面板用）===
 func get_buff_list() -> String:
 	if active_buffs.is_empty():
@@ -177,6 +161,7 @@ func get_buff_list() -> String:
 			names.append(buff_name)
 	return ", ".join(names)
 
+# 增加违纪点
 func add_violation():
 	GameManager.violation_points += 1
 	if GameManager.violation_points >= 3:
@@ -200,3 +185,22 @@ func trigger_reflection_week():
 	GameManager.pressure += 0
 	for subject in GameManager.knowledge:
 		GameManager.knowledge[subject] = max(0, GameManager.knowledge[subject] - 20)
+
+# 饿晕回家两天
+func trigger_home_rest():
+	# 跳过2天
+	for i in range(2):
+		GameManager.day += 1
+		var days_in_month = [0, 0, 0, 31, 30, 31, 30]
+		if GameManager.day > days_in_month[GameManager.month]:
+			GameManager.day = 1
+			GameManager.month += 1
+	# 重置状态
+	GameManager.hour = 5
+	GameManager.minute = 30
+	GameManager.hunger = 80
+	GameManager.toilet_desire = 0
+	# 压力值不变
+	# 每科知识点-8
+	for subject in GameManager.knowledge:
+		GameManager.knowledge[subject] = max(0, GameManager.knowledge[subject] - 8)
