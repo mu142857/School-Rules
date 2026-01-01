@@ -38,6 +38,7 @@ func _ready():
 	preparing_position()
 	current_tab = "Body"
 	set_current_panel("Body")
+	open_animation()
 	
 	background_colour.modulate.a = 0
 	setup_tabs()
@@ -165,27 +166,37 @@ func set_current_panel(panel: String):
 			current_panel = map_content
 	
 	current_panel.show()
-	open_animation()
+	#open_animation()
 
 func _on_tab_body_pressed() -> void:
-	if not is_sliding:
-		change_animation("Body")
+	if not is_sliding and current_tab != "Body":
+		current_tab = "Body"
+		set_current_panel("Body")
+		update_tab_colors()
 
 func _on_tab_item_pressed() -> void:
-	if not is_sliding:
-		change_animation("Item")
+	if not is_sliding and current_tab != "Item":
+		current_tab = "Item"
+		set_current_panel("Item")
+		update_tab_colors()
 
 func _on_tab_study_pressed() -> void:
-	if not is_sliding:
-		change_animation("Study")
+	if not is_sliding and current_tab != "Study":
+		current_tab = "Study"
+		set_current_panel("Study")
+		update_tab_colors()
 
 func _on_tab_map_pressed() -> void:
-	if not is_sliding:
-		change_animation("Map")
+	if not is_sliding and current_tab != "Map":
+		current_tab = "Map"
+		set_current_panel("Map")
+		update_tab_colors()
 
 func _on_tab_calendar_pressed() -> void:
-	if not is_sliding:
-		change_animation("Calendar")
+	if not is_sliding and current_tab != "Calendar":
+		current_tab = "Calendar"
+		set_current_panel("Calendar")
+		update_tab_colors()
 
 func _on_cancel_pressed() -> void:
 	if not is_sliding:
