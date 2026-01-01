@@ -71,7 +71,7 @@ texture_hover = ExtResource("4_7ihmi")
 [node name="Rope1" type="Sprite2D" parent="Control/InfoButtonPack"]
 position = Vector2(1156.0507, 41.28565)
 rotation = 0.17677246
-scale = Vector2(0.7, 0.686)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_en2x2")
 offset = Vector2(-6.5734863, -47.922363)
 
