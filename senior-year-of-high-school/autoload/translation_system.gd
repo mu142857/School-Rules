@@ -42,6 +42,14 @@ var translations: Dictionary = {
 	"DINNER": {"zh": "晚饭", "en": "Dinner"},
 	"EVENING_SELF_STUDY": {"zh": "晚自习", "en": "Evening Study"},
 	"DORM_RETURN": {"zh": "回宿舍", "en": "Return Dorm"},
+	
+	# 信息页面
+	"TAB_BODY": {"zh": "身体", "en": "Body"},
+	"TAB_ITEM": {"zh": "物品", "en": "Item"},
+	"TAB_STUDY": {"zh": "学习", "en": "Study"},
+	"TAB_CALENDAR": {"zh": "日历", "en": "Calendar"},
+	"TAB_MAP": {"zh": "地图", "en": "Map"},
+	"TAB_CANCEL": {"zh": "关闭", "en": "Close"},
 }
 
 func t(key: String) -> String:
