@@ -50,6 +50,17 @@ var translations: Dictionary = {
 	"TAB_CALENDAR": {"zh": "日历", "en": "Calendar"},
 	"TAB_MAP": {"zh": "地图", "en": "Map"},
 	"TAB_CANCEL": {"zh": "关闭", "en": "Close"},
+	
+	# 身体信息
+	"STAT_PRESSURE": {"zh": "压力值", "en": "Pressure"},
+	"STAT_HUNGER": {"zh": "饱食度", "en": "Hunger"},
+	"STAT_TOILET": {"zh": "上厕所值", "en": "Bladder"},
+	"STAT_VIOLATION": {"zh": "违纪点", "en": "Violation"},
+	"PIE_TITLE": {"zh": "昨日时间分配", "en": "Yesterday's Time"},
+	"PIE_SLEEP": {"zh": "睡眠", "en": "Sleep"},
+	"PIE_STUDY": {"zh": "学习", "en": "Study"},
+	"PIE_OTHER": {"zh": "其他", "en": "Other"},
+	"PIE_NO_DATA": {"zh": "暂无数据", "en": "No Data"},
 }
 
 func t(key: String) -> String:

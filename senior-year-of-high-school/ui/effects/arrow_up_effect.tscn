@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cpaivu88od16t" path="res://ui/icons/arrow_up.png" id="1_xqobs"]
 
 [sub_resource type="Gradient" id="Gradient_xqobs"]
-offsets = PackedFloat32Array(0, 0.3962264, 0.5990566, 1)
-colors = PackedColorArray(0.44291076, 0.44291076, 0.44291073, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0.53374594, 0.37773043, 0)
+offsets = PackedFloat32Array(0, 0.5188679, 1)
+colors = PackedColorArray(0.8776157, 0.8776158, 0.8776157, 0, 1, 1, 1, 1, 0.7046952, 0.9999998, 0.8629671, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_dgcu7"]
 gradient = SubResource("Gradient_xqobs")
@@ -18,21 +18,22 @@ curve = SubResource("Curve_xqobs")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dgcu7"]
 particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, 45, 0)
+emission_shape_offset = Vector3(0, 15, 0)
 emission_shape_scale = Vector3(0, 0, 1)
 direction = Vector3(0, -1, 0)
 spread = 0.0
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-gravity = Vector3(0, 98, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 45, 0)
 scale_min = 0.5
 scale_max = 0.5
 scale_curve = SubResource("CurveTexture_dgcu7")
 color_ramp = SubResource("GradientTexture1D_dgcu7")
 
 [node name="arrow_up_effect" type="GPUParticles2D"]
+z_index = 1001
 emitting = false
-amount = 2
+amount = 1
 texture = ExtResource("1_xqobs")
 lifetime = 1.1
 process_material = SubResource("ParticleProcessMaterial_dgcu7")

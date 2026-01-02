@@ -1,14 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://v1hb11lw71jy"]
+[gd_scene load_steps=14 format=3 uid="uid://v1hb11lw71jy"]
 
+[ext_resource type="Script" uid="uid://b4v06ekjks2dh" path="res://ui/body_panel.gd" id="1_bpm0s"]
 [ext_resource type="Texture2D" uid="uid://d3pga52ynodn2" path="res://ui/icons/bar_bg.png" id="1_xf4rh"]
 [ext_resource type="Texture2D" uid="uid://clclt36yjispd" path="res://ui/icons/bar_border.png" id="2_bpm0s"]
+[ext_resource type="Texture2D" uid="uid://db1ot72rvqtev" path="res://ui/panels/Body Panel.png" id="2_gnwrn"]
 [ext_resource type="Texture2D" uid="uid://0553s4knb7dr" path="res://ui/icons/bar_fill.png" id="3_gnwrn"]
+[ext_resource type="Texture2D" uid="uid://b4hmchvstdc3n" path="res://ui/icons/brain_low.png" id="6_8ilfv"]
+[ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="7_if1x6"]
+[ext_resource type="Texture2D" uid="uid://cd2im5n8whjuv" path="res://ui/icons/bowl.png" id="7_s1f6d"]
+[ext_resource type="PackedScene" uid="uid://dxmigu2w45yfv" path="res://ui/effects/arrow_up_effect.tscn" id="8_gfpp7"]
+[ext_resource type="Texture2D" uid="uid://s6dnw2a7pmux" path="res://ui/icons/toilet.png" id="8_if1x6"]
+[ext_resource type="PackedScene" uid="uid://dcfgjotjgrn7b" path="res://ui/effects/arrow_down_effect.tscn" id="9_v6273"]
+[ext_resource type="Texture2D" uid="uid://bb2l0txk702ua" path="res://ui/icons/violation_normal.png" id="10_ta5tr"]
+[ext_resource type="Script" uid="uid://ddt4wu8jnaj48" path="res://ui/pie_chart.gd" id="13_v6273"]
 
 [node name="body_panel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_bpm0s")
+
+[node name="BodyTag" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 23.999998)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("2_gnwrn")
+centered = false
 
 [node name="LeftSection" type="Control" parent="."]
 anchors_preset = 0
@@ -16,53 +34,177 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PressureBar" type="TextureProgressBar" parent="LeftSection"]
-visible = false
 layout_mode = 0
-offset_right = 115.0
-offset_bottom = 40.0
+offset_left = 184.0
+offset_top = 298.00003
+offset_right = 299.0
+offset_bottom = 309.00003
+scale = Vector2(3.5, 3.5)
 texture_under = ExtResource("1_xf4rh")
 texture_over = ExtResource("2_bpm0s")
 texture_progress = ExtResource("3_gnwrn")
 
 [node name="Icon" type="TextureRect" parent="LeftSection/PressureBar"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -8.285713
+offset_top = -39.142868
+offset_right = 178.97363
+offset_bottom = 148.11647
+scale = Vector2(0.26999968, 0.26999968)
+texture = ExtResource("6_8ilfv")
 
 [node name="Label" type="Label" parent="LeftSection/PressureBar"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 2.8571339
+offset_top = 0.28571427
+offset_right = 85.85713
+offset_bottom = 40.285713
+scale = Vector2(0.25, 0.25)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 40
+text = "100%"
+vertical_alignment = 1
+
+[node name="NameTag" type="Label" parent="LeftSection/PressureBar"]
+layout_mode = 0
+offset_left = 28.85714
+offset_top = -9.999999
+offset_right = 369.42856
+offset_bottom = 30.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.7764706, 0.6156863, 0.6156863, 1)
+theme_override_colors/font_shadow_color = Color(0.8117647, 0.7490196, 0.6901961, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 40
+text = "上厕所值"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ArrowUp" parent="LeftSection/PressureBar" instance=ExtResource("8_gfpp7")]
+modulate = Color(1, 1, 1, 0.98039216)
+position = Vector2(108.85714, 5.142847)
+scale = Vector2(0.28571427, 0.28571427)
+
+[node name="ArrowDown" parent="LeftSection/PressureBar" instance=ExtResource("9_v6273")]
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(108.85713, 5.142847)
+scale = Vector2(0.28571427, 0.28571427)
 
 [node name="HungerBar" type="TextureProgressBar" parent="LeftSection"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 269.0
+offset_top = 407.0
+offset_right = 384.0
+offset_bottom = 418.0
+scale = Vector2(3.5, 3.5)
+texture_under = ExtResource("1_xf4rh")
+texture_over = ExtResource("2_bpm0s")
+texture_progress = ExtResource("3_gnwrn")
+tint_over = Color(0.75352263, 0.68522954, 0.4644251, 1)
 
 [node name="Icon" type="TextureRect" parent="LeftSection/HungerBar"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -26.857143
+offset_top = -11.428572
+offset_right = 149.88225
+offset_bottom = 165.31082
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("7_s1f6d")
 
 [node name="Label" type="Label" parent="LeftSection/HungerBar"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 2.8571427
+offset_top = 0.28571427
+offset_right = 85.85714
+offset_bottom = 40.285713
+scale = Vector2(0.25, 0.25)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 40
+text = "100%"
+vertical_alignment = 1
+
+[node name="NameTag" type="Label" parent="LeftSection/HungerBar"]
+layout_mode = 0
+offset_left = 1.1428604
+offset_top = -9.999999
+offset_right = 452.5714
+offset_bottom = 30.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.7137255, 0.62352943, 0.38431373, 1)
+theme_override_colors/font_shadow_color = Color(0.78039217, 0.7607843, 0.52156866, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 40
+text = "饱食度"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ArrowUp" parent="LeftSection/HungerBar" instance=ExtResource("8_gfpp7")]
+modulate = Color(1, 1, 1, 0.98039216)
+position = Vector2(108.85714, 5.142847)
+scale = Vector2(0.28571427, 0.28571427)
+
+[node name="ArrowDown" parent="LeftSection/HungerBar" instance=ExtResource("9_v6273")]
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(108.85713, 5.142847)
+scale = Vector2(0.28571427, 0.28571427)
 
 [node name="ToiletBar" type="TextureProgressBar" parent="LeftSection"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 269.0
+offset_top = 517.0
+offset_right = 384.0
+offset_bottom = 528.0
+scale = Vector2(3.5, 3.5)
+texture_under = ExtResource("1_xf4rh")
+texture_over = ExtResource("2_bpm0s")
+texture_progress = ExtResource("3_gnwrn")
+tint_over = Color(0.54182917, 0.7158114, 0.81253684, 1)
 
 [node name="Icon" type="TextureRect" parent="LeftSection/ToiletBar"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 5.999996
+offset_top = -18.0
+offset_right = 206.3335
+offset_bottom = 191.45496
+scale = Vector2(-0.17, 0.17)
+texture = ExtResource("8_if1x6")
 
 [node name="Label" type="Label" parent="LeftSection/ToiletBar"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 2.8571427
+offset_top = 0.28571427
+offset_right = 85.85714
+offset_bottom = 40.285713
+scale = Vector2(0.25, 0.25)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 40
+text = "100%"
+vertical_alignment = 1
+
+[node name="NameTag" type="Label" parent="LeftSection/ToiletBar"]
+layout_mode = 0
+offset_left = 1.1428528
+offset_top = -9.999999
+offset_right = 452.5714
+offset_bottom = 30.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.5411765, 0.7137255, 0.8117647, 1)
+theme_override_colors/font_shadow_color = Color(0.80034226, 0.84759045, 0.92061013, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 40
+text = "上厕所值"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ArrowUp" parent="LeftSection/ToiletBar" instance=ExtResource("8_gfpp7")]
+modulate = Color(1, 1, 1, 0.98039216)
+position = Vector2(108.85714, 5.142847)
+scale = Vector2(0.28571427, 0.28571427)
+
+[node name="ArrowDown" parent="LeftSection/ToiletBar" instance=ExtResource("9_v6273")]
+modulate = Color(1, 1, 1, 0.39215687)
+position = Vector2(108.85713, 5.142847)
+scale = Vector2(0.28571427, 0.28571427)
 
 [node name="ViolationSection" type="Control" parent="."]
 anchors_preset = 0
@@ -70,22 +212,105 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Paper1" type="Sprite2D" parent="ViolationSection"]
+position = Vector2(697, 297)
+texture = ExtResource("10_ta5tr")
 
 [node name="Paper2" type="Sprite2D" parent="ViolationSection"]
+position = Vector2(784, 297)
+texture = ExtResource("10_ta5tr")
 
 [node name="Paper3" type="Sprite2D" parent="ViolationSection"]
+position = Vector2(871, 297)
+texture = ExtResource("10_ta5tr")
 
 [node name="Label" type="Label" parent="ViolationSection"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 939.0
+offset_top = 298.0
+offset_right = 1022.0
+offset_bottom = 338.0
+theme_override_colors/font_color = Color(0.57254905, 0.59607846, 0.65882355, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 40
+text = "3/3"
+vertical_alignment = 1
+
+[node name="NameTag" type="Label" parent="ViolationSection"]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 212.0
+offset_right = 2035.0
+offset_bottom = 362.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.6156863, 0.64705884, 0.69411767, 1)
+theme_override_colors/font_shadow_color = Color(0.8117647, 0.8117647, 0.8117647, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 150
+text = "违纪点"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="RightSection" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="NameTag" type="Label" parent="RightSection"]
+layout_mode = 0
+offset_left = 713.0
+offset_top = 393.0
+offset_right = 2077.0
+offset_bottom = 543.0
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.6156863, 0.64705884, 0.69411767, 1)
+theme_override_colors/font_shadow_color = Color(0.8117647, 0.8117647, 0.8117647, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 150
+text = "昨日时间分配"
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="PieChart" type="Control" parent="RightSection"]
+visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 771.0
+offset_top = 441.0
+offset_right = 811.0
+offset_bottom = 481.0
+script = ExtResource("13_v6273")
+
+[node name="LegendSleep" type="Label" parent="RightSection"]
+layout_mode = 0
+offset_left = 921.0
+offset_top = 450.0
+offset_right = 1004.0
+offset_bottom = 490.0
+theme_override_colors/font_color = Color(0.2901961, 0.43529412, 0.64705884, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 30
+text = "睡眠"
+vertical_alignment = 1
+
+[node name="LegendStudy" type="Label" parent="RightSection"]
+layout_mode = 0
+offset_left = 921.0
+offset_top = 483.0
+offset_right = 1004.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(0.83137256, 0.5294118, 0.29803923, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 30
+text = "学习"
+vertical_alignment = 1
+
+[node name="LegendOther" type="Label" parent="RightSection"]
+layout_mode = 0
+offset_left = 921.0
+offset_top = 516.0
+offset_right = 1004.0
+offset_bottom = 556.0
+theme_override_colors/font_color = Color(0.41960785, 0.41960785, 0.41960785, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 30
+text = "其它"
+vertical_alignment = 1

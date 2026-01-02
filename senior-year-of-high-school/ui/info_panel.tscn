@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bligeexj6ers2"]
+[gd_scene load_steps=12 format=3 uid="uid://bligeexj6ers2"]
 
 [ext_resource type="Script" uid="uid://5bnd0l2niyv0" path="res://ui/info_panel.gd" id="1_lrlkj"]
 [ext_resource type="Texture2D" uid="uid://c0col6ictetkj" path="res://ui/icons/rope.png" id="2_lv2uk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ch0xe6o31vgvw" path="res://ui/panels/Study Panel.png" id="4_o7tq4"]
 [ext_resource type="Texture2D" uid="uid://c4gilvnqdlrg8" path="res://ui/panels/Item Panel.png" id="5_tx13g"]
 [ext_resource type="Texture2D" uid="uid://iq52h30uyxp6" path="res://ui/panels/Calendar Panel.png" id="6_hf0xx"]
+[ext_resource type="PackedScene" uid="uid://v1hb11lw71jy" path="res://ui/body_panel.tscn" id="6_xgebp"]
 [ext_resource type="Texture2D" uid="uid://klat43xwlx0w" path="res://ui/panels/Map Panel.png" id="7_d6f8p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcp5r"]
@@ -194,6 +195,9 @@ position = Vector2(1, 23.999998)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("2_xmi3u")
 centered = false
+
+[node name="body_panel" parent="Control/Panel/BodyContent" instance=ExtResource("6_xgebp")]
+layout_mode = 0
 
 [node name="StudyContent" type="Control" parent="Control/Panel"]
 visible = false
