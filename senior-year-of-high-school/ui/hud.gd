@@ -40,8 +40,9 @@ func _on_info_unhover():
 	info_button_pack.rotation_degrees = 0.0
 
 func _on_info_pressed():
-	if not is_sliding and info_panel_instance == null:
-		slide_out()
+	if is_sliding or is_instance_valid(info_panel_instance):
+		return
+	slide_out()
 
 # 向上滑出（带惯性和震动）
 func slide_out():
@@ -131,8 +132,15 @@ func update_buff_display():
 
 func _on_slide_out_finished():
 	is_sliding = false
+	
+	# 再次检查，防止极短时间内多次实例化
+	if is_instance_valid(info_panel_instance):
+		return
+		
 	info_panel_instance = info_panel_scene.instantiate()
 	get_tree().root.add_child(info_panel_instance)
+	
+	# 连接关闭信号
 	info_panel_instance.panel_closed.connect(_on_info_panel_closed)
 	TimeSystem.is_paused = true
 
@@ -140,6 +148,6 @@ func _on_slide_in_finished():
 	is_sliding = false
 
 func _on_info_panel_closed():
-	info_panel_instance = null
+	info_panel_instance = null # 重要：确保能再次打开
 	TimeSystem.is_paused = false
 	slide_in()

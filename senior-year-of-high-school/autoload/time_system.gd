@@ -40,14 +40,9 @@ func advance_time(delta):
 		if GameManager.minute >= 60:
 			GameManager.minute = 0
 			GameManager.hour += 1
+		# --- 修正这里：移除 day += 1 ---
 		if GameManager.hour >= 24:
 			GameManager.hour = 0
-			GameManager.day += 1
-		# 月份进位（3月31天，4月30天，5月31天）
-		var days_in_month = [0, 0, 0, 31, 30, 31, 30]
-		if GameManager.day > days_in_month[GameManager.month]:
-			GameManager.day = 1
-			GameManager.month += 1
 
 # 获取星期几 (1=周一, 7=周日)
 func get_weekday() -> int:
@@ -177,6 +172,10 @@ func check_auto_pause():
 	if current_period != last_period:
 		last_period = current_period
 		
+		# 跑操暂停
+		if current_period.begins_with("MORNING_RUN"):
+			pause_for_morning_run()
+		
 		# 上课时间暂停
 		if current_period.begins_with("CLASS"):
 			pause_for_class()
@@ -192,6 +191,11 @@ func check_auto_pause():
 	# 24:00强制入睡
 	if GameManager.hour == 0 and GameManager.minute == 0 and is_staying_up:
 		force_sleep_at_midnight()
+
+# 跑操暂停
+func pause_for_morning_run():
+	is_paused = true
+	pause_reason = "MORNING_RUN"
 
 # 上课暂停
 func pause_for_class():
@@ -258,29 +262,37 @@ func force_sleep_at_midnight():
 
 # 点击"第二天"按钮
 func go_to_next_day():
-	# 如果熬夜了，加疲惫buff
+	# 1. 计算睡眠分钟数
+	# 算法：计算从当前时间 (如 22:30 或 23:15) 到第二天 05:30 的总分钟
+	var current_total_minutes = GameManager.hour * 60 + GameManager.minute
+	var wake_up_total_minutes = 5 * 60 + 30 # 330分钟
+	
+	var sleep_duration = 0
+	if current_total_minutes > wake_up_total_minutes:
+		# 跨天情况 (例如 22:30 -> 05:30)
+		sleep_duration = (1440 - current_total_minutes) + wake_up_total_minutes
+	else:
+		# 没跨天情况 (比如 01:00 -> 05:30)
+		sleep_duration = wake_up_total_minutes - current_total_minutes
+	
+	StatsSystem.add_sleep_time(sleep_duration)
+	
+	# 2. 熬夜惩罚逻辑
 	if GameManager.stayed_up_minutes > 0:
 		BuffSystem.add_buff("TIRED", -1)
-		
-		# 计算起床失败
 		var roll = randf() * 100
 		if roll < GameManager.wake_up_fail_chance:
 			GameManager.overslept_until_hour = 8
 			BuffSystem.add_violation()
 	
-	# 重置熬夜计数
-	GameManager.stayed_up_minutes = 0
-	GameManager.wake_up_fail_chance = 0
-	is_staying_up = false
-	
-	# 日期+1
+	# 3. 日期增加（统一在这里处理）
 	GameManager.day += 1
 	var days_in_month = [0, 0, 0, 31, 30, 31, 30]
 	if GameManager.day > days_in_month[GameManager.month]:
 		GameManager.day = 1
 		GameManager.month += 1
 	
-	# 跳到起床时间
+	# 4. 跳到起床时间
 	if GameManager.overslept_until_hour > 0:
 		GameManager.hour = GameManager.overslept_until_hour
 		GameManager.minute = 0
@@ -288,8 +300,12 @@ func go_to_next_day():
 	else:
 		GameManager.hour = 5
 		GameManager.minute = 30
+		
+	# 5. 重置熬夜变量
+	GameManager.stayed_up_minutes = 0
+	GameManager.wake_up_fail_chance = 0
+	is_staying_up = false
 	
-	# 每日结算
+	# 6. 每日结算
 	StatsSystem.daily_settlement()
-	
 	resume_time()

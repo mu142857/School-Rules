@@ -7,8 +7,10 @@ var hunger_decay: float = 0.023     # 饱食度下降
 # === 每日结算用 ===
 var last_minute: int = -1
 var last_day: int = -1
-var today_study_minutes: int = 0
+# 时间分配记录
 var today_sleep_minutes: int = 0
+var today_study_minutes: int = 0
+var today_exercise_minutes: int = 0
 
 func _process(_delta):
 	if GameManager.minute != last_minute:
@@ -16,73 +18,53 @@ func _process(_delta):
 		on_minute_passed()
 
 func on_minute_passed():
-	var period = TimeSystem.get_current_period()
-	
-	# 检测新的一天
-	if GameManager.day != last_day:
-		if last_day != -1:
-			daily_settlement()
-		last_day = GameManager.day
-		today_study_minutes = 0
-		today_sleep_minutes = 0
-
-	# 记录今日时间分配
-	if period == "SLEEPING" or period == "NAP":
-		today_sleep_minutes += 1
-	elif period.begins_with("CLASS") or period.ends_with("SELF_STUDY") or period == "MORNING_READ":
-		today_study_minutes += 1
-	
+		
 	# 饱食度下降
 	GameManager.hunger = max(0, GameManager.hunger - hunger_decay)
 
-func update_stats():
-	var period = TimeSystem.get_current_period()
-	
-	# === 检测新的一天 ===
-	if GameManager.day != last_day:
-		if last_day != -1:
-			daily_settlement()  # 每日结算
-		last_day = GameManager.day
-		today_study_minutes = 0
-		today_sleep_minutes = 0
-	
-	# === 记录今日时间分配 ===
-	if period == "SLEEPING" or period == "NAP":
-		today_sleep_minutes += 1
-	elif period.begins_with("CLASS") or period.ends_with("SELF_STUDY") or period == "MORNING_READ":
-		today_study_minutes += 1
-	
-	# === 饱食度下降 ===
-	GameManager.hunger = max(0, GameManager.hunger - hunger_decay)
+func add_sleep_time(minutes: int):
+	today_sleep_minutes += minutes
+
+func add_study_time(minutes: int):
+	today_study_minutes += minutes
+
+func add_exercise_time(minutes: int):
+	today_exercise_minutes += minutes
+
+func get_other_minutes() -> int:
+	return 1440 - today_sleep_minutes - today_study_minutes - today_exercise_minutes
 
 # === 每日结算（睡觉后触发）===
 func daily_settlement():
-	# 记录今日知识点到历史
-	var knowledge_record = {
+	# --- 新增：记录知识点历史 ---
+	var k_record = {
 		"month": GameManager.month,
-		"day": GameManager.day,
+		"day": GameManager.day
 	}
 	for subject in GameManager.knowledge:
-		knowledge_record[subject] = GameManager.knowledge[subject]
-	GameManager.knowledge_history.append(knowledge_record)
+		k_record[subject] = GameManager.knowledge[subject]
 	
-	# 记录今日时间分配
-	var total_minutes = today_sleep_minutes + today_study_minutes
-	var other_minutes = 1440 - total_minutes  # 一天1440分钟
+	GameManager.knowledge_history.append(k_record)
+	# 限制长度
+	if GameManager.knowledge_history.size() > GameManager.MAX_HISTORY_DAYS:
+		GameManager.knowledge_history.pop_front()
+	# -------------------------
+
+	# 原有的时间记录逻辑（建议改为调用 GameManager.add_record）
 	var time_record = {
 		"month": GameManager.month,
 		"day": GameManager.day,
 		"sleep": today_sleep_minutes,
 		"study": today_study_minutes,
-		"other": other_minutes
+		"exercise": today_exercise_minutes,
+		"other": get_other_minutes()
 	}
-	GameManager.time_allocation_history.append(time_record)
+	GameManager.add_record(time_record) # 调用这个会发射信号
 	
-	# 限制历史数据长度
-	if GameManager.knowledge_history.size() > GameManager.MAX_HISTORY_DAYS:
-		GameManager.knowledge_history.pop_front()
-	if GameManager.time_allocation_history.size() > GameManager.MAX_HISTORY_DAYS:
-		GameManager.time_allocation_history.pop_front()
+	# 重置
+	today_sleep_minutes = 0
+	today_study_minutes = 0
+	today_exercise_minutes = 0
 	
 	# 知识点每天减少4点
 	for subject in GameManager.knowledge:
@@ -123,35 +105,33 @@ func drink(drink_type: String):
 func use_toilet():
 	GameManager.toilet_desire = 0
 
+# === 参加跑操 ===
+func attend_morning_run():
+	add_exercise_time(15)
+
 # === 上课获得知识点 ===
 func attend_class(subject: String, effort_level: int):
-	# effort_level: 0=睡觉, 1=消极, 2=普通, 3=认真, 4=积极
 	if effort_level == 0:
-		# 移除疲惫
+		# 上课睡觉
 		BuffSystem.remove_buff("TIRED")
-		# 上课睡觉：压力不变，知识点不变
+		add_sleep_time(40)
 		return
+	
+	# 正常上课记录学习时间
+	add_study_time(40)
 	
 	# 基础知识点 1-4
 	var base_points = effort_level
-	
-	# 加上学习效率
 	var efficiency_mod = GameManager.learning_efficiency[subject]
-	
-	# 加上 Buff 修正
 	var buff_mod = BuffSystem.get_efficiency_modifier(subject)
-	
-	# 物品加成(说的就是你口香糖)
 	var item_bonus = InventorySystem.get_and_clear_class_bonus()
 	
 	var total_points = base_points + efficiency_mod + buff_mod + item_bonus
 	GameManager.knowledge[subject] += total_points
 	
-	# 上课压力变化
 	var pressure_change = BuffSystem.get_class_pressure_change()
 	GameManager.pressure = clamp(GameManager.pressure + pressure_change, 0, 100)
-
-	# 清除上课后消失的buff
+	
 	BuffSystem.clear_class_buffs()
 
 func sleep_to_next_day():

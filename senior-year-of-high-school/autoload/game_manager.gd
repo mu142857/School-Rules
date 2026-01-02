@@ -13,6 +13,10 @@ var money: int = 120             # 钱
 var violation_points: int = 0    # 违纪点 (0-3)
 var dropout_rate: float = 0.0    # 劝退值 (0-100%)
 
+# === 睡眠 ===
+var sleep_start_hour: int = 22  # 入睡时的小时
+var sleep_start_minute: int = 30  # 入睡时的分钟
+
 # === 知识点（点数制）===
 var knowledge: Dictionary = {
 	"Chinese": 100,
@@ -64,6 +68,9 @@ var stayed_up_minutes: int = 0      # 熬夜分钟数
 var wake_up_fail_chance: float = 0  # 起床失败概率
 var overslept_until_hour: int = -1  # 睡过头醒来时间（-1表示正常）
 
+# 历史更新数据
+signal history_updated
+
 func _input(event):
 	if event.is_action_pressed("ui_dev_toggle"):
 		dev_mode = !dev_mode
@@ -74,3 +81,7 @@ func is_front_row() -> bool:
 
 func is_back_row() -> bool:
 	return seat_row == 6
+
+func add_record(data):
+	time_allocation_history.append(data)
+	history_updated.emit() # 发射信号

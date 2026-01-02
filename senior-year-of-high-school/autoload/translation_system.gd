@@ -61,6 +61,7 @@ var translations: Dictionary = {
 	"PIE_STUDY": {"zh": "学习", "en": "Study"},
 	"PIE_OTHER": {"zh": "其他", "en": "Other"},
 	"PIE_NO_DATA": {"zh": "暂无数据", "en": "No Data"},
+	"PIE_EXERCISE": {"zh": "运动", "en": "Exercise"},
 }
 
 func t(key: String) -> String:

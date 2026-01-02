@@ -32,6 +32,7 @@ extends Control
 @onready var pie_chart = $RightSection/PieChart
 @onready var legend_sleep = $RightSection/LegendSleep
 @onready var legend_study = $RightSection/LegendStudy
+@onready var legend_exercise = $RightSection/LegendExercise
 @onready var legend_other = $RightSection/LegendOther
 
 # 压力颜色
@@ -74,6 +75,7 @@ func _ready():
 func _process(_delta):
 	update_display()
 	check_arrows()
+	setup_names()
 
 func setup_names():
 	pressure_name.text = TranslationSystem.t("STAT_PRESSURE")
@@ -115,6 +117,10 @@ func update_arrow(arrow_up: GPUParticles2D, arrow_down: GPUParticles2D, current:
 		arrow_down.emitting = false
 
 func update_display():
+	# 新增：让饼图重新读取数据并重绘
+	if pie_chart:
+		pie_chart.load_data() 
+	
 	update_pressure()
 	update_hunger()
 	update_toilet()
@@ -168,8 +174,10 @@ func update_pie_legend():
 	if pie_chart.has_data:
 		legend_sleep.text = "%s %d%%" % [TranslationSystem.t("PIE_SLEEP"), pie_chart.get_sleep_percent()]
 		legend_study.text = "%s %d%%" % [TranslationSystem.t("PIE_STUDY"), pie_chart.get_study_percent()]
+		legend_exercise.text = "%s %d%%" % [TranslationSystem.t("PIE_EXERCISE"), pie_chart.get_exercise_percent()]
 		legend_other.text = "%s %d%%" % [TranslationSystem.t("PIE_OTHER"), pie_chart.get_other_percent()]
 	else:
 		legend_sleep.text = TranslationSystem.t("PIE_NO_DATA")
 		legend_study.text = ""
+		legend_exercise.text = ""
 		legend_other.text = ""

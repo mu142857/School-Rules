@@ -77,6 +77,7 @@ func get_info_text() -> String:
 		text += "%s: %d (%+d)\n" % [subject, GameManager.knowledge[subject], eff + buff_mod]
 	text += "\n=== 位置 ===\n"
 	text += "%s\n" % GameManager.current_scene
+	
 	return text
 
 # === 可控信息 ===
@@ -113,6 +114,17 @@ func get_buff_text() -> String:
 				text += "%s\n(%d分钟)\n" % [buff_name, BuffSystem.active_buffs[buff_name]["duration"]]
 			else:
 				text += "%s\n" % buff_name
+
+	# 查看历史
+	text += "\n=== 时间记录 ===\n"
+	text += "history数量: %d\n" % GameManager.time_allocation_history.size()
+	text += "今日睡眠: %d分钟\n" % StatsSystem.today_sleep_minutes
+	text += "今日学习: %d分钟\n" % StatsSystem.today_study_minutes
+	text += "今日运动: %d分钟\n" % StatsSystem.today_exercise_minutes
+	if GameManager.time_allocation_history.size() > 0:
+		var last = GameManager.time_allocation_history[-1]
+		text += "上次记录:"
+		text += "睡%d 学%d 运动%d 其他%d\n" % [last["sleep"], last["study"],last["exercise"], last["other"]]
 	return text
 
 # === 数值调整按钮（开发用）===
@@ -144,6 +156,8 @@ func create_action_buttons():
 	add_button(action_buttons, "高级奶", func(): InventorySystem.use_consumable("PREMIUM_MILK"))
 	add_label(action_buttons, "--- 厕所 ---")
 	add_button(action_buttons, "上厕所", func(): StatsSystem.use_toilet())
+	add_label(action_buttons, "--- 跑操 ---")
+	add_button(action_buttons, "跑操", func(): attend_morning_run())
 	add_label(action_buttons, "--- 上课 ---")
 	add_button(action_buttons, "睡觉(0)", func(): attend_class_action(0))
 	add_button(action_buttons, "消极(1)", func(): attend_class_action(1))
@@ -204,6 +218,13 @@ func read_book_action(book_name: String):
 	else:
 		pass  # 失败（没有这本书）
 
+func attend_morning_run():
+	if TimeSystem.pause_reason != "MORNING_RUN":
+		return
+	StatsSystem.attend_morning_run()
+	TimeSystem.skip_minutes(15)
+	TimeSystem.resume_time()
+		
 func attend_class_action(effort_level: int):
 	if TimeSystem.pause_reason != "CLASS":
 		return
@@ -218,10 +239,12 @@ func skip_to_period_end():
 func sleep_action():
 	# 22:30选择入睡 或 熬夜中途入睡
 	if TimeSystem.pause_reason == "SLEEP" or TimeSystem.is_staying_up:
+		StatsSystem.add_sleep_time(420)
 		TimeSystem.choose_sleep()
 	# 午休入睡
 	elif TimeSystem.pause_reason == "NAP":
 		TimeSystem.skip_minutes(70)
+		StatsSystem.add_sleep_time(70)
 		BuffSystem.remove_buff("TIRED")
 		TimeSystem.resume_time()
 
@@ -250,6 +273,7 @@ func study_during_nap_action():
 	if TimeSystem.pause_reason != "NAP":
 		return
 	# 不睡午觉获得疲惫buff
+	StatsSystem.add_study_time(70)
 	BuffSystem.add_buff("TIRED", -1)
 	TimeSystem.resume_time()
 	

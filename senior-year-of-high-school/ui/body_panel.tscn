@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://v1hb11lw71jy"]
+[gd_scene load_steps=15 format=3 uid="uid://v1hb11lw71jy"]
 
 [ext_resource type="Script" uid="uid://b4v06ekjks2dh" path="res://ui/body_panel.gd" id="1_bpm0s"]
 [ext_resource type="Texture2D" uid="uid://d3pga52ynodn2" path="res://ui/icons/bar_bg.png" id="1_xf4rh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://s6dnw2a7pmux" path="res://ui/icons/toilet.png" id="8_if1x6"]
 [ext_resource type="PackedScene" uid="uid://dcfgjotjgrn7b" path="res://ui/effects/arrow_down_effect.tscn" id="9_v6273"]
 [ext_resource type="Texture2D" uid="uid://bb2l0txk702ua" path="res://ui/icons/violation_normal.png" id="10_ta5tr"]
+[ext_resource type="Texture2D" uid="uid://b8tylql6bakm0" path="res://ui/icons/pie chart border.png" id="13_lssfb"]
 [ext_resource type="Script" uid="uid://ddt4wu8jnaj48" path="res://ui/pie_chart.gd" id="13_v6273"]
 
 [node name="body_panel" type="Control"]
@@ -271,21 +272,29 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="PieChart" type="Control" parent="RightSection"]
-visible = false
 anchors_preset = 0
-offset_left = 771.0
-offset_top = 441.0
-offset_right = 811.0
-offset_bottom = 481.0
+offset_left = 770.0
+offset_top = 440.0
+offset_right = 810.0
+offset_bottom = 480.0
 script = ExtResource("13_v6273")
+
+[node name="PieChartBorder" type="TextureRect" parent="RightSection"]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 440.0
+offset_right = 810.0
+offset_bottom = 480.0
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("13_lssfb")
 
 [node name="LegendSleep" type="Label" parent="RightSection"]
 layout_mode = 0
-offset_left = 921.0
-offset_top = 450.0
-offset_right = 1004.0
-offset_bottom = 490.0
-theme_override_colors/font_color = Color(0.2901961, 0.43529412, 0.64705884, 1)
+offset_left = 922.0
+offset_top = 441.0
+offset_right = 1005.0
+offset_bottom = 481.0
+theme_override_colors/font_color = Color(0.4862745, 0.627451, 0.83137256, 1)
 theme_override_fonts/font = ExtResource("7_if1x6")
 theme_override_font_sizes/font_size = 30
 text = "睡眠"
@@ -293,11 +302,23 @@ vertical_alignment = 1
 
 [node name="LegendStudy" type="Label" parent="RightSection"]
 layout_mode = 0
-offset_left = 921.0
-offset_top = 483.0
-offset_right = 1004.0
-offset_bottom = 523.0
-theme_override_colors/font_color = Color(0.83137256, 0.5294118, 0.29803923, 1)
+offset_left = 922.0
+offset_top = 474.0
+offset_right = 1005.0
+offset_bottom = 514.0
+theme_override_colors/font_color = Color(0.92941177, 0.6666667, 0.4745098, 1)
+theme_override_fonts/font = ExtResource("7_if1x6")
+theme_override_font_sizes/font_size = 30
+text = "学习"
+vertical_alignment = 1
+
+[node name="LegendExercise" type="Label" parent="RightSection"]
+layout_mode = 0
+offset_left = 922.0
+offset_top = 507.0
+offset_right = 1005.0
+offset_bottom = 547.0
+theme_override_colors/font_color = Color(0.40392157, 0.7647059, 0.47058824, 1)
 theme_override_fonts/font = ExtResource("7_if1x6")
 theme_override_font_sizes/font_size = 30
 text = "学习"
@@ -305,11 +326,11 @@ vertical_alignment = 1
 
 [node name="LegendOther" type="Label" parent="RightSection"]
 layout_mode = 0
-offset_left = 921.0
-offset_top = 516.0
-offset_right = 1004.0
-offset_bottom = 556.0
-theme_override_colors/font_color = Color(0.41960785, 0.41960785, 0.41960785, 1)
+offset_left = 922.0
+offset_top = 540.0
+offset_right = 1005.0
+offset_bottom = 580.0
+theme_override_colors/font_color = Color(0.6862745, 0.6862745, 0.6862745, 1)
 theme_override_fonts/font = ExtResource("7_if1x6")
 theme_override_font_sizes/font_size = 30
 text = "其它"
