@@ -50,19 +50,27 @@ func slide_out():
 		slide_tween.kill()
 	slide_tween = create_tween()
 	
+	slide_tween.tween_property(info_button_pack, "scale", Vector2(1.7, 1.2), 0.1)
 	# 先往下一点（惯性）
-	slide_tween.tween_property(info_button_pack, "position:y", original_position.y + 20, 0.1).set_ease(Tween.EASE_OUT)
+	slide_tween.parallel().tween_property(info_button_pack, "position:y", original_position.y + 20, 0.1).set_ease(Tween.EASE_OUT)
+	
+	slide_tween.parallel().tween_property(rope1, "rotation_degrees", 15, 0.2)
+	slide_tween.parallel().tween_property(rope2, "rotation_degrees", -168, 0.2)
 	# 缩小一点
-	slide_tween.parallel().tween_property(info_button_pack, "scale", Vector2(1.3, 1.3), 0.1)
-
+	slide_tween.tween_property(info_button_pack, "scale", Vector2(1.5, 1.3), 0.1)
+	
 	# 绳子收紧
-	slide_tween.parallel().tween_property(rope1, "rotation_degrees", -9.9, 0.2)
-	slide_tween.parallel().tween_property(rope2, "rotation_degrees", -154.7, 0.2)
+	slide_tween.parallel().tween_property(rope1, "rotation_degrees", 0, 0.1)
+	slide_tween.parallel().tween_property(rope2, "rotation_degrees", -150, 0.1)
 	
 	# 然后往上滑出
 	slide_tween.tween_property(info_button_pack, "position:y", -180, 0.2).set_ease(Tween.EASE_IN)
 	# 恢复大小
-	slide_tween.parallel().tween_property(info_button_pack, "scale", Vector2(1, 1), 0.2)
+	slide_tween.parallel().tween_property(info_button_pack, "scale", Vector2(0.5, 1.0), 0.2)
+	
+	# 绳子收紧
+	slide_tween.parallel().tween_property(rope1, "rotation_degrees", -20, 0.2)
+	slide_tween.parallel().tween_property(rope2, "rotation_degrees", -135, 0.2)
 	
 	
 	slide_tween.tween_callback(_on_slide_out_finished)
@@ -86,17 +94,19 @@ func slide_in():
 	
 	# 初始状态：在上方，绳子收紧
 	info_button_pack.position.y = -180
-	info_button_pack.scale = Vector2(1, 1)
+	info_button_pack.scale = Vector2(0.9, 1)
 	rope1.rotation_degrees = -9.9
 	rope2.rotation_degrees = -154.7
 	
 	# 往下掉，多掉一点（超过原位置）
-	slide_tween.tween_property(info_button_pack, "position:y", original_position.y + 30, 0.25).set_ease(Tween.EASE_IN)
+	slide_tween.tween_property(info_button_pack, "position:y", original_position.y + 10, 0.2).set_ease(Tween.EASE_IN)
+	slide_tween.parallel().tween_property(info_button_pack, "scale", Vector2(1, 1.2), 0.2)
 	
 	# 回弹到原位，绳子放松
-	slide_tween.tween_property(info_button_pack, "position:y", original_position.y, 0.15).set_ease(Tween.EASE_OUT)
-	slide_tween.parallel().tween_property(rope1, "rotation_degrees", 10.1, 0.15)
-	slide_tween.parallel().tween_property(rope2, "rotation_degrees", -162.1, 0.15)
+	slide_tween.tween_property(info_button_pack, "position:y", original_position.y, 0.1)
+	slide_tween.parallel().tween_property(info_button_pack, "scale", Vector2(1, 1), 0.1)
+	slide_tween.parallel().tween_property(rope1, "rotation_degrees", 10.1, 0.1)
+	slide_tween.parallel().tween_property(rope2, "rotation_degrees", -162.1, 0.1)
 	
 	slide_tween.tween_callback(_on_slide_in_finished)
 

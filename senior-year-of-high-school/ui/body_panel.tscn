@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://v1hb11lw71jy"]
+
+[node name="body_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

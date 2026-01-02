@@ -43,10 +43,10 @@ offset_bottom = 96.0
 
 [node name="InfoButtonPack" type="Control" parent="Control"]
 anchors_preset = 0
-offset_left = 23.0
-offset_top = 14.0
-offset_right = 63.0
-offset_bottom = 54.0
+offset_left = 22.0
+offset_top = -7.0
+offset_right = 62.0
+offset_bottom = 33.0
 pivot_offset = Vector2(1163, 12)
 mouse_filter = 1
 
