@@ -1,7 +1,91 @@
-[gd_scene format=3 uid="uid://v1hb11lw71jy"]
+[gd_scene load_steps=4 format=3 uid="uid://v1hb11lw71jy"]
+
+[ext_resource type="Texture2D" uid="uid://d3pga52ynodn2" path="res://ui/icons/bar_bg.png" id="1_xf4rh"]
+[ext_resource type="Texture2D" uid="uid://clclt36yjispd" path="res://ui/icons/bar_border.png" id="2_bpm0s"]
+[ext_resource type="Texture2D" uid="uid://0553s4knb7dr" path="res://ui/icons/bar_fill.png" id="3_gnwrn"]
 
 [node name="body_panel" type="Control"]
 layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftSection" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PressureBar" type="TextureProgressBar" parent="LeftSection"]
+visible = false
+layout_mode = 0
+offset_right = 115.0
+offset_bottom = 40.0
+texture_under = ExtResource("1_xf4rh")
+texture_over = ExtResource("2_bpm0s")
+texture_progress = ExtResource("3_gnwrn")
+
+[node name="Icon" type="TextureRect" parent="LeftSection/PressureBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="LeftSection/PressureBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="HungerBar" type="TextureProgressBar" parent="LeftSection"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="TextureRect" parent="LeftSection/HungerBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="LeftSection/HungerBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ToiletBar" type="TextureProgressBar" parent="LeftSection"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="TextureRect" parent="LeftSection/ToiletBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="LeftSection/ToiletBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ViolationSection" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Paper1" type="Sprite2D" parent="ViolationSection"]
+
+[node name="Paper2" type="Sprite2D" parent="ViolationSection"]
+
+[node name="Paper3" type="Sprite2D" parent="ViolationSection"]
+
+[node name="Label" type="Label" parent="ViolationSection"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RightSection" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PieChart" type="Control" parent="RightSection"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
