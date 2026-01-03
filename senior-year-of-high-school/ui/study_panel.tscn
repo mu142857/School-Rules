@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c41t43uqdub1n"]
+[gd_scene load_steps=11 format=3 uid="uid://c41t43uqdub1n"]
 
+[ext_resource type="Script" uid="uid://eu8jbojoyn5s" path="res://ui/study_panel.gd" id="1_6ukcq"]
 [ext_resource type="Texture2D" uid="uid://ch0xe6o31vgvw" path="res://ui/panels/Study Panel.png" id="1_ckuh0"]
+[ext_resource type="Texture2D" uid="uid://b17sn7gfpcucd" path="res://ui/icons/Subject UI1.png" id="2_58wuf"]
+[ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="2_av3tk"]
+[ext_resource type="Texture2D" uid="uid://bo66sc5gtqllj" path="res://ui/icons/Subject UI2.png" id="4_f8n4f"]
+[ext_resource type="Texture2D" uid="uid://d08mgn53xqgrq" path="res://ui/icons/Subject UI3.png" id="5_ojqu2"]
+[ext_resource type="Texture2D" uid="uid://cxh45ip5315hq" path="res://ui/icons/Subject UI4.png" id="6_yf17k"]
+[ext_resource type="Texture2D" uid="uid://bwfvxdimineig" path="res://ui/icons/Subject UI5.png" id="7_bttfa"]
+[ext_resource type="Texture2D" uid="uid://cxgnjsqum2a2y" path="res://ui/icons/Subject UI6.png" id="8_6ukcq"]
+[ext_resource type="Script" uid="uid://bnfb4tdb34cje" path="res://ui/line_chart.gd" id="10_frsuf"]
 
 [node name="study_panel" type="Control"]
 layout_mode = 3
@@ -9,9 +18,317 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6ukcq")
 
 [node name="StudyTag" type="Sprite2D" parent="."]
 position = Vector2(1, 23.999998)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("1_ckuh0")
 centered = false
+
+[node name="SubjectGrid" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Chinese" type="Control" parent="SubjectGrid"]
+anchors_preset = 0
+offset_left = 180.0
+offset_top = 475.0
+offset_right = 220.0
+offset_bottom = 515.0
+
+[node name="TextureRect" type="TextureRect" parent="SubjectGrid/Chinese"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_58wuf")
+
+[node name="NameTag" type="Label" parent="SubjectGrid/Chinese"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 109.0
+offset_right = 210.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0.8666667, 0.75686276, 0.7411765, 1)
+theme_override_colors/font_shadow_color = Color(0.5921569, 0.57254905, 0.43529412, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 25
+text = "语文知识点"
+vertical_alignment = 2
+
+[node name="Value" type="Label" parent="SubjectGrid/Chinese"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 139.0
+offset_right = 165.0
+offset_bottom = 169.0
+theme_override_colors/font_shadow_color = Color(0.8666667, 0.75686276, 0.7411765, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 30
+text = "123"
+vertical_alignment = 2
+
+[node name="Math" type="Control" parent="SubjectGrid"]
+anchors_preset = 0
+offset_left = 330.0
+offset_top = 475.0
+offset_right = 370.0
+offset_bottom = 515.0
+
+[node name="TextureRect" type="TextureRect" parent="SubjectGrid/Math"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("4_f8n4f")
+
+[node name="NameTag" type="Label" parent="SubjectGrid/Math"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 109.0
+offset_right = 210.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0.70219284, 0.8022808, 0.9447701, 1)
+theme_override_colors/font_shadow_color = Color(0.39607844, 0.654902, 0.5803922, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 25
+text = "数学知识点"
+vertical_alignment = 2
+
+[node name="Value" type="Label" parent="SubjectGrid/Math"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 139.0
+offset_right = 165.0
+offset_bottom = 169.0
+theme_override_colors/font_shadow_color = Color(0.7019608, 0.8039216, 0.94509804, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 30
+text = "123"
+vertical_alignment = 2
+
+[node name="English" type="Control" parent="SubjectGrid"]
+anchors_preset = 0
+offset_left = 480.0
+offset_top = 475.0
+offset_right = 520.0
+offset_bottom = 515.0
+
+[node name="TextureRect" type="TextureRect" parent="SubjectGrid/English"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("5_ojqu2")
+
+[node name="NameTag" type="Label" parent="SubjectGrid/English"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 109.0
+offset_right = 210.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0.80496764, 0.736523, 0.9125213, 1)
+theme_override_colors/font_shadow_color = Color(0.75686276, 0.49411765, 0.6627451, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 25
+text = "英语知识点"
+vertical_alignment = 2
+
+[node name="Value" type="Label" parent="SubjectGrid/English"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 139.0
+offset_right = 165.0
+offset_bottom = 169.0
+theme_override_colors/font_shadow_color = Color(0.8039216, 0.7372549, 0.9137255, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 30
+text = "123"
+vertical_alignment = 2
+
+[node name="Physics" type="Control" parent="SubjectGrid"]
+anchors_preset = 0
+offset_left = 630.0
+offset_top = 475.0
+offset_right = 670.0
+offset_bottom = 515.0
+
+[node name="TextureRect" type="TextureRect" parent="SubjectGrid/Physics"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("6_yf17k")
+
+[node name="NameTag" type="Label" parent="SubjectGrid/Physics"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 109.0
+offset_right = 210.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0.4627451, 0.5176471, 0.8117647, 1)
+theme_override_colors/font_shadow_color = Color(0.8980392, 0.7294118, 0.7294118, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 25
+text = "物理知识点"
+vertical_alignment = 2
+
+[node name="Value" type="Label" parent="SubjectGrid/Physics"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 139.0
+offset_right = 165.0
+offset_bottom = 169.0
+theme_override_colors/font_shadow_color = Color(0.32941177, 0.3764706, 0.6784314, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 30
+text = "123"
+vertical_alignment = 2
+
+[node name="Biology" type="Control" parent="SubjectGrid"]
+anchors_preset = 0
+offset_left = 780.0
+offset_top = 475.0
+offset_right = 820.0
+offset_bottom = 515.0
+
+[node name="TextureRect" type="TextureRect" parent="SubjectGrid/Biology"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("7_bttfa")
+
+[node name="NameTag" type="Label" parent="SubjectGrid/Biology"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 109.0
+offset_right = 210.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0.3764706, 0.7411765, 0.49019608, 1)
+theme_override_colors/font_shadow_color = Color(0.79607844, 0.8117647, 0.5294118, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 25
+text = "生物知识点"
+vertical_alignment = 2
+
+[node name="Value" type="Label" parent="SubjectGrid/Biology"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 139.0
+offset_right = 165.0
+offset_bottom = 169.0
+theme_override_colors/font_shadow_color = Color(0.3764706, 0.7411765, 0.49019608, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 30
+text = "123"
+vertical_alignment = 2
+
+[node name="Geography" type="Control" parent="SubjectGrid"]
+anchors_preset = 0
+offset_left = 930.0
+offset_top = 475.0
+offset_right = 970.0
+offset_bottom = 515.0
+
+[node name="TextureRect" type="TextureRect" parent="SubjectGrid/Geography"]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("8_6ukcq")
+
+[node name="NameTag" type="Label" parent="SubjectGrid/Geography"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 109.0
+offset_right = 210.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0.79607844, 0.8117647, 0.5294118, 1)
+theme_override_colors/font_shadow_color = Color(0.88086075, 0.55893874, 0.5647768, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 25
+text = "地理知识点"
+vertical_alignment = 2
+
+[node name="Value" type="Label" parent="SubjectGrid/Geography"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 139.0
+offset_right = 165.0
+offset_bottom = 169.0
+theme_override_colors/font_shadow_color = Color(0.72156864, 0.7372549, 0.5647059, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 30
+text = "123"
+vertical_alignment = 2
+
+[node name="LineChartSection" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ChartContainer" type="Control" parent="LineChartSection"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_frsuf")
+
+[node name="X_Axis" type="Label" parent="LineChartSection"]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 446.0
+offset_right = 1022.0
+offset_bottom = 476.0
+theme_override_colors/font_color = Color(0.43137255, 0.4392157, 0.39607844, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 25
+text = "日期"
+horizontal_alignment = 2
+
+[node name="Y_Axis" type="Label" parent="LineChartSection"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 198.0
+offset_right = 407.0
+offset_bottom = 223.0
+theme_override_colors/font_color = Color(0.43137255, 0.4392157, 0.39607844, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 20
+text = "知识点"
+vertical_alignment = 2
+
+[node name="MaxLabel" type="Label" parent="LineChartSection"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 252.0
+offset_right = 221.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(0.43137255, 0.4392157, 0.39607844, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 20
+text = "200"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="MeanLabel" type="Label" parent="LineChartSection"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 335.0
+offset_right = 221.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.43137255, 0.4392157, 0.39607844, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 20
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="MinLabel" type="Label" parent="LineChartSection"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 418.0
+offset_right = 221.0
+offset_bottom = 443.0
+theme_override_colors/font_color = Color(0.43137255, 0.4392157, 0.39607844, 1)
+theme_override_fonts/font = ExtResource("2_av3tk")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2

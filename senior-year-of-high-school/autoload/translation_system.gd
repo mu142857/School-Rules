@@ -62,6 +62,15 @@ var translations: Dictionary = {
 	"PIE_OTHER": {"zh": "其他", "en": "Other"},
 	"PIE_NO_DATA": {"zh": "暂无数据", "en": "No Data"},
 	"PIE_EXERCISE": {"zh": "运动", "en": "Exercise"},
+
+	# 学习
+	"STAT_TOTAL": {"zh": "总知识点", "en": "Total Points"},
+	"STAT_CHINESE": {"zh": "语文知识点", "en": "Chinese Points"},
+	"STAT_MATH": {"zh": "数学知识点", "en": "Math Points"},
+	"STAT_ENGLISH": {"zh": "英语知识点", "en": "English Points"},
+	"STAT_PHYSICS": {"zh": "物理知识点", "en": "Physics Points"},
+	"STAT_GEOGRAPHY": {"zh": "地理知识点", "en": "Geography Points"},
+	"STAT_BIOLOGY": {"zh": "生物知识点", "en": "Biology Points"},
 }
 
 func t(key: String) -> String:
