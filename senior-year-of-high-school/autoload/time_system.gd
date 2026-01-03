@@ -246,11 +246,7 @@ func choose_stay_up():
 
 # 选择入睡（22:30直接入睡，或熬夜中途入睡）
 func choose_sleep():
-	# 跳转到24:00
-	GameManager.hour = 0
-	GameManager.minute = 0
 	is_staying_up = false
-	# 暂停等待点击"第二天"
 	is_paused = true
 	pause_reason = "NEXT_DAY"
 
@@ -262,50 +258,45 @@ func force_sleep_at_midnight():
 
 # 点击"第二天"按钮
 func go_to_next_day():
-	# 1. 计算睡眠分钟数
-	# 算法：计算从当前时间 (如 22:30 或 23:15) 到第二天 05:30 的总分钟
-	var current_total_minutes = GameManager.hour * 60 + GameManager.minute
-	var wake_up_total_minutes = 5 * 60 + 30 # 330分钟
+	# 1. 确定起点（当前的 22:30 或者熬夜到 1:00 之类的）
+	var start_total_min = GameManager.hour * 60 + GameManager.minute
 	
+	# 2. 确定醒来点
+	var wake_hour = 5
+	var wake_min = 30
+	if GameManager.overslept_until_hour > 0:
+		wake_hour = GameManager.overslept_until_hour
+		wake_min = 0
+	var end_total_min = wake_hour * 60 + wake_min
+	
+	# 3. 计算这一觉睡了多久
 	var sleep_duration = 0
-	if current_total_minutes > wake_up_total_minutes:
-		# 跨天情况 (例如 22:30 -> 05:30)
-		sleep_duration = (1440 - current_total_minutes) + wake_up_total_minutes
+	if start_total_min > end_total_min:
+		# 跨天情况 (22:30 -> 05:30)
+		sleep_duration = (1440 - start_total_min) + end_total_min
 	else:
-		# 没跨天情况 (比如 01:00 -> 05:30)
-		sleep_duration = wake_up_total_minutes - current_total_minutes
+		# 没跨天 (01:00 -> 05:30)
+		sleep_duration = end_total_min - start_total_min
 	
+	# 4. 把计算结果存入系统
 	StatsSystem.add_sleep_time(sleep_duration)
 	
-	# 2. 熬夜惩罚逻辑
-	if GameManager.stayed_up_minutes > 0:
-		BuffSystem.add_buff("TIRED", -1)
-		var roll = randf() * 100
-		if roll < GameManager.wake_up_fail_chance:
-			GameManager.overslept_until_hour = 8
-			BuffSystem.add_violation()
-	
-	# 3. 日期增加（统一在这里处理）
+	# 5. 正式跳转日期和时钟
 	GameManager.day += 1
 	var days_in_month = [0, 0, 0, 31, 30, 31, 30]
 	if GameManager.day > days_in_month[GameManager.month]:
 		GameManager.day = 1
 		GameManager.month += 1
 	
-	# 4. 跳到起床时间
-	if GameManager.overslept_until_hour > 0:
-		GameManager.hour = GameManager.overslept_until_hour
-		GameManager.minute = 0
-		GameManager.overslept_until_hour = -1
-	else:
-		GameManager.hour = 5
-		GameManager.minute = 30
-		
-	# 5. 重置熬夜变量
+	GameManager.hour = wake_hour
+	GameManager.minute = wake_min
+	GameManager.overslept_until_hour = -1 # 用完重置
+	
+	# 6. 清理熬夜状态
 	GameManager.stayed_up_minutes = 0
 	GameManager.wake_up_fail_chance = 0
 	is_staying_up = false
 	
-	# 6. 每日结算
+	# 7. 结算并恢复
 	StatsSystem.daily_settlement()
 	resume_time()

@@ -239,7 +239,6 @@ func skip_to_period_end():
 func sleep_action():
 	# 22:30选择入睡 或 熬夜中途入睡
 	if TimeSystem.pause_reason == "SLEEP" or TimeSystem.is_staying_up:
-		StatsSystem.add_sleep_time(420)
 		TimeSystem.choose_sleep()
 	# 午休入睡
 	elif TimeSystem.pause_reason == "NAP":
