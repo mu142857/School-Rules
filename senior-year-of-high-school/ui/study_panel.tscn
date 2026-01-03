@@ -275,7 +275,7 @@ anchors_preset = 0
 offset_left = 231.0
 offset_top = 232.0
 offset_right = 1021.0
-offset_bottom = 439.0
+offset_bottom = 443.0
 script = ExtResource("10_frsuf")
 
 [node name="X_Axis" type="Label" parent="LineChartSection"]

@@ -71,6 +71,7 @@ var translations: Dictionary = {
 	"STAT_PHYSICS": {"zh": "物理知识点", "en": "Physics Points"},
 	"STAT_GEOGRAPHY": {"zh": "地理知识点", "en": "Geography Points"},
 	"STAT_BIOLOGY": {"zh": "生物知识点", "en": "Biology Points"},
+	"TOTAL_POINTS": {"zh": "总点数: ", "en": "Total Points: "},
 }
 
 func t(key: String) -> String:

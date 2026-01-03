@@ -89,7 +89,8 @@ func add_record(data):
 func _ready():
 	# 如果是新游戏（历史记录为空），记录一下开局初始值
 	if knowledge_history.is_empty():
-		record_current_knowledge()
+		for i in range(2):
+			record_current_knowledge()
 
 # 封装一个记录知识点的方法，方便多处调用
 func record_current_knowledge():
