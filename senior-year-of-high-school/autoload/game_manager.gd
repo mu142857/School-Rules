@@ -19,12 +19,12 @@ var sleep_start_minute: int = 30  # 入睡时的分钟
 
 # === 知识点（点数制）===
 var knowledge: Dictionary = {
-	"Chinese": 100,
-	"Math": 100,
-	"English": 100,
-	"Physics": 100,
-	"Geography": 100,
-	"Biology": 100
+	"Chinese": 50,
+	"Math": 50,
+	"English": 50,
+	"Physics": 50,
+	"Geography": 50,
+	"Biology": 50
 }
 
 # === 学习效率（点数制，加到上课获得的知识点上）===
@@ -85,3 +85,32 @@ func is_back_row() -> bool:
 func add_record(data):
 	time_allocation_history.append(data)
 	history_updated.emit() # 发射信号
+
+func _ready():
+	# 如果是新游戏（历史记录为空），记录一下开局初始值
+	if knowledge_history.is_empty():
+		record_current_knowledge()
+
+# 封装一个记录知识点的方法，方便多处调用
+func record_current_knowledge():
+	var k_record = {
+		"month": month,
+		"day": day,
+		"Chinese": knowledge["Chinese"],
+		"Math": knowledge["Math"],
+		"English": knowledge["English"],
+		"Physics": knowledge["Physics"],
+		"Geography": knowledge["Geography"],
+		"Biology": knowledge["Biology"]
+	}
+	knowledge_history.append(k_record)
+	# 限制长度
+	if knowledge_history.size() > MAX_HISTORY_DAYS:
+		knowledge_history.pop_front()
+	
+	# 同时也给时间分配存一个初始值，防止饼图报错
+	if time_allocation_history.is_empty():
+		add_record({
+			"month": month, "day": day,
+			"sleep": 420, "study": 480, "exercise": 60, "other": 480
+		})

@@ -20,24 +20,37 @@ func _process(_delta):
 	# 如果实时变化，可以在这里调用，或者在 GameManager 数据变化时手动更新
 	update_scores()
 
+# ui/study_panel.gd (修改 setup_subject_signals 部分)
+
 func setup_subject_signals():
-	# 遍历 SubjectGrid 下的所有科目节点
 	for subject_node in subjects_container.get_children():
-		var subject_name = subject_node.name # 例如 "Chinese"
+		var subject_name = subject_node.name
 		
-		# 鼠标移入：切换到该科目折线
-		subject_node.mouse_entered.connect(func(): 
+		# 鼠标移入
+		subject_node.mouse_entered.connect(func():
+			# 1. 切换图表视图
 			chart.view_subject = subject_name
 			update_labels()
+			
+			# 2. 动画：放大 1.1 倍，变亮
+			var tween = create_tween().set_parallel(true)
+			tween.tween_property(subject_node, "scale", Vector2(1.1, 1.1), 0.1).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(subject_node, "modulate", Color(1.2, 1.2, 1.2), 0.1) # 稍微过曝变亮
 		)
 		
-		# 鼠标移出：恢复显示总分趋势
-		subject_node.mouse_exited.connect(func(): 
+		# 鼠标移出
+		subject_node.mouse_exited.connect(func():
 			chart.view_subject = "Total"
 			update_labels()
+			
+			# 动画：恢复原始大小和亮度
+			var tween = create_tween().set_parallel(true)
+			tween.tween_property(subject_node, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(subject_node, "modulate", Color.WHITE, 0.1)
 		)
 
 func update_scores():
+	@warning_ignore("unused_variable")
 	var total = 0
 	for subject_node in subjects_container.get_children():
 		var s_name = subject_node.name

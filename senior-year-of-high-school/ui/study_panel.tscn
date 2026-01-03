@@ -37,6 +37,7 @@ offset_left = 180.0
 offset_top = 475.0
 offset_right = 220.0
 offset_bottom = 515.0
+pivot_offset = Vector2(64, 64)
 
 [node name="TextureRect" type="TextureRect" parent="SubjectGrid/Chinese"]
 layout_mode = 0
@@ -75,6 +76,7 @@ offset_left = 330.0
 offset_top = 475.0
 offset_right = 370.0
 offset_bottom = 515.0
+pivot_offset = Vector2(64, 64)
 
 [node name="TextureRect" type="TextureRect" parent="SubjectGrid/Math"]
 layout_mode = 0
@@ -113,6 +115,7 @@ offset_left = 480.0
 offset_top = 475.0
 offset_right = 520.0
 offset_bottom = 515.0
+pivot_offset = Vector2(64, 64)
 
 [node name="TextureRect" type="TextureRect" parent="SubjectGrid/English"]
 layout_mode = 0
@@ -151,6 +154,7 @@ offset_left = 630.0
 offset_top = 475.0
 offset_right = 670.0
 offset_bottom = 515.0
+pivot_offset = Vector2(64, 64)
 
 [node name="TextureRect" type="TextureRect" parent="SubjectGrid/Physics"]
 layout_mode = 0
@@ -189,6 +193,7 @@ offset_left = 780.0
 offset_top = 475.0
 offset_right = 820.0
 offset_bottom = 515.0
+pivot_offset = Vector2(64, 64)
 
 [node name="TextureRect" type="TextureRect" parent="SubjectGrid/Biology"]
 layout_mode = 0
@@ -227,6 +232,7 @@ offset_left = 930.0
 offset_top = 475.0
 offset_right = 970.0
 offset_bottom = 515.0
+pivot_offset = Vector2(64, 64)
 
 [node name="TextureRect" type="TextureRect" parent="SubjectGrid/Geography"]
 layout_mode = 0
@@ -266,8 +272,10 @@ offset_bottom = 40.0
 
 [node name="ChartContainer" type="Control" parent="LineChartSection"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 231.0
+offset_top = 232.0
+offset_right = 1021.0
+offset_bottom = 439.0
 script = ExtResource("10_frsuf")
 
 [node name="X_Axis" type="Label" parent="LineChartSection"]
