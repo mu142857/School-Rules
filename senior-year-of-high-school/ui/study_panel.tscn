@@ -272,7 +272,7 @@ offset_bottom = 40.0
 
 [node name="ChartContainer" type="Control" parent="LineChartSection"]
 anchors_preset = 0
-offset_left = 231.0
+offset_left = 228.0
 offset_top = 232.0
 offset_right = 1021.0
 offset_bottom = 443.0
