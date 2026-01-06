@@ -1,28 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4cvvu47ioyge"]
+[gd_scene load_steps=6 format=3 uid="uid://b4cvvu47ioyge"]
 
 [ext_resource type="Texture2D" uid="uid://c1uvukxc5ep5w" path="res://locations/classroom 1/floor.png" id="1_q36er"]
 [ext_resource type="Texture2D" uid="uid://bn2vdiv2llja7" path="res://locations/classroom 1/front wall.png" id="2_bs5q1"]
 [ext_resource type="Texture2D" uid="uid://cedxvu58ftbc5" path="res://locations/classroom 1/side wall.png" id="3_ndcrv"]
 [ext_resource type="Texture2D" uid="uid://iffcd66nasy7" path="res://locations/classroom 1/desk group 4.png" id="4_8o0gr"]
+[ext_resource type="PackedScene" uid="uid://bfvh2ft77x4ne" path="res://characters/player/player.tscn" id="5_ndcrv"]
 
 [node name="Classroom1" type="Node2D"]
 
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="Background"]
-position = Vector2(1039.4781, 298.72314)
+position = Vector2(1039, 298.11157)
 skew = 0.43633232
 texture = ExtResource("1_q36er")
 
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="FrontWall" type="Sprite2D" parent="Walls"]
-position = Vector2(1233.4781, -365.27686)
-scale = Vector2(1.0189075, 1.0189075)
+position = Vector2(1235, -364.88843)
+scale = Vector2(1.0189075, 1.0172756)
 texture = ExtResource("2_bs5q1")
 
 [node name="SideWall" type="Sprite2D" parent="Walls"]
-position = Vector2(199.47807, 56.72336)
+position = Vector2(192.47807, 72.83493)
 rotation = -1.134464
 scale = Vector2(0.5749958, 0.9865407)
 skew = 1.134464
@@ -41,5 +42,8 @@ texture = ExtResource("3_ndcrv")
 [node name="Other" type="Node2D" parent="Furniture"]
 
 [node name="DeskGroup4" type="Sprite2D" parent="Furniture"]
-position = Vector2(1050.4781, 203.72314)
+position = Vector2(1043.4781, 219.83472)
 texture = ExtResource("4_8o0gr")
+
+[node name="Player" parent="." instance=ExtResource("5_ndcrv")]
+position = Vector2(406, 455)

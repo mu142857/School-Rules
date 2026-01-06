@@ -1,0 +1,144 @@
+[gd_scene load_steps=20 format=3 uid="uid://bfvh2ft77x4ne"]
+
+[ext_resource type="Texture2D" uid="uid://bax8vcuapcdgm" path="res://characters/player/player idle and walk.png" id="2_ixbpm"]
+[ext_resource type="Script" uid="uid://drjp6pdjhuwpr" path="res://shared/State Machine/state_manager.gd" id="3_c6leb"]
+[ext_resource type="Script" uid="uid://bo0qohop3oasu" path="res://characters/player/empty(0).gd" id="4_5dc8e"]
+[ext_resource type="Script" uid="uid://b3uej3i6g6d8d" path="res://characters/player/player.gd" id="4_dirf7"]
+[ext_resource type="Script" uid="uid://c7cj11feiyn0f" path="res://characters/player/idle(1).gd" id="5_ixbpm"]
+[ext_resource type="Script" uid="uid://bporhd5y4go7k" path="res://characters/player/walk(2).gd" id="6_c6leb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tory2"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0jl3"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evndh"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1q25"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j31ep"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eadt"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t23p"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8jd0"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(2048, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q605b"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(2304, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eho78"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(2560, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sqrr"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(2816, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t23p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tory2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0jl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evndh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1q25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j31ep")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eadt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t23p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8jd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q605b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eho78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sqrr")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tory2"]
+size = Vector2(59, 228)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("4_dirf7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6t23p")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.4581256
+offset = Vector2(10, -124)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_c6leb")
+
+[node name="Empty(0)" type="Node" parent="StateMachine"]
+script = ExtResource("4_5dc8e")
+
+[node name="Idle(1)" type="Node" parent="StateMachine"]
+script = ExtResource("5_ixbpm")
+
+[node name="Walk(2)" type="Node" parent="StateMachine"]
+script = ExtResource("6_c6leb")
+
+[node name="Run(3)" type="Node" parent="StateMachine"]
+
+[node name="sit(4)" type="Node" parent="StateMachine"]
+
+[node name="Idle(5" type="Node" parent="StateMachine"]
+
+[node name="Idle(6" type="Node" parent="StateMachine"]
+
+[node name="Idle(7" type="Node" parent="StateMachine"]
+
+[node name="Idle(8" type="Node" parent="StateMachine"]
+
+[node name="Idle(9" type="Node" parent="StateMachine"]
+
+[node name="Idle(10" type="Node" parent="StateMachine"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -114)
+shape = SubResource("RectangleShape2D_tory2")
