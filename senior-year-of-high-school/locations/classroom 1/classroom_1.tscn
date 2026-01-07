@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4cvvu47ioyge"]
+[gd_scene load_steps=7 format=3 uid="uid://b4cvvu47ioyge"]
 
 [ext_resource type="Texture2D" uid="uid://c1uvukxc5ep5w" path="res://locations/classroom 1/floor.png" id="1_q36er"]
 [ext_resource type="Texture2D" uid="uid://bn2vdiv2llja7" path="res://locations/classroom 1/front wall.png" id="2_bs5q1"]
 [ext_resource type="Texture2D" uid="uid://cedxvu58ftbc5" path="res://locations/classroom 1/side wall.png" id="3_ndcrv"]
 [ext_resource type="Texture2D" uid="uid://iffcd66nasy7" path="res://locations/classroom 1/desk group 4.png" id="4_8o0gr"]
 [ext_resource type="PackedScene" uid="uid://bfvh2ft77x4ne" path="res://characters/player/player.tscn" id="5_ndcrv"]
+[ext_resource type="PackedScene" uid="uid://dqjvy72od6s3o" path="res://screen filters/screen_frame.tscn" id="6_8o0gr"]
 
 [node name="Classroom1" type="Node2D"]
 
@@ -47,3 +48,5 @@ texture = ExtResource("4_8o0gr")
 
 [node name="Player" parent="." instance=ExtResource("5_ndcrv")]
 position = Vector2(406, 455)
+
+[node name="ScreenFrame" parent="." instance=ExtResource("6_8o0gr")]

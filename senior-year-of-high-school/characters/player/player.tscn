@@ -27,29 +27,29 @@ region = Rect2(768, 0, 256, 256)
 atlas = ExtResource("2_ixbpm")
 region = Rect2(1024, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3eadt"]
-atlas = ExtResource("2_ixbpm")
-region = Rect2(1536, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6t23p"]
-atlas = ExtResource("2_ixbpm")
-region = Rect2(1792, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n8jd0"]
-atlas = ExtResource("2_ixbpm")
-region = Rect2(2048, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q605b"]
-atlas = ExtResource("2_ixbpm")
-region = Rect2(2304, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eho78"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6leb"]
 atlas = ExtResource("2_ixbpm")
 region = Rect2(2560, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8sqrr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dirf7"]
 atlas = ExtResource("2_ixbpm")
 region = Rect2(2816, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idpv6"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpf03"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5dtk"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(2048, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t07l"]
+atlas = ExtResource("2_ixbpm")
+region = Rect2(2304, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6t23p"]
 animations = [{
@@ -75,22 +75,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3eadt")
+"texture": SubResource("AtlasTexture_c6leb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6t23p")
+"texture": SubResource("AtlasTexture_dirf7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n8jd0")
+"texture": SubResource("AtlasTexture_idpv6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q605b")
+"texture": SubResource("AtlasTexture_rpf03")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eho78")
+"texture": SubResource("AtlasTexture_x5dtk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8sqrr")
+"texture": SubResource("AtlasTexture_3t07l")
 }],
 "loop": true,
 "name": &"Walk",
@@ -143,5 +143,5 @@ position = Vector2(-0.5, -114)
 shape = SubResource("RectangleShape2D_tory2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -500)
-zoom = Vector2(0.5, 0.5)
+offset = Vector2(0, -300)
+zoom = Vector2(0.75, 0.75)
