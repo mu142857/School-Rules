@@ -1,4 +1,4 @@
-# StateMachine/Walk(2)
+# StateMachine/Down(4)
 
 extends Basic_State
 
@@ -6,10 +6,10 @@ extends Basic_State
 @onready var animated_sprite: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
 var state_timer: float = 0.0
-const MIN_STATE_TIME: float = 0.1  # 最小停留时间，可调整
+const MIN_STATE_TIME: float = 0.1
 
 func enter():
-	animated_sprite.play("Walk")
+	animated_sprite.play("Down")
 	state_timer = 0.0
 
 func process():
@@ -17,32 +17,23 @@ func process():
 	
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	# 冷却时间内不切换状态
 	if state_timer >= MIN_STATE_TIME:
 		# 无输入
 		if direction == Vector2.ZERO:
 			get_parent().change_state(1)  # Idle
 			return
 		
-		# 纯向上
-		if direction.x == 0 and direction.y < 0:
-			get_parent().change_state(3)  # Up
-			return
-		
-		# 纯向下
-		if direction.x == 0 and direction.y > 0:
-			get_parent().change_state(4)  # Down
+		# 不再是纯向下
+		if direction.x != 0 or direction.y <= 0:
+			if direction.x == 0 and direction.y < 0:
+				get_parent().change_state(3)  # Up
+			else:
+				get_parent().change_state(2)  # Walk
 			return
 	
-	# 有输入就移动（即使在冷却中）
-	if direction != Vector2.ZERO:
+	# 有向下输入就移动
+	if direction.y > 0:
 		player.velocity = direction * player.SPEED
-		
-		if direction.x > 0:
-			animated_sprite.flip_h = false
-		elif direction.x < 0:
-			animated_sprite.flip_h = true
-		
 		player.move_and_slide()
 
 func exit():
