@@ -2,14 +2,29 @@
 
 extends Basic_State
 
-@onready var player: CharacterBody2D = get_parent().get_parent()
-@onready var ani2d: AnimatedSprite2D = player.get_node("AnimatedSprite2D")
-@onready var state_machine: State_Manager = get_parent()
+@onready var player: CharacterBody2D = $"../.."
+@onready var animated_sprite: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
 func enter():
-	ani2d.play("Walk")
+	animated_sprite.play("Walk")
 
 func process():
-	# 没输入就切换回Idle
-	if player.direction == Vector2.ZERO:
-		state_machine.change_state(1)
+	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	
+	if direction == Vector2.ZERO:
+		get_parent().change_state(1)  # Idle state
+		return
+	
+	# 移动逻辑
+	player.velocity = direction * player.SPEED
+	
+	# 翻转角色朝向
+	if direction.x > 0:
+		animated_sprite.flip_h = false
+	elif direction.x < 0:
+		animated_sprite.flip_h = true
+	
+	player.move_and_slide()
+
+func exit():
+	pass
