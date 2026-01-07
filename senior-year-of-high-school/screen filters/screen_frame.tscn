@@ -1,18 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqjvy72od6s3o"]
-
-[sub_resource type="Gradient" id="Gradient_wuisp"]
-offsets = PackedFloat32Array(0, 0.52666664)
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_y3qud"]
-gradient = SubResource("Gradient_wuisp")
-
-[sub_resource type="Gradient" id="Gradient_y3qud"]
-offsets = PackedFloat32Array(0.48666668, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_62f8a"]
-gradient = SubResource("Gradient_y3qud")
+[gd_scene load_steps=17 format=3 uid="uid://dqjvy72od6s3o"]
 
 [sub_resource type="Gradient" id="Gradient_7me3l"]
 offsets = PackedFloat32Array(0, 0.54)
@@ -30,13 +16,79 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 gradient = SubResource("Gradient_vspa1")
 fill_to = Vector2(0, 1)
 
+[sub_resource type="Gradient" id="Gradient_wuisp"]
+offsets = PackedFloat32Array(0, 0.52666664)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y3qud"]
+gradient = SubResource("Gradient_wuisp")
+
+[sub_resource type="Gradient" id="Gradient_y3qud"]
+offsets = PackedFloat32Array(0.48666668, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_62f8a"]
+gradient = SubResource("Gradient_y3qud")
+
+[sub_resource type="Gradient" id="Gradient_62f8a"]
+offsets = PackedFloat32Array(0, 0.49, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.22352941, 0, 0.03137255, 0.78431374, 0.30588236, 0.019607844, 0.16862746, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7me3l"]
+gradient = SubResource("Gradient_62f8a")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_fvn6t"]
+offsets = PackedFloat32Array(0, 0.47666666, 1)
+colors = PackedColorArray(0.30588236, 0.019607844, 0.16862746, 0, 0.22275952, 0, 0.03320386, 0.78431374, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vspa1"]
+gradient = SubResource("Gradient_fvn6t")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_j6b5p"]
+offsets = PackedFloat32Array(0, 0.50666666, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.22352941, 0, 0.03137255, 0.78431374, 0.30728534, 0.02090156, 0.16880661, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_13g60"]
+gradient = SubResource("Gradient_j6b5p")
+
+[sub_resource type="Gradient" id="Gradient_rt7fk"]
+offsets = PackedFloat32Array(0.016666668, 0.51, 1)
+colors = PackedColorArray(0.30588236, 0.019607844, 0.16862746, 0, 0.22352941, 0, 0.03137255, 0.78431374, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3l431"]
+gradient = SubResource("Gradient_rt7fk")
+
 [node name="ScreenFrame" type="CanvasLayer"]
 
 [node name="BlackScreenFrame" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="TextureRectUp" type="TextureRect" parent="BlackScreenFrame"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 64.0
+texture = SubResource("GradientTexture2D_fvn6t")
+
+[node name="TextureRectDown" type="TextureRect" parent="BlackScreenFrame"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 616.0
+offset_right = 1260.0
+offset_bottom = 680.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_j6b5p")
 
 [node name="TextureRectLeft" type="TextureRect" parent="BlackScreenFrame"]
 layout_mode = 0
@@ -60,13 +112,19 @@ grow_vertical = 2
 size_flags_horizontal = 0
 texture = SubResource("GradientTexture2D_62f8a")
 
-[node name="TextureRectUp" type="TextureRect" parent="BlackScreenFrame"]
+[node name="RedScreenFrame" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRectUp" type="TextureRect" parent="RedScreenFrame"]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 64.0
-texture = SubResource("GradientTexture2D_fvn6t")
+texture = SubResource("GradientTexture2D_7me3l")
 
-[node name="TextureRectDown" type="TextureRect" parent="BlackScreenFrame"]
+[node name="TextureRectDown" type="TextureRect" parent="RedScreenFrame"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -79,4 +137,26 @@ offset_right = 1260.0
 offset_bottom = 680.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("GradientTexture2D_j6b5p")
+texture = SubResource("GradientTexture2D_vspa1")
+
+[node name="TextureRectLeft" type="TextureRect" parent="RedScreenFrame"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 720.0
+texture = SubResource("GradientTexture2D_13g60")
+
+[node name="TextureRectRight" type="TextureRect" parent="RedScreenFrame"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 1176.0
+offset_top = -20.0
+offset_right = 1240.0
+offset_bottom = 700.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = SubResource("GradientTexture2D_3l431")
