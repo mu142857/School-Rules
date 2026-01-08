@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bfvh2ft77x4ne"]
+[gd_scene load_steps=31 format=3 uid="uid://bfvh2ft77x4ne"]
 
 [ext_resource type="Script" uid="uid://drjp6pdjhuwpr" path="res://shared/State Machine/state_manager.gd" id="3_c6leb"]
 [ext_resource type="Texture2D" uid="uid://xsdvoy001ex" path="res://characters/player/player.png" id="3_dirf7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bporhd5y4go7k" path="res://characters/player/walk(2).gd" id="6_c6leb"]
 [ext_resource type="Script" uid="uid://bitti6pt5gdwx" path="res://characters/player/up(3).gd" id="7_idpv6"]
 [ext_resource type="Script" uid="uid://d0m65y5j1884n" path="res://characters/player/down(4).gd" id="8_rpf03"]
+[ext_resource type="PackedScene" uid="uid://dqjvy72od6s3o" path="res://screen filters/screen_frame.tscn" id="9_rpf03"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6leb"]
 atlas = ExtResource("3_dirf7")
@@ -178,7 +179,7 @@ script = ExtResource("4_dirf7")
 sprite_frames = SubResource("SpriteFrames_6t23p")
 animation = &"Down"
 autoplay = "Idle"
-frame_progress = 0.034878008
+frame_progress = 0.78668267
 offset = Vector2(10, -124)
 
 [node name="StateMachine" type="Node" parent="."]
@@ -222,3 +223,5 @@ limit_left = 0
 limit_top = -360
 limit_right = 2075
 limit_bottom = 970
+
+[node name="ScreenFrame" parent="." instance=ExtResource("9_rpf03")]
