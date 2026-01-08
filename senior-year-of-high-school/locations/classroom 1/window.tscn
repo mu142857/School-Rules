@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dcu0bdjv8e63j"]
+
+[node name="Window" type="Node2D"]
+
+[node name="WindowFrame" type="Sprite2D" parent="."]
+
+[node name="WindowGlass" type="Sprite2D" parent="."]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfipw2btov0da"]
+
+[ext_resource type="Texture2D" uid="uid://b6r2r50fo7o28" path="res://locations/classroom 1/air_conditioner.png" id="1_5c78n"]
+
+[node name="AirConditioner" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5c78n")

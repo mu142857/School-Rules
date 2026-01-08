@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj6tos8eh1g1h"]
+
+[ext_resource type="Texture2D" uid="uid://cc0gxnl0bsqga" path="res://locations/classroom 1/whiteboard.png" id="1_05vvc"]
+
+[node name="WhiteBoard" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_05vvc")

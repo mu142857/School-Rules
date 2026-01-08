@@ -176,7 +176,7 @@ script = ExtResource("4_dirf7")
 sprite_frames = SubResource("SpriteFrames_6t23p")
 animation = &"Down"
 autoplay = "Idle"
-frame_progress = 0.7005696
+frame_progress = 0.5432778
 offset = Vector2(10, -124)
 
 [node name="StateMachine" type="Node" parent="."]

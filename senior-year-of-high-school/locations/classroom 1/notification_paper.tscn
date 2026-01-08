@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmpxrgay02a61"]
+
+[ext_resource type="Texture2D" uid="uid://suy55xv8qtwr" path="res://locations/classroom 1/notification paper.png" id="1_65ooh"]
+
+[node name="NotificationPaper" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_65ooh")
