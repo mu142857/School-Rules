@@ -37,9 +37,9 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Walls" type="Node2D" parent="."]
+z_index = -10
 
 [node name="Floor" type="Sprite2D" parent="Walls"]
-visible = false
 position = Vector2(1039, 298.11157)
 scale = Vector2(1, 0.99999994)
 skew = 0.43633235
@@ -110,6 +110,7 @@ shape = SubResource("WorldBoundaryShape2D_ckmcd")
 y_sort_enabled = true
 
 [node name="TeacherDesk" type="Node2D" parent="Furniture"]
+z_index = -5
 
 [node name="PodiumStep" type="Sprite2D" parent="Furniture/TeacherDesk"]
 position = Vector2(1143, -116)

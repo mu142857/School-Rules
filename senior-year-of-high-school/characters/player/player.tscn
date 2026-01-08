@@ -178,7 +178,7 @@ script = ExtResource("4_dirf7")
 sprite_frames = SubResource("SpriteFrames_6t23p")
 animation = &"Down"
 autoplay = "Idle"
-frame_progress = 0.75558585
+frame_progress = 0.034878008
 offset = Vector2(10, -124)
 
 [node name="StateMachine" type="Node" parent="."]
@@ -218,3 +218,7 @@ shape = SubResource("RectangleShape2D_tory2")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -250)
 zoom = Vector2(0.8, 0.8)
+limit_left = 0
+limit_top = -360
+limit_right = 2075
+limit_bottom = 970
