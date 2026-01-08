@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4cvvu47ioyge"]
+[gd_scene load_steps=26 format=3 uid="uid://b4cvvu47ioyge"]
 
 [ext_resource type="Texture2D" uid="uid://c1uvukxc5ep5w" path="res://locations/classroom 1/floor.png" id="1_q36er"]
 [ext_resource type="Texture2D" uid="uid://bn2vdiv2llja7" path="res://locations/classroom 1/front wall.png" id="2_bs5q1"]
@@ -15,12 +15,27 @@
 [ext_resource type="Texture2D" uid="uid://fuqy8c1th8h0" path="res://locations/classroom 1/desk pair 1.png" id="11_qlqd6"]
 [ext_resource type="Texture2D" uid="uid://cd6y0kmb2u2kh" path="res://locations/classroom 1/desk group 3.png" id="11_xqo3r"]
 [ext_resource type="Texture2D" uid="uid://8en0otrwsviw" path="res://locations/classroom 1/desk pair 4.png" id="12_esjwd"]
+[ext_resource type="PackedScene" uid="uid://8ivmdwpds1ue" path="res://locations/classroom 1/chair.tscn" id="15_esjwd"]
+[ext_resource type="Texture2D" uid="uid://cn7vypci52rf3" path="res://locations/classroom 1/desk pair 2.png" id="16_ckmcd"]
+[ext_resource type="Texture2D" uid="uid://d30hchw3kxghu" path="res://locations/classroom 1/desk pair 3.png" id="17_wylog"]
+[ext_resource type="Texture2D" uid="uid://d4m6rcguppcgq" path="res://locations/classroom 1/desk group 1.png" id="18_x0yn4"]
+[ext_resource type="Texture2D" uid="uid://m3tcapeegn8t" path="res://locations/classroom 1/desk group 2.png" id="19_h164k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qlqd6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_esjwd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ckmcd"]
+
+[sub_resource type="Gradient" id="Gradient_qlqd6"]
+offsets = PackedFloat32Array(0, 0.23666666, 1)
+colors = PackedColorArray(0.6321051, 0.60049546, 0, 1, 0.2936841, 0.25806436, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_esjwd"]
+gradient = SubResource("Gradient_qlqd6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [node name="Classroom1" type="Node2D"]
 y_sort_enabled = true
@@ -116,6 +131,12 @@ z_index = -5
 position = Vector2(1143, -116)
 texture = ExtResource("4_ac0k4")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/TeacherDesk/PodiumStep"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/TeacherDesk/PodiumStep/StaticBody2D"]
+polygon = PackedVector2Array(-321, 21, -261, 22, -229, 44, -166, 61, -113, 71, 7, 78, 139, 64, 213, 53, 217, 41, 238, 32, 256, 16, 300, 14, 321, -7, 321, -63, -300, -62, -325, -22)
+
 [node name="Podium" type="Sprite2D" parent="Furniture/TeacherDesk"]
 position = Vector2(1131, -179)
 texture = ExtResource("5_8ojc6")
@@ -135,33 +156,509 @@ position = Vector2(457, -216)
 [node name="StudentDesks" type="Node2D" parent="Furniture"]
 y_sort_enabled = true
 
-[node name="DeskPair1(Line1)" type="Sprite2D" parent="Furniture/StudentDesks"]
-position = Vector2(1692, 110)
-texture = ExtResource("11_qlqd6")
-offset = Vector2(121, -91)
+[node name="DeskLine1" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(6, -14)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskPair1(Line1)"]
-collision_layer = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskPair1(Line1)/StaticBody2D"]
-polygon = PackedVector2Array(227, 1, 228, 6, 271, 9, 286, -16, 237, -33, 135, -37, 13, -36, -25, -38, -42, -3, 0, 0)
-
-[node name="DeskPair4(Line1)" type="Sprite2D" parent="Furniture/StudentDesks"]
+[node name="DeskPair4" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine1"]
 position = Vector2(345, 113)
 texture = ExtResource("12_esjwd")
 offset = Vector2(118, -93)
 
-[node name="DeskGroup3(Line1)" type="Sprite2D" parent="Furniture/StudentDesks"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine1/DeskPair4"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine1/DeskPair4/StaticBody2D"]
+polygon = PackedVector2Array(0, 0, -57, -13, -33, -55, 12, -47, 15, -38, 228.08926, -36.403824, 282, -36, 277, -9, 232, -9, 225, 0)
+
+[node name="DeskGroup4" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine1"]
+position = Vector2(710, 111)
+texture = ExtResource("4_8o0gr")
+offset = Vector2(174, -92)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine1/DeskGroup4"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine1/DeskGroup4/StaticBody2D"]
+polygon = PackedVector2Array(11, -1, 346, -4, 351, 2, 387, 0, 393, -31, 362, -37, 14, -37, -22, -34, -43, -5, -1, 1)
+
+[node name="DeskGroup3" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine1"]
 position = Vector2(1199, 112)
 texture = ExtResource("11_xqo3r")
 offset = Vector2(178, -96)
 
-[node name="DeskGroup4(Line1)" type="Sprite2D" parent="Furniture/StudentDesks"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine1/DeskGroup3"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine1/DeskGroup3/StaticBody2D"]
+polygon = PackedVector2Array(361, 0, -2, -2, -43, -5, -22, -40, 15, -38, 363, -39, 404, -42, 396, -5)
+
+[node name="DeskPair1" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine1"]
+position = Vector2(1692, 110)
+texture = ExtResource("11_qlqd6")
+offset = Vector2(121, -91)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine1/DeskPair1"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine1/DeskPair1/StaticBody2D"]
+polygon = PackedVector2Array(227, 1, 228, 6, 271, 9, 286, -16, 237, -33, 135, -37, 13, -36, -25, -38, -42, -3, 0, 0)
+
+[node name="DeskLine2" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-53, 105)
+
+[node name="DeskPair3" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine2"]
+position = Vector2(345, 113)
+texture = ExtResource("17_wylog")
+offset = Vector2(118, -93)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine2/DeskPair3"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine2/DeskPair3/StaticBody2D"]
+polygon = PackedVector2Array(8, -5, -21, -6, -33, -55, 12, -47, 24, -43, 241, -41, 285, -33, 278, -11, 237, -6)
+
+[node name="DeskGroup1" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine2"]
 position = Vector2(710, 111)
+texture = ExtResource("18_x0yn4")
+offset = Vector2(174, -92)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine2/DeskGroup1"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine2/DeskGroup1/StaticBody2D"]
+polygon = PackedVector2Array(3, 5, 347, 6, 386, 7, 395, -17, 363, -28, 14, -31, -26, -25, -39, -6, -6, -6, -5, 5)
+
+[node name="DeskGroup2" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine2"]
+position = Vector2(1199, 112)
+texture = ExtResource("19_h164k")
+offset = Vector2(178, -96)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine2/DeskGroup2"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine2/DeskGroup2/StaticBody2D"]
+polygon = PackedVector2Array(361, 0, 6, -2, -1, 0, -6.178112, -2.3057175, -36, -7, -17, -33, 15, -38, 363, -39, 397, -34, 404, -10, 404, -2)
+
+[node name="DeskPair2" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine2"]
+position = Vector2(1683, 121)
+texture = ExtResource("16_ckmcd")
+offset = Vector2(121, -91)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine2/DeskPair2"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine2/DeskPair2/StaticBody2D"]
+polygon = PackedVector2Array(245, 0, 247, 6, 260, 6, 259, 0, 286, -1, 286, -16, 237, -33, 135, -37, 13, -36, -23, -37, -40, -4, 12, -1)
+
+[node name="DeskLine3" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-106, 215)
+
+[node name="DeskPair1" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine3"]
+position = Vector2(338, 98)
+texture = ExtResource("11_qlqd6")
+offset = Vector2(121, -91)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine3/DeskPair1"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine3/DeskPair1/StaticBody2D"]
+polygon = PackedVector2Array(227, 1, 228, 6, 271, 9, 286, -16, 237, -33, 135, -37, 13, -36, -25, -38, -42, -3, 0, 0)
+
+[node name="DeskGroup2" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine3"]
+position = Vector2(704, 119)
+texture = ExtResource("19_h164k")
+offset = Vector2(178, -96)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine3/DeskGroup2"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine3/DeskGroup2/StaticBody2D"]
+polygon = PackedVector2Array(361, 0, 6, -2, -1, 0, -6.178112, -2.3057175, -36, -7, -17, -33, 15, -38, 363, -39, 397, -34, 404, -10, 404, -2)
+
+[node name="DeskGroup3" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine3"]
+position = Vector2(1197, 114)
+texture = ExtResource("11_xqo3r")
+offset = Vector2(178, -96)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine3/DeskGroup3"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine3/DeskGroup3/StaticBody2D"]
+polygon = PackedVector2Array(361, 0, -2, -2, -43, -5, -22, -40, 15, -38, 363, -39, 404, -42, 396, -5)
+
+[node name="DeskPair3" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine3"]
+position = Vector2(1686, 123)
+texture = ExtResource("17_wylog")
+offset = Vector2(118, -93)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine3/DeskPair3"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine3/DeskPair3/StaticBody2D"]
+polygon = PackedVector2Array(8, -5, -21, -6, -33, -55, 12, -47, 24, -43, 241, -41, 285, -33, 278, -11, 237, -6)
+
+[node name="DeskLine4" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-95, 202)
+
+[node name="DeskPair2" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine4"]
+position = Vector2(270, 231)
+texture = ExtResource("16_ckmcd")
+offset = Vector2(121, -91)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine4/DeskPair2"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine4/DeskPair2/StaticBody2D"]
+polygon = PackedVector2Array(245, 0, 247, 6, 260, 6, 259, 0, 286, -1, 286, -16, 237, -33, 135, -37, 13, -36, -23, -37, -40, -4, 12, -1)
+
+[node name="DeskGroup4" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine4"]
+position = Vector2(659, 236)
 texture = ExtResource("4_8o0gr")
 offset = Vector2(174, -92)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine4/DeskGroup4"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine4/DeskGroup4/StaticBody2D"]
+polygon = PackedVector2Array(11, -1, 346, -4, 351, 2, 387, 0, 393, -31, 362, -37, 14, -37, -22, -34, -43, -5, -1, 1)
+
+[node name="DeskGroup2" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine4"]
+position = Vector2(1136, 244)
+texture = ExtResource("19_h164k")
+offset = Vector2(178, -96)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine4/DeskGroup2"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine4/DeskGroup2/StaticBody2D"]
+polygon = PackedVector2Array(361, 0, 6, -2, -1, 0, -6.178112, -2.3057175, -36, -7, -17, -33, 15, -38, 363, -39, 397, -34, 404, -10, 404, -2)
+
+[node name="DeskPair1" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine4"]
+position = Vector2(1632, 246)
+texture = ExtResource("11_qlqd6")
+offset = Vector2(121, -91)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine4/DeskPair1"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine4/DeskPair1/StaticBody2D"]
+polygon = PackedVector2Array(227, 1, 228, 6, 271, 9, 286, -16, 237, -33, 135, -37, 13, -36, -25, -38, -42, -3, 0, 0)
+
+[node name="DeskLine5" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-88, 192)
+
+[node name="DeskPair3" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine5"]
+position = Vector2(210, 356)
+texture = ExtResource("17_wylog")
+offset = Vector2(118, -93)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine5/DeskPair3"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine5/DeskPair3/StaticBody2D"]
+polygon = PackedVector2Array(8, -5, -21, -6, -33, -55, 12, -47, 24, -43, 241, -41, 285, -33, 278, -11, 237, -6)
+
+[node name="DeskGroup1" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine5"]
+position = Vector2(584, 350)
+texture = ExtResource("18_x0yn4")
+offset = Vector2(174, -92)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine5/DeskGroup1"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine5/DeskGroup1/StaticBody2D"]
+polygon = PackedVector2Array(3, 5, 347, 6, 386, 7, 395, -17, 363, -28, 14, -31, -26, -25, -39, -6, -6, -6, -5, 5)
+
+[node name="DeskGroup4" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine5"]
+position = Vector2(1077, 359)
+texture = ExtResource("4_8o0gr")
+offset = Vector2(174, -92)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine5/DeskGroup4"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine5/DeskGroup4/StaticBody2D"]
+polygon = PackedVector2Array(11, -1, 346, -4, 351, 2, 387, 0, 393, -31, 362, -37, 14, -37, -22, -34, -43, -5, -1, 1)
+
+[node name="DeskPair4" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine5"]
+position = Vector2(1580, 361)
+texture = ExtResource("12_esjwd")
+offset = Vector2(118, -93)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine5/DeskPair4"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine5/DeskPair4/StaticBody2D"]
+polygon = PackedVector2Array(0, 0, -57, -13, -33, -55, 12, -47, 15, -38, 228.08926, -36.403824, 282, -36, 277, -9, 232, -9, 225, 0)
+
+[node name="DeskLine6" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-111, 235)
+
+[node name="DeskPair4" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine6"]
+position = Vector2(188, 454)
+texture = ExtResource("12_esjwd")
+offset = Vector2(118, -93)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine6/DeskPair4"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine6/DeskPair4/StaticBody2D"]
+polygon = PackedVector2Array(0, 0, -57, -13, -33, -55, 12, -47, 15, -38, 228.08926, -36.403824, 282, -36, 277, -9, 232, -9, 225, 0)
+
+[node name="DeskGroup3" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine6"]
+position = Vector2(549, 456)
+texture = ExtResource("11_xqo3r")
+offset = Vector2(178, -96)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine6/DeskGroup3"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine6/DeskGroup3/StaticBody2D"]
+polygon = PackedVector2Array(361, 0, -2, -2, -43, -5, -22, -40, 15, -38, 363, -39, 404, -42, 396, -5)
+
+[node name="DeskGroup1" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine6"]
+position = Vector2(1042, 447)
+texture = ExtResource("18_x0yn4")
+offset = Vector2(174, -92)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine6/DeskGroup1"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine6/DeskGroup1/StaticBody2D"]
+polygon = PackedVector2Array(3, 5, 347, 6, 386, 7, 395, -17, 363, -28, 14, -31, -26, -25, -39, -6, -6, -6, -5, 5)
+
+[node name="DeskPair2" type="Sprite2D" parent="Furniture/StudentDesks/DeskLine6"]
+position = Vector2(1528, 449)
+texture = ExtResource("16_ckmcd")
+offset = Vector2(121, -91)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskLine6/DeskPair2"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskLine6/DeskPair2/StaticBody2D"]
+polygon = PackedVector2Array(245, 0, 247, 6, 260, 6, 259, 0, 286, -1, 286, -16, 237, -33, 135, -37, 13, -36, -23, -37, -40, -4, 12, -1)
+
+[node name="ChairLine1" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-4, -14)
+
+[node name="Chair1" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(389, 127)
+
+[node name="Chair2" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(524, 135)
+
+[node name="Chair3" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(762, 132)
+
+[node name="Chair4" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(892, 135)
+
+[node name="Chair5" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(998, 139)
+
+[node name="Chair6" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(1259, 138)
+
+[node name="Chair7" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(1364, 142)
+
+[node name="Chair8" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(1493, 139)
+
+[node name="Chair9" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(1747, 141)
+
+[node name="Chair10" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
+position = Vector2(1865, 139)
+
+[node name="ChairLine2" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-60, 98)
+
+[node name="Chair1" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(381, 144)
+
+[node name="Chair2" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(508, 128)
+
+[node name="Chair3" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(750, 132)
+
+[node name="Chair4" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(857, 135)
+
+[node name="Chair5" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(988, 137)
+
+[node name="Chair6" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(1255, 139)
+
+[node name="Chair7" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(1380, 136)
+
+[node name="Chair8" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(1493, 139)
+
+[node name="Chair9" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(1743, 139)
+
+[node name="Chair10" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
+position = Vector2(1875, 142)
+
+[node name="ChairLine3" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-116, 202)
+
+[node name="Chair1" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(389, 127)
+
+[node name="Chair2" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(524, 135)
+
+[node name="Chair3" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(762, 132)
+
+[node name="Chair4" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(892, 135)
+
+[node name="Chair5" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(998, 139)
+
+[node name="Chair6" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(1259, 138)
+
+[node name="Chair7" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(1364, 142)
+
+[node name="Chair8" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(1493, 139)
+
+[node name="Chair9" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(1747, 141)
+
+[node name="Chair10" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
+position = Vector2(1865, 139)
+
+[node name="ChairLine4" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-160, 310)
+
+[node name="Chair1" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(381, 144)
+
+[node name="Chair2" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(508, 128)
+
+[node name="Chair3" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(750, 132)
+
+[node name="Chair4" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(857, 135)
+
+[node name="Chair5" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(988, 137)
+
+[node name="Chair6" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(1255, 139)
+
+[node name="Chair7" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(1380, 136)
+
+[node name="Chair8" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(1493, 139)
+
+[node name="Chair9" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(1743, 139)
+
+[node name="Chair10" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
+position = Vector2(1875, 142)
+
+[node name="ChairLine5" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-229, 438)
+
+[node name="Chair1" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(389, 127)
+
+[node name="Chair2" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(524, 135)
+
+[node name="Chair3" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(762, 132)
+
+[node name="Chair4" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(892, 135)
+
+[node name="Chair5" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(998, 139)
+
+[node name="Chair6" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(1259, 138)
+
+[node name="Chair7" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(1364, 142)
+
+[node name="Chair8" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(1493, 139)
+
+[node name="Chair9" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(1747, 141)
+
+[node name="Chair10" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
+position = Vector2(1865, 139)
+
+[node name="ChairLine6" type="Node2D" parent="Furniture/StudentDesks"]
+y_sort_enabled = true
+position = Vector2(-274, 575)
+
+[node name="Chair1" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(381, 144)
+
+[node name="Chair2" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(508, 128)
+
+[node name="Chair3" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(750, 132)
+
+[node name="Chair4" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(857, 135)
+
+[node name="Chair5" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(988, 137)
+
+[node name="Chair6" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(1255, 139)
+
+[node name="Chair7" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(1380, 136)
+
+[node name="Chair8" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(1493, 139)
+
+[node name="Chair9" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(1743, 139)
+
+[node name="Chair10" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
+position = Vector2(1875, 142)
 
 [node name="Other" type="Node2D" parent="Furniture"]
 
 [node name="Player" parent="." instance=ExtResource("5_ndcrv")]
 position = Vector2(1014, 659)
+
+[node name="NightFilter" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.3906121, 0.3765418, 0.524689, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(1014, 441.99994)
+scale = Vector2(15.121094, 13.213929)
+texture = SubResource("GradientTexture2D_esjwd")

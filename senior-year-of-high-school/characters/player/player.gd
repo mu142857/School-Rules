@@ -13,3 +13,9 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	pass
+
+func face_left():
+	ani2d.scale.x = -1
+
+func face_right():
+	ani2d.scale.x = 1

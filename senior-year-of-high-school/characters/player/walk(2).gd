@@ -39,9 +39,10 @@ func process():
 		player.velocity = direction * player.SPEED
 		
 		if direction.x > 0:
-			animated_sprite.flip_h = false
+			player.face_right()
+			
 		elif direction.x < 0:
-			animated_sprite.flip_h = true
+			player.face_left()
 		
 		player.move_and_slide()
 
