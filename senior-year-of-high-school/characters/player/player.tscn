@@ -166,17 +166,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tory2"]
-size = Vector2(59, 228)
+size = Vector2(36, 20)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 2
+collision_mask = 2
 script = ExtResource("4_dirf7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6t23p")
 animation = &"Down"
 autoplay = "Idle"
-frame_progress = 0.5432778
+frame_progress = 0.75558585
 offset = Vector2(10, -124)
 
 [node name="StateMachine" type="Node" parent="."]
@@ -210,7 +212,7 @@ script = ExtResource("8_rpf03")
 [node name="Idle(10" type="Node" parent="StateMachine"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -114)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_tory2")
 
 [node name="Camera2D" type="Camera2D" parent="."]

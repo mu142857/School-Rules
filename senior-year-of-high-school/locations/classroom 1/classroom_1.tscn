@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4cvvu47ioyge"]
+[gd_scene load_steps=19 format=3 uid="uid://b4cvvu47ioyge"]
 
 [ext_resource type="Texture2D" uid="uid://c1uvukxc5ep5w" path="res://locations/classroom 1/floor.png" id="1_q36er"]
 [ext_resource type="Texture2D" uid="uid://bn2vdiv2llja7" path="res://locations/classroom 1/front wall.png" id="2_bs5q1"]
 [ext_resource type="Texture2D" uid="uid://cedxvu58ftbc5" path="res://locations/classroom 1/side wall.png" id="3_ndcrv"]
+[ext_resource type="PackedScene" uid="uid://dcu0bdjv8e63j" path="res://locations/classroom 1/window.tscn" id="3_uo522"]
 [ext_resource type="Texture2D" uid="uid://iffcd66nasy7" path="res://locations/classroom 1/desk group 4.png" id="4_8o0gr"]
 [ext_resource type="Texture2D" uid="uid://1srvjm6m3smb" path="res://locations/classroom 1/podium step.png" id="4_ac0k4"]
 [ext_resource type="Texture2D" uid="uid://b3h7ulx6jqpps" path="res://locations/classroom 1/podium.png" id="5_8ojc6"]
@@ -11,22 +12,61 @@
 [ext_resource type="PackedScene" uid="uid://chlkvmxp7x3la" path="res://locations/classroom 1/notice_board.tscn" id="7_8m7x0"]
 [ext_resource type="PackedScene" uid="uid://dmpxrgay02a61" path="res://locations/classroom 1/notification_paper.tscn" id="8_uo522"]
 [ext_resource type="PackedScene" uid="uid://bfipw2btov0da" path="res://locations/classroom 1/air_conditioner.tscn" id="9_uo522"]
+[ext_resource type="Texture2D" uid="uid://fuqy8c1th8h0" path="res://locations/classroom 1/desk pair 1.png" id="11_qlqd6"]
+[ext_resource type="Texture2D" uid="uid://cd6y0kmb2u2kh" path="res://locations/classroom 1/desk group 3.png" id="11_xqo3r"]
+[ext_resource type="Texture2D" uid="uid://8en0otrwsviw" path="res://locations/classroom 1/desk pair 4.png" id="12_esjwd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qlqd6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_esjwd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ckmcd"]
 
 [node name="Classroom1" type="Node2D"]
+y_sort_enabled = true
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1000
 
-[node name="Floor" type="Sprite2D" parent="Background"]
-position = Vector2(1039, 298.11157)
-skew = 0.43633232
-texture = ExtResource("1_q36er")
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Walls" type="Node2D" parent="."]
+
+[node name="Floor" type="Sprite2D" parent="Walls"]
+visible = false
+position = Vector2(1039, 298.11157)
+scale = Vector2(1, 0.99999994)
+skew = 0.43633235
+texture = ExtResource("1_q36er")
 
 [node name="FrontWall" type="Sprite2D" parent="Walls"]
 position = Vector2(1235, -364.88843)
 scale = Vector2(1.0189075, 1.0172756)
 texture = ExtResource("2_bs5q1")
+
+[node name="Window1" parent="Walls" instance=ExtResource("3_uo522")]
+position = Vector2(57, 336.00006)
+rotation = -1.134464
+scale = Vector2(0.58, 0.99)
+skew = 1.134464
+
+[node name="Window2" parent="Walls" instance=ExtResource("3_uo522")]
+position = Vector2(193, 45.000053)
+rotation = -1.134464
+scale = Vector2(0.58, 0.99)
+skew = 1.134464
+
+[node name="Window3" parent="Walls" instance=ExtResource("3_uo522")]
+position = Vector2(330, -250.99997)
+rotation = -1.134464
+scale = Vector2(0.58, 0.99)
+skew = 1.134464
 
 [node name="SideWall" type="Sprite2D" parent="Walls"]
 position = Vector2(192.47807, 72.83493)
@@ -35,7 +75,39 @@ scale = Vector2(0.5749958, 0.9865407)
 skew = 1.134464
 texture = ExtResource("3_ndcrv")
 
+[node name="Wall1" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1"]
+position = Vector2(45, 643)
+rotation = 2.0071287
+shape = SubResource("WorldBoundaryShape2D_qlqd6")
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+position = Vector2(753, -124)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_qlqd6")
+
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
+position = Vector2(809, 720)
+shape = SubResource("WorldBoundaryShape2D_esjwd")
+
+[node name="Wall4" type="StaticBody2D" parent="Walls"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
+position = Vector2(1770, 492.99997)
+rotation = -1.134464
+shape = SubResource("WorldBoundaryShape2D_ckmcd")
+
 [node name="Furniture" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="TeacherDesk" type="Node2D" parent="Furniture"]
 
@@ -60,12 +132,35 @@ position = Vector2(1527, -358)
 position = Vector2(457, -216)
 
 [node name="StudentDesks" type="Node2D" parent="Furniture"]
+y_sort_enabled = true
+
+[node name="DeskPair1(Line1)" type="Sprite2D" parent="Furniture/StudentDesks"]
+position = Vector2(1692, 110)
+texture = ExtResource("11_qlqd6")
+offset = Vector2(121, -91)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Furniture/StudentDesks/DeskPair1(Line1)"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Furniture/StudentDesks/DeskPair1(Line1)/StaticBody2D"]
+polygon = PackedVector2Array(227, 1, 228, 6, 271, 9, 286, -16, 237, -33, 135, -37, 13, -36, -25, -38, -42, -3, 0, 0)
+
+[node name="DeskPair4(Line1)" type="Sprite2D" parent="Furniture/StudentDesks"]
+position = Vector2(345, 113)
+texture = ExtResource("12_esjwd")
+offset = Vector2(118, -93)
+
+[node name="DeskGroup3(Line1)" type="Sprite2D" parent="Furniture/StudentDesks"]
+position = Vector2(1199, 112)
+texture = ExtResource("11_xqo3r")
+offset = Vector2(178, -96)
+
+[node name="DeskGroup4(Line1)" type="Sprite2D" parent="Furniture/StudentDesks"]
+position = Vector2(710, 111)
+texture = ExtResource("4_8o0gr")
+offset = Vector2(174, -92)
 
 [node name="Other" type="Node2D" parent="Furniture"]
 
-[node name="DeskGroup4" type="Sprite2D" parent="Furniture"]
-position = Vector2(1043.4781, 219.83472)
-texture = ExtResource("4_8o0gr")
-
 [node name="Player" parent="." instance=ExtResource("5_ndcrv")]
-position = Vector2(406, 455)
+position = Vector2(1014, 659)
