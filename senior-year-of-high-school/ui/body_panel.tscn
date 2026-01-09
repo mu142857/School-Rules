@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://v1hb11lw71jy"]
+[gd_scene load_steps=13 format=3 uid="uid://v1hb11lw71jy"]
 
 [ext_resource type="Script" uid="uid://b4v06ekjks2dh" path="res://ui/body_panel.gd" id="1_bpm0s"]
 [ext_resource type="Texture2D" uid="uid://d3pga52ynodn2" path="res://ui/icons/bar_bg.png" id="1_xf4rh"]
@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4hmchvstdc3n" path="res://ui/icons/brain_low.png" id="6_8ilfv"]
 [ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="7_if1x6"]
 [ext_resource type="Texture2D" uid="uid://cd2im5n8whjuv" path="res://ui/icons/bowl.png" id="7_s1f6d"]
-[ext_resource type="PackedScene" uid="uid://dxmigu2w45yfv" path="res://ui/effects/arrow_up_effect.tscn" id="8_gfpp7"]
 [ext_resource type="Texture2D" uid="uid://s6dnw2a7pmux" path="res://ui/icons/toilet.png" id="8_if1x6"]
-[ext_resource type="PackedScene" uid="uid://dcfgjotjgrn7b" path="res://ui/effects/arrow_down_effect.tscn" id="9_v6273"]
 [ext_resource type="Texture2D" uid="uid://bb2l0txk702ua" path="res://ui/icons/violation_normal.png" id="10_ta5tr"]
 [ext_resource type="Texture2D" uid="uid://b8tylql6bakm0" path="res://ui/icons/pie chart border.png" id="13_lssfb"]
 [ext_resource type="Script" uid="uid://ddt4wu8jnaj48" path="res://ui/pie_chart.gd" id="13_v6273"]
@@ -81,16 +79,6 @@ text = "上厕所值"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="ArrowUp" parent="LeftSection/PressureBar" instance=ExtResource("8_gfpp7")]
-modulate = Color(1, 1, 1, 0.98039216)
-position = Vector2(108.85714, 5.142847)
-scale = Vector2(0.28571427, 0.28571427)
-
-[node name="ArrowDown" parent="LeftSection/PressureBar" instance=ExtResource("9_v6273")]
-modulate = Color(1, 1, 1, 0.39215687)
-position = Vector2(108.85713, 5.142847)
-scale = Vector2(0.28571427, 0.28571427)
-
 [node name="HungerBar" type="TextureProgressBar" parent="LeftSection"]
 layout_mode = 0
 offset_left = 269.0
@@ -139,16 +127,6 @@ text = "饱食度"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="ArrowUp" parent="LeftSection/HungerBar" instance=ExtResource("8_gfpp7")]
-modulate = Color(1, 1, 1, 0.98039216)
-position = Vector2(108.85714, 5.142847)
-scale = Vector2(0.28571427, 0.28571427)
-
-[node name="ArrowDown" parent="LeftSection/HungerBar" instance=ExtResource("9_v6273")]
-modulate = Color(1, 1, 1, 0.39215687)
-position = Vector2(108.85713, 5.142847)
-scale = Vector2(0.28571427, 0.28571427)
-
 [node name="ToiletBar" type="TextureProgressBar" parent="LeftSection"]
 layout_mode = 0
 offset_left = 269.0
@@ -196,16 +174,6 @@ theme_override_font_sizes/font_size = 40
 text = "上厕所值"
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="ArrowUp" parent="LeftSection/ToiletBar" instance=ExtResource("8_gfpp7")]
-modulate = Color(1, 1, 1, 0.98039216)
-position = Vector2(108.85714, 5.142847)
-scale = Vector2(0.28571427, 0.28571427)
-
-[node name="ArrowDown" parent="LeftSection/ToiletBar" instance=ExtResource("9_v6273")]
-modulate = Color(1, 1, 1, 0.39215687)
-position = Vector2(108.85713, 5.142847)
-scale = Vector2(0.28571427, 0.28571427)
 
 [node name="ViolationSection" type="Control" parent="."]
 anchors_preset = 0
