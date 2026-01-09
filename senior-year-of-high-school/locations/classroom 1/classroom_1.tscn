@@ -781,3 +781,4 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_bwhww")
 
 [node name="Player" parent="." instance=ExtResource("5_ndcrv")]
+position = Vector2(1915, -87)
