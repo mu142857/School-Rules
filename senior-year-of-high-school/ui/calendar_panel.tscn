@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://845v4rda2ju5"]
+
+[ext_resource type="Texture2D" uid="uid://iq52h30uyxp6" path="res://ui/panels/Calendar Panel.png" id="1_eu45s"]
+
+[node name="calendar_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CalendarTag" type="Sprite2D" parent="."]
+position = Vector2(1, 23.999998)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("1_eu45s")
+centered = false

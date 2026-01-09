@@ -89,8 +89,29 @@ func add_record(data):
 func _ready():
 	# 如果是新游戏（历史记录为空），记录一下开局初始值
 	if knowledge_history.is_empty():
-		for i in range(2):
-			record_current_knowledge()
+		# 预填 13 天的模拟数据 (40-60分之间)
+		for i in range(13):
+			var fake_k = {
+				"month": month, 
+				"day": day, # 实际项目中可以写逻辑让日期递减，这里简化处理
+				"Chinese": (randi_range(20, 28) + i * 2), # 24 is the base
+				"Math": (randi_range(10, 38) + i * 2),
+				"English": (randi_range(18, 30) + i * 2),
+				"Physics": (randi_range(13, 35) + i * 2),
+				"Geography": (randi_range(18, 30) + i * 2),
+				"Biology": (randi_range(16, 32) + i * 2)
+			}
+			knowledge_history.append(fake_k)
+		
+		# 第 14 天：存入当前的真实初始值 (50分)
+		record_current_knowledge()
+
+	# 时间分配也给个初始填充，防止饼图报错
+	if time_allocation_history.is_empty():
+		add_record({
+			"month": month, "day": day,
+			"sleep": 420, "study": 480, "exercise": 60, "other": 480
+		})
 
 # 封装一个记录知识点的方法，方便多处调用
 func record_current_knowledge():

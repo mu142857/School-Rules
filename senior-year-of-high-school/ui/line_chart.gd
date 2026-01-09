@@ -55,7 +55,7 @@ func update_logic():
 	
 	# 如果不足14天，前面补0（保持数组长度一致以便平滑切换）
 	while latest_points.size() < max_days:
-		latest_points.insert(0, 0.0)
+		latest_points.insert(0, 50)
 	
 	target_data = latest_points
 
