@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b4cvvu47ioyge"]
+[gd_scene load_steps=36 format=3 uid="uid://b4cvvu47ioyge"]
 
 [ext_resource type="Texture2D" uid="uid://c1uvukxc5ep5w" path="res://locations/classroom 1/floor.png" id="1_q36er"]
 [ext_resource type="Texture2D" uid="uid://bn2vdiv2llja7" path="res://locations/classroom 1/front wall.png" id="2_bs5q1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://iffcd66nasy7" path="res://locations/classroom 1/desk group 4.png" id="4_8o0gr"]
 [ext_resource type="Texture2D" uid="uid://1srvjm6m3smb" path="res://locations/classroom 1/podium step.png" id="4_ac0k4"]
 [ext_resource type="Texture2D" uid="uid://b3h7ulx6jqpps" path="res://locations/classroom 1/podium.png" id="5_8ojc6"]
+[ext_resource type="PackedScene" uid="uid://bfvh2ft77x4ne" path="res://characters/player/player.tscn" id="5_ndcrv"]
 [ext_resource type="PackedScene" uid="uid://dj6tos8eh1g1h" path="res://locations/classroom 1/white_board.tscn" id="6_8ojc6"]
 [ext_resource type="PackedScene" uid="uid://chlkvmxp7x3la" path="res://locations/classroom 1/notice_board.tscn" id="7_8m7x0"]
 [ext_resource type="PackedScene" uid="uid://dmpxrgay02a61" path="res://locations/classroom 1/notification_paper.tscn" id="8_uo522"]
@@ -725,11 +726,11 @@ position = Vector2(1875, 142)
 z_index = 100
 
 [node name="NightFilter" type="CanvasModulate" parent="Light"]
+visible = false
 color = Color(0.3906121, 0.3765418, 0.524689, 1)
 
 [node name="MorningFilter" type="CanvasModulate" parent="Light"]
-visible = false
-color = Color(0.93008083, 0.9049805, 0.8753325, 1)
+color = Color(0.7529719, 0.6845501, 0.64917064, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="Light"]
 visible = false
@@ -778,3 +779,5 @@ amount = 20
 texture = SubResource("GradientTexture2D_18q0w")
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_bwhww")
+
+[node name="Player" parent="." instance=ExtResource("5_ndcrv")]
