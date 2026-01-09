@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci4tlqsul483y"]
+
+[ext_resource type="Texture2D" uid="uid://clrht0p83e1q3" path="res://locations/classroom 1/cleaning tools.png" id="1_snruo"]
+
+[node name="CleaningTools" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_snruo")
+offset = Vector2(-1, -78)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(15, 1, 49, -22, 50, -36, 109, -24, 113, -34, 99, -51, 73, -63, -108, -93, -110, -42, -67, -57, -51, -26, -26, -20, -26, -10)

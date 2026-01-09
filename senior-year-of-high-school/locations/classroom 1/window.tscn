@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcu0bdjv8e63j"]
+[gd_scene load_steps=10 format=3 uid="uid://dcu0bdjv8e63j"]
 
 [ext_resource type="Texture2D" uid="uid://b1ehgqk72cba8" path="res://locations/classroom 1/window frame.png" id="1_htglh"]
 [ext_resource type="Shader" uid="uid://b0olpc3sqxwy4" path="res://locations/weather/fog.gdshader" id="2_8ags5"]
@@ -12,6 +12,13 @@ colors = PackedColorArray(0.08735167, 0.05254568, 0.31746662, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8ags5"]
 gradient = SubResource("Gradient_x8vso")
 
+[sub_resource type="Gradient" id="Gradient_8ags5"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.84233356, 0.7320765, 0.60457087, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f4e0e"]
+gradient = SubResource("Gradient_8ags5")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ags5"]
 shader = ExtResource("2_8ags5")
 shader_parameter/color = Color(0.7, 0.65, 1, 1)
@@ -22,7 +29,7 @@ shader_parameter/OCTAVES = 5
 shader_parameter/speed = 0.5
 shader_parameter/drift_x = 0.30000010925
 shader_parameter/drift_y = -0.2
-shader_parameter/swirl_amount = 1.7300000821750001
+shader_parameter/swirl_amount = 1.730000082175
 shader_parameter/morph_speed = 2.0
 
 [node name="Window" type="Node2D"]
@@ -32,12 +39,19 @@ position = Vector2(-3.194809e-05, -4.7683716e-07)
 scale = Vector2(6.5312495, 3.90625)
 texture = SubResource("GradientTexture2D_8ags5")
 
+[node name="BackgroundColor2" type="Sprite2D" parent="."]
+position = Vector2(-3.194809e-05, -4.7683716e-07)
+scale = Vector2(6.5312495, 3.90625)
+texture = SubResource("GradientTexture2D_f4e0e")
+
 [node name="Rain" type="GPUParticles2D" parent="."]
+visible = false
 amount = 500
 lifetime = 0.5
 process_material = ExtResource("3_x8vso")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_8ags5")
 offset_left = -202.0
 offset_top = -117.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b4cvvu47ioyge"]
+[gd_scene load_steps=35 format=3 uid="uid://b4cvvu47ioyge"]
 
 [ext_resource type="Texture2D" uid="uid://c1uvukxc5ep5w" path="res://locations/classroom 1/floor.png" id="1_q36er"]
 [ext_resource type="Texture2D" uid="uid://bn2vdiv2llja7" path="res://locations/classroom 1/front wall.png" id="2_bs5q1"]
@@ -7,19 +7,23 @@
 [ext_resource type="Texture2D" uid="uid://iffcd66nasy7" path="res://locations/classroom 1/desk group 4.png" id="4_8o0gr"]
 [ext_resource type="Texture2D" uid="uid://1srvjm6m3smb" path="res://locations/classroom 1/podium step.png" id="4_ac0k4"]
 [ext_resource type="Texture2D" uid="uid://b3h7ulx6jqpps" path="res://locations/classroom 1/podium.png" id="5_8ojc6"]
-[ext_resource type="PackedScene" uid="uid://bfvh2ft77x4ne" path="res://characters/player/player.tscn" id="5_ndcrv"]
 [ext_resource type="PackedScene" uid="uid://dj6tos8eh1g1h" path="res://locations/classroom 1/white_board.tscn" id="6_8ojc6"]
 [ext_resource type="PackedScene" uid="uid://chlkvmxp7x3la" path="res://locations/classroom 1/notice_board.tscn" id="7_8m7x0"]
 [ext_resource type="PackedScene" uid="uid://dmpxrgay02a61" path="res://locations/classroom 1/notification_paper.tscn" id="8_uo522"]
 [ext_resource type="PackedScene" uid="uid://bfipw2btov0da" path="res://locations/classroom 1/air_conditioner.tscn" id="9_uo522"]
+[ext_resource type="PackedScene" uid="uid://ci4tlqsul483y" path="res://locations/classroom 1/cleaning_tools.tscn" id="11_h164k"]
 [ext_resource type="Texture2D" uid="uid://fuqy8c1th8h0" path="res://locations/classroom 1/desk pair 1.png" id="11_qlqd6"]
 [ext_resource type="Texture2D" uid="uid://cd6y0kmb2u2kh" path="res://locations/classroom 1/desk group 3.png" id="11_xqo3r"]
+[ext_resource type="Texture2D" uid="uid://c6lug0urj660c" path="res://locations/classroom 1/broom.png" id="12_18q0w"]
 [ext_resource type="Texture2D" uid="uid://8en0otrwsviw" path="res://locations/classroom 1/desk pair 4.png" id="12_esjwd"]
 [ext_resource type="PackedScene" uid="uid://8ivmdwpds1ue" path="res://locations/classroom 1/chair.tscn" id="15_esjwd"]
 [ext_resource type="Texture2D" uid="uid://cn7vypci52rf3" path="res://locations/classroom 1/desk pair 2.png" id="16_ckmcd"]
 [ext_resource type="Texture2D" uid="uid://d30hchw3kxghu" path="res://locations/classroom 1/desk pair 3.png" id="17_wylog"]
 [ext_resource type="Texture2D" uid="uid://d4m6rcguppcgq" path="res://locations/classroom 1/desk group 1.png" id="18_x0yn4"]
 [ext_resource type="Texture2D" uid="uid://m3tcapeegn8t" path="res://locations/classroom 1/desk group 2.png" id="19_h164k"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h164k"]
+blend_mode = 1
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qlqd6"]
 
@@ -37,6 +41,44 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="Gradient" id="Gradient_h164k"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_18q0w"]
+gradient = SubResource("Gradient_h164k")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_c0jqg"]
+offsets = PackedFloat32Array(0, 0.46226415, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 0.896, 0.74, 0.98039216)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2p33c"]
+gradient = SubResource("Gradient_c0jqg")
+
+[sub_resource type="Curve" id="Curve_llryq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.48120302, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_phffx"]
+curve = SubResource("Curve_llryq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bwhww"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(400, 200, 1)
+angle_min = 1.0728835e-05
+angle_max = 45.00001
+direction = Vector3(1, 1, 0)
+spread = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.099999994
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_phffx")
+color_ramp = SubResource("GradientTexture1D_2p33c")
+
 [node name="Classroom1" type="Node2D"]
 y_sort_enabled = true
 
@@ -50,6 +92,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="LightOnFloor" type="Node2D" parent="."]
+
+[node name="WindowLight1" type="Polygon2D" parent="LightOnFloor"]
+material = SubResource("CanvasItemMaterial_h164k")
+color = Color(0.84, 0.6888, 0.69636, 0.039215688)
+polygon = PackedVector2Array(586, 719, 970, 714, 1071, 497, 689, 498)
+uv = PackedVector2Array(52.5, -135.25, 95, -99.25, 53.5, -133.25, 53, -139.25)
+
+[node name="WindowLight2" type="Polygon2D" parent="LightOnFloor"]
+material = SubResource("CanvasItemMaterial_h164k")
+position = Vector2(136, -292)
+color = Color(0.84, 0.6888, 0.69636, 0.039215688)
+polygon = PackedVector2Array(586, 719, 970, 714, 1071, 497, 689, 498)
+uv = PackedVector2Array(52.5, -135.25, 95, -99.25, 53.5, -133.25, 53, -139.25)
+
+[node name="WindowLight3" type="Polygon2D" parent="LightOnFloor"]
+material = SubResource("CanvasItemMaterial_h164k")
+position = Vector2(273, -587)
+color = Color(0.84, 0.6888, 0.69636, 0.039215688)
+polygon = PackedVector2Array(586, 719, 970, 714, 1071, 497, 689, 498)
+uv = PackedVector2Array(52.5, -135.25, 95, -99.25, 53.5, -133.25, 53, -139.25)
 
 [node name="Walls" type="Node2D" parent="."]
 z_index = -10
@@ -152,6 +216,13 @@ position = Vector2(1527, -358)
 
 [node name="AirConditioner" parent="Furniture/TeacherDesk" instance=ExtResource("9_uo522")]
 position = Vector2(457, -216)
+
+[node name="CleaningTools" parent="Furniture/TeacherDesk" instance=ExtResource("11_h164k")]
+position = Vector2(1631, -58)
+
+[node name="Broom" type="Sprite2D" parent="Furniture/TeacherDesk"]
+position = Vector2(1837, -168)
+texture = ExtResource("12_18q0w")
 
 [node name="StudentDesks" type="Node2D" parent="Furniture"]
 y_sort_enabled = true
@@ -650,15 +721,60 @@ position = Vector2(1875, 142)
 
 [node name="Other" type="Node2D" parent="Furniture"]
 
-[node name="Player" parent="." instance=ExtResource("5_ndcrv")]
-position = Vector2(1014, 659)
+[node name="Light" type="Node2D" parent="."]
+z_index = 100
 
-[node name="NightFilter" type="CanvasModulate" parent="."]
-visible = false
+[node name="NightFilter" type="CanvasModulate" parent="Light"]
 color = Color(0.3906121, 0.3765418, 0.524689, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="MorningFilter" type="CanvasModulate" parent="Light"]
+visible = false
+color = Color(0.93008083, 0.9049805, 0.8753325, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Light"]
 visible = false
 position = Vector2(1014, 441.99994)
 scale = Vector2(15.121094, 13.213929)
 texture = SubResource("GradientTexture2D_esjwd")
+
+[node name="WindowLight1" type="Polygon2D" parent="Light"]
+material = SubResource("CanvasItemMaterial_h164k")
+polygon = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0.39215687)
+
+[node name="WindowLight2" type="Polygon2D" parent="Light"]
+material = SubResource("CanvasItemMaterial_h164k")
+position = Vector2(136, -292)
+polygon = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 106, 118, 8, 327)
+vertex_colors = PackedColorArray(0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0.39215687)
+
+[node name="WindowLight3" type="Polygon2D" parent="Light"]
+material = SubResource("CanvasItemMaterial_h164k")
+position = Vector2(273, -587)
+polygon = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 106, 118, 8, 327)
+vertex_colors = PackedColorArray(0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0.39215687)
+
+[node name="Dust1" type="GPUParticles2D" parent="Light"]
+position = Vector2(414.99997, 440.99997)
+rotation = 0.29936013
+amount = 20
+texture = SubResource("GradientTexture2D_18q0w")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_bwhww")
+
+[node name="Dust2" type="GPUParticles2D" parent="Light"]
+position = Vector2(551, 174.00002)
+rotation = 0.37657458
+amount = 20
+texture = SubResource("GradientTexture2D_18q0w")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_bwhww")
+
+[node name="Dust3" type="GPUParticles2D" parent="Light"]
+position = Vector2(675, -131)
+rotation = 0.37657458
+amount = 20
+texture = SubResource("GradientTexture2D_18q0w")
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_bwhww")
