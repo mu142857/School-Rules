@@ -132,5 +132,6 @@ shape = SubResource("RectangleShape2D_472ap")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_4fi7n")
-animation = &"L_Run"
+animation = &"S_Sit"
+frame_progress = 0.28120297
 offset = Vector2(22, -250)

@@ -40,6 +40,7 @@ scale = Vector2(6.5312495, 3.90625)
 texture = SubResource("GradientTexture2D_8ags5")
 
 [node name="BackgroundColor2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-3.194809e-05, -4.7683716e-07)
 scale = Vector2(6.5312495, 3.90625)
 texture = SubResource("GradientTexture2D_f4e0e")
