@@ -34,21 +34,21 @@ shader_parameter/morph_speed = 2.0
 
 [node name="Window" type="Node2D"]
 
-[node name="BackgroundColor" type="Sprite2D" parent="."]
+[node name="NightColor" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-3.194809e-05, -4.7683716e-07)
 scale = Vector2(6.5312495, 3.90625)
 texture = SubResource("GradientTexture2D_8ags5")
 
-[node name="BackgroundColor2" type="Sprite2D" parent="."]
+[node name="MorningColor" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-3.194809e-05, -4.7683716e-07)
 scale = Vector2(6.5312495, 3.90625)
 texture = SubResource("GradientTexture2D_f4e0e")
 
 [node name="Rain" type="GPUParticles2D" parent="."]
-visible = false
-amount = 500
-lifetime = 0.5
+amount = 400
+lifetime = 0.4
 process_material = ExtResource("3_x8vso")
 
 [node name="ColorRect" type="ColorRect" parent="."]

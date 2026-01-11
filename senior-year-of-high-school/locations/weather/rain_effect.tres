@@ -36,9 +36,9 @@ curve_z = SubResource("Curve_gka7y")
 
 [resource]
 particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -200, 0)
+emission_shape_offset = Vector3(0, -120, 0)
 emission_shape = 3
-emission_box_extents = Vector3(350, 1, 1)
+emission_box_extents = Vector3(200, 1, 1)
 direction = Vector3(0, -1, 0)
 gravity = Vector3(0, 3000, 0)
 scale_min = 0.2
