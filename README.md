@@ -1,6 +1,6 @@
 # School Rules / 校规
 
-An independent game set in a Chinese high school.
+An independent game set in a Chinese high school. 
 
 这是一款以中国高中为背景的独立游戏，融合规则怪谈元素。
 
