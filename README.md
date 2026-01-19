@@ -38,7 +38,7 @@ You are a transfer student arriving at a prestigious high school with only three
 
 ## Status / 状态
 
-🚧 In Development / 开发中
+🚧 In Development / 开发中 (场景部分)
 
 ---
 
