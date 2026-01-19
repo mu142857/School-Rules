@@ -1,4 +1,4 @@
-# School Rules / 校规
+# School Rules / 高三模拟器
 
 An independent game set in a Chinese high school. 
 
