@@ -10,7 +10,7 @@ An independent game set in a Chinese high school.
 
 You are a transfer student arriving at a prestigious high school with only three months until the college entrance exam. The school has many rules — some are official, some are whispered between students, and some... you'll have to figure out yourself.
 
-你是一名转校生，在距离高考还有三个月时来到这所名校。学校有很多规则——有些是官方的，有些是同学间口耳相传的，还有些……你得自己摸索。
+你是一名转校生，在距离高考还有一学期时来到这所名校。学校有很多规则——有些是官方的，有些是同学间口耳相传的，还有些……你得自己摸索。
 
 ---
 
