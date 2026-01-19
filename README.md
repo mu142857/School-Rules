@@ -2,7 +2,7 @@
 
 An independent game set in a Chinese high school.
 
-一款以中国高中为背景的独立游戏，融合规则怪谈元素。
+这是一款以中国高中为背景的独立游戏，融合规则怪谈元素。
 
 ---
 
