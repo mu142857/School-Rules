@@ -1,16 +1,16 @@
-# School Rules / 校规
+# School Rules / 高三模拟器
 
-An independent game set in a Chinese high school.
+An independent game set in a Chinese high school. 
 
-一款以中国高中为背景的独立游戏，融合规则怪谈元素。
+这是一款以中国高中为背景的独立游戏，融合规则怪谈元素。
 
 ---
 
-## About / 关于
+## About / 简介
 
 You are a transfer student arriving at a prestigious high school with only three months until the college entrance exam. The school has many rules — some are official, some are whispered between students, and some... you'll have to figure out yourself.
 
-你是一名转校生，在距离高考还有三个月时来到这所名校。学校有很多规则——有些是官方的，有些是同学间口耳相传的，还有些……你得自己摸索。
+你是一名转校生，在距离高考还有一学期时来到这所名校。学校有很多规则——有些是官方的，有些是同学间口耳相传的，还有些……你可能得自己摸索。
 
 ---
 
@@ -29,7 +29,7 @@ You are a transfer student arriving at a prestigious high school with only three
 
 ---
 
-## Team / 团队
+## Team / 开发者团队
 
 - **Game Design, Art & Story / 游戏策划、美术和剧情**: 高艺晨 (Yichen Gao)
 - **Programming & Music / 编程 & 音乐**: 上官嘉木 (Jiamu Shangguan)
@@ -38,7 +38,7 @@ You are a transfer student arriving at a prestigious high school with only three
 
 ## Status / 状态
 
-🚧 In Development / 开发中
+🚧 In Development / 开发中 (场景部分)
 
 ---
 
