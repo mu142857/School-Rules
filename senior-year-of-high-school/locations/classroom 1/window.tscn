@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcu0bdjv8e63j"]
+[gd_scene load_steps=13 format=3 uid="uid://dcu0bdjv8e63j"]
 
+[ext_resource type="Script" uid="uid://c2rbfch3phmq5" path="res://locations/classroom 1/window.gd" id="1_f4e0e"]
 [ext_resource type="Texture2D" uid="uid://b1ehgqk72cba8" path="res://locations/classroom 1/window frame.png" id="1_htglh"]
 [ext_resource type="Shader" uid="uid://b0olpc3sqxwy4" path="res://locations/weather/fog.gdshader" id="2_8ags5"]
 [ext_resource type="Texture2D" uid="uid://dohookq752ddx" path="res://locations/classroom 1/window glass.png" id="2_x8vso"]
@@ -14,10 +15,17 @@ gradient = SubResource("Gradient_x8vso")
 
 [sub_resource type="Gradient" id="Gradient_8ags5"]
 offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.84233356, 0.7320765, 0.60457087, 1)
+colors = PackedColorArray(0.9311524, 0.6847802, 0.5208665, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_f4e0e"]
 gradient = SubResource("Gradient_8ags5")
+
+[sub_resource type="Gradient" id="Gradient_f4e0e"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.7709292, 0.8655159, 0.8249727, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o1vrk"]
+gradient = SubResource("Gradient_f4e0e")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ags5"]
 shader = ExtResource("2_8ags5")
@@ -33,25 +41,30 @@ shader_parameter/swirl_amount = 1.730000082175
 shader_parameter/morph_speed = 2.0
 
 [node name="Window" type="Node2D"]
+script = ExtResource("1_f4e0e")
 
 [node name="NightColor" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-3.194809e-05, -4.7683716e-07)
 scale = Vector2(6.5312495, 3.90625)
 texture = SubResource("GradientTexture2D_8ags5")
 
 [node name="MorningColor" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-3.194809e-05, -4.7683716e-07)
 scale = Vector2(6.5312495, 3.90625)
 texture = SubResource("GradientTexture2D_f4e0e")
 
+[node name="NoonColor" type="Sprite2D" parent="."]
+position = Vector2(-3.194809e-05, -4.7683716e-07)
+scale = Vector2(6.5312495, 3.90625)
+texture = SubResource("GradientTexture2D_o1vrk")
+
 [node name="Rain" type="GPUParticles2D" parent="."]
+visible = false
 amount = 400
 lifetime = 0.4
 process_material = ExtResource("3_x8vso")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Fog" type="ColorRect" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_8ags5")
 offset_left = -202.0
