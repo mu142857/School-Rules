@@ -65,6 +65,21 @@ theme_override_font_sizes/font_size = 30
 text = "【效果：物理知识+1，耗时10分钟】"
 horizontal_alignment = 2
 
+[node name="InteractPanel" type="NinePatchRect" parent="UpperSection"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="TextureRect" parent="UpperSection/InteractPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UseButton" type="TextureButton" parent="UpperSection/InteractPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="LowerSection" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
@@ -72,8 +87,10 @@ offset_bottom = 40.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="LowerSection"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 120.0
+offset_top = 348.0
+offset_right = 1140.0
+offset_bottom = 634.0
 
-[node name="GridContainer" type="GridContainer" parent="LowerSection/ScrollContainer"]
+[node name="ItemGrid" type="GridContainer" parent="LowerSection/ScrollContainer"]
 layout_mode = 2
