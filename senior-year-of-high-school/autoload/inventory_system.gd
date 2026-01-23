@@ -1,5 +1,6 @@
 # autoload/inventory_system.gd
 extends Node
+signal inventory_changed
 
 # === 消耗品库存 ===
 var consumables: Dictionary = {
@@ -74,7 +75,7 @@ func use_consumable(item_name: String) -> bool:
 			GameManager.pressure = max(0, GameManager.pressure - 15)
 			GameManager.hunger = min(100, GameManager.hunger + 7)
 			BuffSystem.add_buff("DIGESTING", 7)
-	
+	inventory_changed.emit()
 	return true
 
 # === 读书（耗时10分钟）===
@@ -125,11 +126,13 @@ func get_and_clear_class_bonus() -> int:
 func add_consumable(item_name: String, amount: int = 1):
 	if consumables.has(item_name):
 		consumables[item_name] += amount
+		inventory_changed.emit()
 
 # === 获得永久物品 ===
 func acquire_item(item_name: String):
 	if items.has(item_name):
 		items[item_name] = true
+		inventory_changed.emit()
 
 # === 检查是否拥有永久物品 ===
 func has_item(item_name: String) -> bool:

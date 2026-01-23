@@ -28,7 +28,11 @@ func set_selected(state: bool):
 func set_owned(is_owned: bool):
 	if is_owned:
 		modulate = Color(1, 1, 1, 1) # 正常颜色
-		count_label.show()
+		# 只有是消耗品时，才允许显示数量 Label
+		if is_consumable:
+			count_label.show()
+		else:
+			count_label.hide()
 	else:
-		modulate = Color(0.3, 0.3, 0.3, 1) # 变暗/变灰
-		count_label.hide() # 没拥有时不显示数量 0
+		modulate = Color(0.3, 0.3, 0.3, 1) # 变暗
+		count_label.hide() # 没拥有肯定不显示数量

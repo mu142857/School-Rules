@@ -5,28 +5,22 @@ extends Control
 @onready var pressure_icon = $LeftSection/PressureBar/Icon
 @onready var pressure_label = $LeftSection/PressureBar/Label
 @onready var pressure_name = $LeftSection/PressureBar/NameTag
-@onready var pressure_arrow_up = $LeftSection/PressureBar/ArrowUp
-@onready var pressure_arrow_down = $LeftSection/PressureBar/ArrowDown
 
 @onready var hunger_bar = $LeftSection/HungerBar
 @onready var hunger_icon = $LeftSection/HungerBar/Icon
 @onready var hunger_label = $LeftSection/HungerBar/Label
 @onready var hunger_name = $LeftSection/HungerBar/NameTag
-@onready var hunger_arrow_up = $LeftSection/HungerBar/ArrowUp
-@onready var hunger_arrow_down = $LeftSection/HungerBar/ArrowDown
 
 @onready var toilet_bar = $LeftSection/ToiletBar
 @onready var toilet_icon = $LeftSection/ToiletBar/Icon
 @onready var toilet_label = $LeftSection/ToiletBar/Label
 @onready var toilet_name = $LeftSection/ToiletBar/NameTag
-@onready var toilet_arrow_up = $LeftSection/ToiletBar/ArrowUp
-@onready var toilet_arrow_down = $LeftSection/ToiletBar/ArrowDown
+@onready var violation_name = $ViolationSection/NameTag
+@onready var violation_label = $ViolationSection/Label
 
 @onready var paper1 = $ViolationSection/Paper1
 @onready var paper2 = $ViolationSection/Paper2
 @onready var paper3 = $ViolationSection/Paper3
-@onready var violation_label = $ViolationSection/Label
-@onready var violation_name = $ViolationSection/NameTag
 
 @onready var pie_title = $RightSection/NameTag
 @onready var pie_chart = $RightSection/PieChart
@@ -74,7 +68,6 @@ func _ready():
 
 func _process(_delta):
 	update_display()
-	check_arrows()
 	setup_names()
 
 func setup_names():
@@ -85,36 +78,6 @@ func setup_names():
 	
 	pie_title.text = TranslationSystem.t("PIE_TITLE")
 	update_pie_legend()
-
-func check_arrows():
-	# 每两小时判定一次
-	var current_hour = GameManager.hour
-	var hours_passed = current_hour - last_check_hour
-	if hours_passed < 0:
-		hours_passed += 24  # 跨天
-	
-	if hours_passed >= 2:
-		# 判定并更新箭头
-		update_arrow(pressure_arrow_up, pressure_arrow_down, GameManager.pressure, last_pressure)
-		update_arrow(hunger_arrow_up, hunger_arrow_down, GameManager.hunger, last_hunger)
-		update_arrow(toilet_arrow_up, toilet_arrow_down, GameManager.toilet_desire, last_toilet)
-		
-		# 更新记录
-		last_pressure = GameManager.pressure
-		last_hunger = GameManager.hunger
-		last_toilet = GameManager.toilet_desire
-		last_check_hour = current_hour
-
-func update_arrow(arrow_up: GPUParticles2D, arrow_down: GPUParticles2D, current: float, last: float):
-	if current > last:
-		arrow_up.emitting = true
-		arrow_down.emitting = false
-	elif current < last:
-		arrow_up.emitting = false
-		arrow_down.emitting = true
-	else:
-		arrow_up.emitting = false
-		arrow_down.emitting = false
 
 func update_display():
 	# 新增：让饼图重新读取数据并重绘

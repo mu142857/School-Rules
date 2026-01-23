@@ -9,7 +9,7 @@ extends Control
 @onready var effect_label = $UpperSection/InfoPanel/EffectLabel
 @onready var top_icon = $UpperSection/InteractPanel/Icon
 @onready var use_button = $UpperSection/InteractPanel/UseButton
-@onready var use_button_label = $UpperSection/InteractPanel/UseButton/Lable
+@onready var use_button_label = $UpperSection/InteractPanel/UseButton/Label
 
 # === 资源预载 ===
 var item_slot_scene = preload("res://items and saves/items/item_slot.tscn")
@@ -37,6 +37,7 @@ func _ready():
 	# 初始化连接
 	if not use_button.pressed.is_connected(_on_use_pressed):
 		use_button.pressed.connect(_on_use_pressed)
+	InventorySystem.inventory_changed.connect(refresh_inventory)
 	
 	# 初始状态隐藏详情和按钮
 	clear_info()
@@ -46,17 +47,14 @@ func _ready():
 # === 刷新逻辑 ===
 
 func refresh_inventory():
-	# 清空旧格子
 	for child in item_grid.get_children():
 		child.queue_free()
 	
-	# 遍历固定列表，生成所有格子
 	for id in ALL_ITEM_LIST:
 		var count = 0
 		var owned = false
 		var consumable = false
 		
-		# 判断是消耗品还是永久物品
 		if InventorySystem.consumables.has(id):
 			consumable = true
 			count = InventorySystem.consumables[id]
@@ -65,11 +63,14 @@ func refresh_inventory():
 			consumable = false
 			owned = InventorySystem.has_item(id)
 		
-		# 在开发者模式下强制视为拥有
-		if GameManager.dev_mode:
-			owned = true
+		if GameManager.dev_mode: owned = true
 			
-		create_slot_ext(id, count, consumable, owned)
+		# 创建格子
+		var slot = create_slot_ext(id, count, consumable, owned)
+		
+		# === 新增：如果这个格子的 ID 正好是刚才选中的那个，恢复它的视觉状态 ===
+		if id == current_selected_id:
+			slot.set_selected(true)
 
 func create_slot_ext(id: String, count: int, consumable: bool, owned: bool):
 	var slot = item_slot_scene.instantiate()
@@ -79,8 +80,10 @@ func create_slot_ext(id: String, count: int, consumable: bool, owned: bool):
 	var path = "res://items and saves/items/item%d.png" % img_num
 	
 	slot.setup(id, path, count, consumable)
-	slot.set_owned(owned) # 调用你刚写的新函数
+	slot.set_owned(owned) 
 	slot.pressed.connect(_on_item_clicked.bind(slot))
+	
+	return slot
 
 # === 交互逻辑 ===
 

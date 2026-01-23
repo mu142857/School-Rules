@@ -88,7 +88,7 @@ offset_right = 223.0
 offset_bottom = 350.0
 texture_normal = ExtResource("4_gjt6l")
 
-[node name="Lable" type="Label" parent="UpperSection/InteractPanel/UseButton"]
+[node name="Label" type="Label" parent="UpperSection/InteractPanel/UseButton"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 5.0

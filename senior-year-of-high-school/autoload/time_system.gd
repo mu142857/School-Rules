@@ -300,3 +300,14 @@ func go_to_next_day():
 	# 7. 结算并恢复
 	StatsSystem.daily_settlement()
 	resume_time()
+
+func recheck_auto_pause():
+	var period = get_current_period()
+	# 如果当前时段是上课、跑操、午休或睡觉，保持暂停
+	if period.begins_with("CLASS") or \
+	   period.begins_with("MORNING_RUN") or \
+	   period == "NAP" or \
+	   period == "SLEEPING":
+		is_paused = true
+	else:
+		is_paused = false

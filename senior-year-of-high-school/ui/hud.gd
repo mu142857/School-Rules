@@ -149,5 +149,6 @@ func _on_slide_in_finished():
 
 func _on_info_panel_closed():
 	info_panel_instance = null # 重要：确保能再次打开
-	TimeSystem.is_paused = false
+	#TimeSystem.is_paused = false
+	TimeSystem.recheck_auto_pause() 
 	slide_in()
