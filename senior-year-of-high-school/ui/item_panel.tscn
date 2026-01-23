@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://chk4jjgjwxmhq"]
+[gd_scene load_steps=5 format=3 uid="uid://chk4jjgjwxmhq"]
 
+[ext_resource type="Script" uid="uid://dtpnu1t1v5nmt" path="res://ui/item_panel.gd" id="1_2nlfp"]
 [ext_resource type="Texture2D" uid="uid://c4gilvnqdlrg8" path="res://ui/panels/Item Panel.png" id="1_jlm3y"]
 [ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="2_lq18c"]
+[ext_resource type="Texture2D" uid="uid://cg2dmch40i2n2" path="res://ui/icons/button.png" id="4_gjt6l"]
 
 [node name="item_panel" type="Control"]
 layout_mode = 3
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2nlfp")
 
 [node name="ItemTag" type="Sprite2D" parent="."]
 position = Vector2(1, 23.999998)
@@ -55,7 +58,7 @@ text = "据说研究它能掌握时间的本质，目前你只掌握了怎么让
 
 [node name="EffectLabel" type="Label" parent="UpperSection/InfoPanel"]
 layout_mode = 0
-offset_left = 337.0
+offset_left = 9.0
 offset_top = 35.0
 offset_right = 821.0
 offset_bottom = 65.0
@@ -79,8 +82,24 @@ offset_bottom = 288.0
 
 [node name="UseButton" type="TextureButton" parent="UpperSection/InteractPanel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 117.0
+offset_top = 301.0
+offset_right = 223.0
+offset_bottom = 350.0
+texture_normal = ExtResource("4_gjt6l")
+
+[node name="Lable" type="Label" parent="UpperSection/InteractPanel/UseButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 5.0
+offset_right = 70.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.31969476, 0.39963734, 0.45817375, 1)
+theme_override_fonts/font = ExtResource("2_lq18c")
+theme_override_font_sizes/font_size = 30
+text = "使用"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LowerSection" type="Control" parent="."]
 anchors_preset = 0
@@ -96,3 +115,4 @@ offset_bottom = 634.0
 
 [node name="ItemGrid" type="GridContainer" parent="LowerSection/ScrollContainer"]
 layout_mode = 2
+columns = 7

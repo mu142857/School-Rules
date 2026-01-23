@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://brg8vmfwtax5c"]
+
+[ext_resource type="Texture2D" uid="uid://dihiqdjx0fj4x" path="res://items and saves/items/item_background.png" id="1_cfyd7"]
+[ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="1_ldusv"]
+[ext_resource type="Texture2D" uid="uid://bb3ftm1yh78gu" path="res://items and saves/items/item_background_selected.png" id="2_v1gn3"]
+[ext_resource type="Script" uid="uid://cyh8xnwl8vy5s" path="res://items and saves/items/item_slot.gd" id="3_pxttg"]
+[ext_resource type="Texture2D" uid="uid://mfklfjl718m4" path="res://items and saves/items/item2.png" id="3_v1gn3"]
+
+[node name="ItemSlot" type="TextureButton"]
+anchors_preset = -1
+anchor_right = 0.1
+anchor_bottom = 0.178
+offset_right = -88.0
+offset_bottom = -88.16
+texture_normal = ExtResource("1_cfyd7")
+texture_hover = ExtResource("2_v1gn3")
+script = ExtResource("3_pxttg")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 31.0
+offset_right = 152.0
+offset_bottom = 159.0
+scale = Vector2(0.64193445, 0.64193445)
+texture = ExtResource("3_v1gn3")
+
+[node name="CountLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 23.0
+offset_right = 118.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("1_ldusv")
+theme_override_font_sizes/font_size = 15
+text = "能量饮料"
+horizontal_alignment = 1

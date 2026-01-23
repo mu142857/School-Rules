@@ -93,6 +93,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 
 [node name="LightOnFloor" type="Node2D" parent="."]
@@ -736,6 +737,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.78547436, 0.82814056, 0.9517719, 0.29411766)
 
 [node name="MorningFilter" type="ColorRect" parent="Light/TimeFilter"]
@@ -744,6 +746,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.75889045, 0.31575328, 1.92523e-07, 0.19607843)
 
 [node name="PointLight1" type="PointLight2D" parent="Light"]

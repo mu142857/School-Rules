@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bligeexj6ers2"]
+[gd_scene load_steps=14 format=3 uid="uid://bligeexj6ers2"]
 
 [ext_resource type="Script" uid="uid://5bnd0l2niyv0" path="res://ui/info_panel.gd" id="1_lrlkj"]
 [ext_resource type="Texture2D" uid="uid://c0col6ictetkj" path="res://ui/icons/rope.png" id="2_lv2uk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://v1hb11lw71jy" path="res://ui/body_panel.tscn" id="6_xgebp"]
 [ext_resource type="Texture2D" uid="uid://klat43xwlx0w" path="res://ui/panels/Map Panel.png" id="7_d6f8p"]
 [ext_resource type="PackedScene" uid="uid://c41t43uqdub1n" path="res://ui/study_panel.tscn" id="8_qw5go"]
+[ext_resource type="PackedScene" uid="uid://chk4jjgjwxmhq" path="res://ui/item_panel.tscn" id="10_kqtvm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcp5r"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -226,6 +227,9 @@ position = Vector2(1, 23.999998)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("5_tx13g")
 centered = false
+
+[node name="item_panel" parent="Control/Panel/ItemContent" instance=ExtResource("10_kqtvm")]
+layout_mode = 1
 
 [node name="MapContent" type="Control" parent="Control/Panel"]
 visible = false
