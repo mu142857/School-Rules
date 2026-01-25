@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlnqei3ryi0o3"]
+[gd_scene load_steps=4 format=3 uid="uid://dlnqei3ryi0o3"]
 
 [ext_resource type="Texture2D" uid="uid://klat43xwlx0w" path="res://ui/panels/Map Panel.png" id="1_fun7b"]
+[ext_resource type="Texture2D" uid="uid://c5ejpfuiw1trk" path="res://locations/map/map.png" id="2_4vbjp"]
+[ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="3_dgb6l"]
 
 [node name="map_panel" type="Control"]
 layout_mode = 3
@@ -15,3 +17,23 @@ position = Vector2(1, 23.999998)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("1_fun7b")
 centered = false
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(625, 383)
+scale = Vector2(2.7932096, 2.7932096)
+texture = ExtResource("2_4vbjp")
+
+[node name="PositionLable1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 214.0
+offset_right = 174.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(0.34117648, 0.3764706, 0.5137255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 22
+text = "男
+宿
+舍
+楼"

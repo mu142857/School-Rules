@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://chk4jjgjwxmhq"]
+[gd_scene load_steps=7 format=3 uid="uid://chk4jjgjwxmhq"]
 
 [ext_resource type="Script" uid="uid://dtpnu1t1v5nmt" path="res://ui/item_panel.gd" id="1_2nlfp"]
 [ext_resource type="Texture2D" uid="uid://c4gilvnqdlrg8" path="res://ui/panels/Item Panel.png" id="1_jlm3y"]
 [ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="2_lq18c"]
-[ext_resource type="Texture2D" uid="uid://cg2dmch40i2n2" path="res://ui/icons/button.png" id="4_gjt6l"]
+[ext_resource type="Texture2D" uid="uid://cdnulwym1wrfj" path="res://ui/icons/button.png" id="4_gjt6l"]
+[ext_resource type="Texture2D" uid="uid://do13co2n43dx1" path="res://ui/icons/button_touched.png" id="5_587pv"]
+[ext_resource type="Texture2D" uid="uid://b24f7dvhjyddp" path="res://ui/icons/button_touching.png" id="5_hyfk6"]
 
 [node name="item_panel" type="Control"]
 layout_mode = 3
@@ -34,10 +36,10 @@ offset_bottom = 291.0
 
 [node name="NameLabel" type="Label" parent="UpperSection/InfoPanel"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 16.0
-offset_right = 349.0
-offset_bottom = 66.0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 342.0
+offset_bottom = 56.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_lq18c")
@@ -46,27 +48,33 @@ text = "物品名称"
 
 [node name="DescLabel" type="Label" parent="UpperSection/InfoPanel"]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 79.0
-offset_right = 642.0
-offset_bottom = 109.0
+offset_left = 15.0
+offset_top = 111.0
+offset_right = 631.0
+offset_bottom = 141.0
 theme_override_colors/font_color = Color(0.34117648, 0.3764706, 0.5137255, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("2_lq18c")
 theme_override_font_sizes/font_size = 22
 text = "据说研究它能掌握时间的本质，目前你只掌握了怎么让自己头晕"
 
-[node name="EffectLabel" type="Label" parent="UpperSection/InfoPanel"]
+[node name="EffectLabel" type="RichTextLabel" parent="UpperSection/InfoPanel"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 35.0
-offset_right = 821.0
-offset_bottom = 65.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_lq18c")
-theme_override_font_sizes/font_size = 30
+offset_left = 12.0
+offset_top = 74.0
+offset_right = 595.0
+offset_bottom = 104.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_lq18c")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
 text = "【效果：物理知识+1，耗时10分钟】"
-horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="InteractPanel" type="NinePatchRect" parent="UpperSection"]
 layout_mode = 0
@@ -82,21 +90,22 @@ offset_bottom = 288.0
 
 [node name="UseButton" type="TextureButton" parent="UpperSection/InteractPanel"]
 layout_mode = 0
-offset_left = 117.0
-offset_top = 301.0
-offset_right = 223.0
-offset_bottom = 350.0
+offset_left = 119.0
+offset_top = 303.0
+offset_right = 191.0
+offset_bottom = 338.0
 texture_normal = ExtResource("4_gjt6l")
+texture_pressed = ExtResource("5_hyfk6")
+texture_hover = ExtResource("5_587pv")
 
 [node name="Label" type="Label" parent="UpperSection/InteractPanel/UseButton"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 5.0
-offset_right = 70.0
-offset_bottom = 35.0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 33.0
 theme_override_colors/font_color = Color(0.31969476, 0.39963734, 0.45817375, 1)
 theme_override_fonts/font = ExtResource("2_lq18c")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "使用"
 horizontal_alignment = 1
 vertical_alignment = 1

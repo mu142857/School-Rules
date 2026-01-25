@@ -33,6 +33,21 @@ const ALL_ITEM_LIST = [
 	"RELATIVITY", "ERTA2", "BASKETBALL"
 ]
 
+# 定义颜色常量 (十六进制码)
+const COLORS = {
+	"POSITIVE": "#79ff79", # 亮绿色
+	"NEGATIVE": "#ff7979", # 亮红色
+	"CHINESE": "#cfa794",  # 灰橙色
+	"MATH": "#94aacf",     # 灰蓝色
+	"ENGLISH": "#bca4e0",  # 灰粉色
+	"PHYSICS": "#7684cf",  # 灰蓝色/紫色
+	"BIOLOGY": "#60bd7d",  # 灰绿色
+	"GEOGRAPHY": "#aba058", # 灰黄色
+	"HUNGER": "#a67c52",   # 灰棕色
+	"PRESSURE": "#8b3a4c",  # 灰红色
+	"TIME": "#a9b7aa"      # 时间/分钟(灰色)
+}
+
 func _ready():
 	# 初始化连接
 	if not use_button.pressed.is_connected(_on_use_pressed):
@@ -47,9 +62,11 @@ func _ready():
 # === 刷新逻辑 ===
 
 func refresh_inventory():
+	# 1. 清空 (用普通的 queue_free 就行，不需要 remove_child)
 	for child in item_grid.get_children():
 		child.queue_free()
 	
+	# 2. 严格按数据生成
 	for id in ALL_ITEM_LIST:
 		var count = 0
 		var owned = false
@@ -63,12 +80,10 @@ func refresh_inventory():
 			consumable = false
 			owned = InventorySystem.has_item(id)
 		
-		if GameManager.dev_mode: owned = true
-			
-		# 创建格子
+		# 删掉那个强制 owned = true 的逻辑！
+		# 只传真实的 owned 状态给格子
 		var slot = create_slot_ext(id, count, consumable, owned)
 		
-		# === 新增：如果这个格子的 ID 正好是刚才选中的那个，恢复它的视觉状态 ===
 		if id == current_selected_id:
 			slot.set_selected(true)
 
@@ -107,46 +122,54 @@ func update_info_display():
 		
 	var id = current_selected_id
 	
-	# === 判定是否真正拥有 (用于显示内容) ===
+	# === 1. 判定是否真正拥有 ===
 	var truly_owned = false
 	if is_selected_consumable:
-		truly_owned = InventorySystem.consumables[id] > 0
+		truly_owned = InventorySystem.consumables.get(id, 0) > 0
 	else:
 		truly_owned = InventorySystem.has_item(id)
 	
-	# 开发者模式全开
 	if GameManager.dev_mode: truly_owned = true
 
-	# === 分情况显示内容 ===
+	# === 2. 分情况显示内容 ===
 	if truly_owned:
-		# 1. 拥有时：正常显示全部信息
+		# --- 拥有时：正常显示全部信息 ---
 		name_label.text = TranslationSystem.t("ITEM_" + id + "_NAME")
 		desc_label.text = TranslationSystem.t("ITEM_" + id + "_DESC")
-		effect_label.text = TranslationSystem.t("ITEM_" + id + "_EFFECT")
 		
+		# 处理彩色效果文字（调用下面的染色函数）
+		var raw_effect = TranslationSystem.t("ITEM_" + id + "_EFFECT")
+		effect_label.text = get_styled_effect_text(raw_effect)
+		
+		# 加载图标
 		var img_num = ITEM_IMAGE_MAP.get(id, 1)
 		top_icon.texture = load("res://items and saves/items/item%d.png" % img_num)
 		top_icon.modulate = Color(1, 1, 1, 1) # 正常颜色
+		top_icon.show()
 		
-		# 显示并配置使用按钮
+		# 显示并配置按钮
 		use_button.show()
 		if is_selected_consumable:
-			use_button_label.text = TranslationSystem.t("UI_USE")
+			use_button_label.text = TranslationSystem.t("UI_USE") # "食用"
+			use_button.disabled = false
 		elif id == "BASKETBALL":
-			use_button_label.text = TranslationSystem.t("UI_PLAY")
+			use_button_label.text = TranslationSystem.t("UI_PLAY") # "打球"
+			# 篮球只能在晚餐时间使用
 			use_button.disabled = (TimeSystem.get_current_period() != "DINNER")
 		else:
-			use_button_label.text = TranslationSystem.t("UI_READ")
+			use_button_label.text = TranslationSystem.t("UI_READ") # "阅读"
 			use_button.disabled = false
 	else:
-		# 2. 未拥有时：显示问号，隐藏效果，隐藏按钮
+		# --- 未拥有时：显示问号，隐藏详情 ---
 		name_label.text = "???"
-		desc_label.text = "尚未获得该物品，无法查看详情。" # 或者翻译 key: ITEM_UNKNOWN_DESC
-		effect_label.text = ""
+		desc_label.text = "尚未获得该物品，无法查看详情。"
+		effect_label.text = "" # 隐藏效果描述
 		
+		# 显示全黑剪影图标
 		var img_num = ITEM_IMAGE_MAP.get(id, 1)
 		top_icon.texture = load("res://items and saves/items/item%d.png" % img_num)
-		top_icon.modulate = Color(0, 0, 0, 0.5) # 变成全黑剪影，增加神秘感
+		top_icon.modulate = Color(0, 0, 0, 0.5) 
+		top_icon.show()
 		
 		# 隐藏按钮
 		use_button.hide()
@@ -189,3 +212,31 @@ func clear_info():
 	effect_label.text = ""
 	top_icon.hide()
 	use_button.hide()
+
+func get_styled_effect_text(raw_text: String) -> String:
+	var styled = raw_text
+	
+	# 染色符号 (+ 和 -)
+	styled = styled.replace("+", "[color=%s]+[/color]" % COLORS.POSITIVE)
+	styled = styled.replace("-", "[color=%s]-[/color]" % COLORS.NEGATIVE)
+	
+	# 染色关键字
+	var keywords = {
+		"语文": COLORS.CHINESE,
+		"数学": COLORS.MATH,
+		"英语": COLORS.ENGLISH,
+		"物理": COLORS.PHYSICS,
+		"生物": COLORS.BIOLOGY,
+		"地理": COLORS.GEOGRAPHY,
+		"知识点": "#ffffff", # 知识点用纯白突出
+		"饱食度": COLORS.HUNGER,
+		"压力": COLORS.PRESSURE,
+		"耗时": COLORS.TIME,
+		"分钟": COLORS.TIME
+	}
+	
+	for key in keywords:
+		if styled.contains(key):
+			styled = styled.replace(key, "[color=%s]%s[/color]" % [keywords[key], key])
+	
+	return styled
