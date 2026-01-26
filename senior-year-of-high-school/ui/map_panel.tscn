@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlnqei3ryi0o3"]
+[gd_scene load_steps=5 format=3 uid="uid://dlnqei3ryi0o3"]
 
+[ext_resource type="Script" uid="uid://bdjrq5uqgc7pr" path="res://ui/map_panel.gd" id="1_bvx1k"]
 [ext_resource type="Texture2D" uid="uid://klat43xwlx0w" path="res://ui/panels/Map Panel.png" id="1_fun7b"]
 [ext_resource type="Texture2D" uid="uid://c5ejpfuiw1trk" path="res://locations/map/map.png" id="2_4vbjp"]
 [ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="3_dgb6l"]
@@ -11,8 +12,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bvx1k")
 
 [node name="MapTag" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1, 23.999998)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("1_fun7b")
@@ -22,18 +26,857 @@ centered = false
 position = Vector2(625, 383)
 scale = Vector2(2.7932096, 2.7932096)
 texture = ExtResource("2_4vbjp")
+metadata/_edit_lock_ = true
 
-[node name="PositionLable1" type="Label" parent="."]
+[node name="Label_ZH" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Dorm_Boy" type="Label" parent="Label_ZH"]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 214.0
-offset_right = 174.0
-offset_bottom = 315.0
-theme_override_colors/font_color = Color(0.34117648, 0.3764706, 0.5137255, 1)
+offset_left = 148.0
+offset_top = 198.0
+offset_right = 178.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0.2804877, 0.45203578, 0.43037343, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_fonts/font = ExtResource("3_dgb6l")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 30
 text = "男
 宿
 舍
 楼"
+horizontal_alignment = 1
+
+[node name="Green_Belt" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 428.0
+offset_right = 201.0
+offset_bottom = 448.0
+theme_override_colors/font_color = Color(0.2462889, 0.42953786, 0.30789837, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "绿植带"
+horizontal_alignment = 1
+
+[node name="Shower_Room" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 183.0
+offset_right = 302.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(0.27375335, 0.44847757, 0.4286905, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 15
+text = "浴室"
+horizontal_alignment = 1
+
+[node name="Track_Area" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 804.0
+offset_top = 384.0
+offset_right = 924.0
+offset_bottom = 404.0
+theme_override_colors/font_color = Color(0.283812, 0.45158005, 0.33856818, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "跑道和绿化带"
+horizontal_alignment = 1
+
+[node name="Dorm_Garden" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 468.0
+offset_right = 486.0
+offset_bottom = 488.0
+theme_override_colors/font_color = Color(0.283812, 0.45158005, 0.33856818, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "女宿舍楼下花园"
+horizontal_alignment = 1
+
+[node name="Dorm_Girl_1" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 397.0
+offset_right = 360.0
+offset_bottom = 430.0
+theme_override_colors/font_color = Color(0.56468666, 0.3193166, 0.6225351, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 15
+text = "女宿舍
+楼1"
+horizontal_alignment = 1
+
+[node name="Dorm_Girl_2" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 394.0
+offset_right = 517.0
+offset_bottom = 427.0
+theme_override_colors/font_color = Color(0.56468666, 0.3193166, 0.6225351, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 15
+text = "女宿舍
+楼2"
+horizontal_alignment = 1
+
+[node name="Milk_Station" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 379.0
+offset_right = 412.0
+offset_bottom = 392.0
+theme_override_colors/font_color = Color(0.5368597, 0.53307366, 0.24051708, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 12
+text = "奶站"
+horizontal_alignment = 1
+
+[node name="Canteen_Student" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 259.0
+offset_right = 416.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(0.61402965, 0.40913644, 0.29722124, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "学生食堂"
+horizontal_alignment = 1
+
+[node name="Kitchen" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 258.0
+offset_right = 317.0
+offset_bottom = 271.0
+theme_override_colors/font_color = Color(0.5368597, 0.53307366, 0.24051708, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 12
+text = "后厨"
+horizontal_alignment = 1
+
+[node name="Canteen_Teacher" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 289.0
+offset_right = 318.0
+offset_bottom = 318.0
+theme_override_colors/font_color = Color(0.6156863, 0.40784314, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 12
+text = "教师
+食堂"
+horizontal_alignment = 1
+
+[node name="Shop" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 183.0
+offset_right = 416.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(0.5644929, 0.55328506, 0.3047357, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 15
+text = "商店"
+horizontal_alignment = 1
+
+[node name="Building_1" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 198.0
+offset_right = 531.0
+offset_bottom = 307.0
+theme_override_colors/font_color = Color(0.5686275, 0.5529412, 0.30588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 25
+text = "教
+学
+楼
+一"
+horizontal_alignment = 1
+
+[node name="Building_2" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 190.0
+offset_right = 723.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(0.5686275, 0.5529412, 0.30588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "教
+学
+楼
+二"
+horizontal_alignment = 1
+
+[node name="Academic_Woods" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 581.0
+offset_top = 191.0
+offset_right = 656.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.2462889, 0.42953786, 0.30789837, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 15
+text = "教学楼小林"
+horizontal_alignment = 1
+
+[node name="Basketball_Court" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 779.0
+offset_top = 220.0
+offset_right = 854.0
+offset_bottom = 245.0
+theme_override_colors/font_color = Color(0.5686275, 0.5529412, 0.30588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 25
+text = "篮球场"
+horizontal_alignment = 1
+
+[node name="Building_Old" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 178.0
+offset_right = 960.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0.53382605, 0.5285665, 0.47366238, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "旧
+教
+学
+楼"
+horizontal_alignment = 1
+
+[node name="Sports_Field" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 761.0
+offset_top = 326.0
+offset_right = 801.0
+offset_bottom = 346.0
+theme_override_colors/font_color = Color(0.63054574, 0.5342556, 0.24396962, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "操场"
+horizontal_alignment = 1
+
+[node name="Security_Gate" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 493.0
+offset_right = 703.0
+offset_bottom = 506.0
+theme_override_colors/font_color = Color(0.29274186, 0.46404225, 0.34859675, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 12
+text = "门卫"
+horizontal_alignment = 1
+
+[node name="Fountain" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 327.0
+offset_right = 643.0
+offset_bottom = 356.0
+theme_override_colors/font_color = Color(0.28486082, 0.4455834, 0.39076716, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 12
+text = "中央
+喷泉"
+horizontal_alignment = 1
+
+[node name="Fitness_Area" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 328.0
+offset_right = 977.0
+offset_bottom = 335.0
+theme_override_colors/font_color = Color(0.28486082, 0.4455834, 0.39076716, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 6
+text = "运动器械"
+horizontal_alignment = 1
+
+[node name="Sandpit" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 459.0
+offset_right = 964.0
+offset_bottom = 469.0
+theme_override_colors/font_color = Color(0.28486082, 0.4455834, 0.39076716, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 10
+text = "沙坑"
+horizontal_alignment = 1
+
+[node name="Podium" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 465.0
+offset_right = 880.0
+offset_bottom = 475.0
+theme_override_colors/font_color = Color(0.28486082, 0.4455834, 0.39076716, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 10
+text = "演讲台"
+horizontal_alignment = 1
+
+[node name="Lounge" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 839.0
+offset_top = 479.0
+offset_right = 890.0
+offset_bottom = 492.0
+theme_override_colors/font_color = Color(0.4739402, 0.4321292, 0.29948175, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 12
+text = "休息室"
+horizontal_alignment = 3
+
+[node name="Multi_Building" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 478.0
+offset_right = 976.0
+offset_bottom = 507.0
+theme_override_colors/font_color = Color(0.4739402, 0.4321292, 0.29948175, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 12
+text = "多功
+能楼"
+horizontal_alignment = 1
+
+[node name="Lecture_Hall" type="Label" parent="Label_ZH"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 240.0
+offset_right = 640.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.26114252, 0.5126411, 0.49677396, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 10
+text = "阶梯教室"
+
+[node name="Label_EN" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Dorm_Boy" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 242.0
+offset_right = 205.0
+offset_bottom = 285.0
+theme_override_colors/font_color = Color(0.2804877, 0.45203578, 0.43037343, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "Boy's 
+Dormitory"
+horizontal_alignment = 1
+
+[node name="Green_Belt" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 415.0
+offset_right = 201.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(0.2462889, 0.42953786, 0.30789837, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "Green
+Belt"
+horizontal_alignment = 1
+
+[node name="Shower_Room" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 185.0
+offset_right = 304.0
+offset_bottom = 195.0
+theme_override_colors/font_color = Color(0.27375335, 0.44847757, 0.4286905, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 10
+text = "Showers"
+horizontal_alignment = 1
+
+[node name="Track_Area" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 791.0
+offset_top = 385.0
+offset_right = 934.0
+offset_bottom = 405.0
+theme_override_colors/font_color = Color(0.283812, 0.45158005, 0.33856818, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "Track & Greenery"
+horizontal_alignment = 1
+
+[node name="Dorm_Garden" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 468.0
+offset_right = 486.0
+offset_bottom = 488.0
+theme_override_colors/font_color = Color(0.283812, 0.45158005, 0.33856818, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "Dormitory Garden"
+horizontal_alignment = 1
+
+[node name="Dorm_Girl_1" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 398.0
+offset_right = 369.0
+offset_bottom = 429.0
+theme_override_colors/font_color = Color(0.56468666, 0.3193166, 0.6225351, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 13
+text = "Girl's 
+Dormitory 1"
+horizontal_alignment = 1
+
+[node name="Dorm_Girl_2" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 393.0
+offset_right = 530.0
+offset_bottom = 426.0
+theme_override_colors/font_color = Color(0.56468666, 0.3193166, 0.6225351, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 13
+text = "Girl's 
+Dormitory 2"
+horizontal_alignment = 1
+
+[node name="Milk_Station" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 374.0
+offset_right = 412.0
+offset_bottom = 395.0
+theme_override_colors/font_color = Color(0.5368597, 0.53307366, 0.24051708, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 8
+text = "Milk
+Station"
+horizontal_alignment = 1
+
+[node name="Canteen_Student" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 248.0
+offset_right = 420.0
+offset_bottom = 291.0
+theme_override_colors/font_color = Color(0.61402965, 0.40913644, 0.29722124, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "Students' 
+Canteen"
+horizontal_alignment = 1
+
+[node name="Kitchen" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 258.0
+offset_right = 320.0
+offset_bottom = 271.0
+theme_override_colors/font_color = Color(0.5368597, 0.53307366, 0.24051708, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 10
+text = "Kitchen"
+horizontal_alignment = 1
+
+[node name="Canteen_Teacher" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 291.0
+offset_right = 324.0
+offset_bottom = 320.0
+theme_override_colors/font_color = Color(0.6156863, 0.40784314, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 8
+text = "Teachers'
+Canteen"
+horizontal_alignment = 1
+
+[node name="Shop" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 183.0
+offset_right = 416.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(0.5644929, 0.55328506, 0.3047357, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 15
+text = "Store"
+horizontal_alignment = 1
+
+[node name="Building_1" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 235.0
+offset_right = 550.0
+offset_bottom = 268.0
+theme_override_colors/font_color = Color(0.5686275, 0.5529412, 0.30588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 15
+text = "Academic
+Building 1"
+horizontal_alignment = 1
+
+[node name="Building_2" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 689.0
+offset_top = 221.0
+offset_right = 737.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.5686275, 0.5529412, 0.30588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 12
+text = "Academic
+Building 2"
+horizontal_alignment = 1
+
+[node name="Academic_Woods" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 581.0
+offset_top = 181.0
+offset_right = 656.0
+offset_bottom = 214.0
+theme_override_colors/font_color = Color(0.2462889, 0.42953786, 0.30789837, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 15
+text = "Academic 
+Grove"
+horizontal_alignment = 1
+
+[node name="Basketball_Court" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 208.0
+offset_right = 861.0
+offset_bottom = 251.0
+theme_override_colors/font_color = Color(0.5686275, 0.5529412, 0.30588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "Basketball
+Court"
+horizontal_alignment = 1
+
+[node name="Building_Old" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 199.0
+offset_right = 981.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.53382605, 0.5285665, 0.47366238, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 15
+text = "Old 
+Academic 
+Building	"
+horizontal_alignment = 1
+
+[node name="Sports_Field" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 755.0
+offset_top = 322.0
+offset_right = 852.0
+offset_bottom = 342.0
+theme_override_colors/font_color = Color(0.63054574, 0.5342556, 0.24396962, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 20
+text = "Sports Field"
+horizontal_alignment = 1
+
+[node name="Security_Gate" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 677.0
+offset_top = 489.0
+offset_right = 704.0
+offset_bottom = 510.0
+theme_override_colors/font_color = Color(0.29274186, 0.46404225, 0.34859675, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 8
+text = "Security
+Office"
+horizontal_alignment = 1
+
+[node name="Fountain" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 331.0
+offset_right = 646.0
+offset_bottom = 352.0
+theme_override_colors/font_color = Color(0.28486082, 0.4455834, 0.39076716, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 8
+text = "Central
+Fountain"
+horizontal_alignment = 1
+
+[node name="Fitness_Area" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 323.0
+offset_right = 977.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(0.28486082, 0.4455834, 0.39076716, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 6
+text = "Exercise 
+Equipment"
+horizontal_alignment = 1
+
+[node name="Sandpit" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 459.0
+offset_right = 970.0
+offset_bottom = 469.0
+theme_override_colors/font_color = Color(0.28486082, 0.4455834, 0.39076716, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 10
+text = "Sandpit"
+horizontal_alignment = 1
+
+[node name="Podium" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 465.0
+offset_right = 880.0
+offset_bottom = 475.0
+theme_override_colors/font_color = Color(0.28486082, 0.4455834, 0.39076716, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 10
+text = "Podium"
+horizontal_alignment = 1
+
+[node name="Lounge" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 846.0
+offset_top = 479.0
+offset_right = 882.0
+offset_bottom = 492.0
+theme_override_colors/font_color = Color(0.4739402, 0.4321292, 0.29948175, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 12
+text = "Lounge"
+horizontal_alignment = 3
+
+[node name="Multi_Building" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 951.0
+offset_top = 475.0
+offset_right = 980.0
+offset_bottom = 508.0
+theme_override_colors/font_color = Color(0.4739402, 0.4321292, 0.29948175, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 8
+text = "Multi-
+purpose 
+Building"
+horizontal_alignment = 1
+
+[node name="Lecture_Hall" type="Label" parent="Label_EN"]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 240.0
+offset_right = 644.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.26114252, 0.5126411, 0.49677396, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("3_dgb6l")
+theme_override_font_sizes/font_size = 10
+text = "Lecture Hall"
+
+[node name="DetectionAreas" type="Node2D" parent="."]
+
+[node name="Dorm_Boy" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Dorm_Boy"]
+polygon = PackedVector2Array(122, 179, 122, 349, 206, 349, 206, 179)
+
+[node name="Green_Belt" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Green_Belt"]
+polygon = PackedVector2Array(125, 386, 125, 486, 220, 486, 220, 386)
+
+[node name="Shower_Room" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Shower_Room"]
+polygon = PackedVector2Array(267, 176, 267, 204, 267, 204, 307, 204, 307, 176)
+
+[node name="Track_Area" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Track_Area"]
+polygon = PackedVector2Array(784, 378, 801, 361, 847, 344, 879, 344, 925, 361, 945, 386, 946, 402, 919, 431, 876, 444, 848, 444, 815, 435, 793, 421, 782, 406, 779, 395)
+
+[node name="Dorm_Garden" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Dorm_Garden"]
+polygon = PackedVector2Array(298, 498, 536, 496, 535, 456, 446, 456, 445, 400, 384, 400, 386, 456, 297, 456)
+
+[node name="Dorm_Girl_1" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Dorm_Girl_1"]
+polygon = PackedVector2Array(304, 450, 304, 375, 371, 375, 371, 450)
+
+[node name="Dorm_Girl_2" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Dorm_Girl_2"]
+polygon = PackedVector2Array(457, 442, 457, 375, 530, 375, 530, 442)
+
+[node name="Milk_Station" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Milk_Station"]
+polygon = PackedVector2Array(385, 397, 385, 372, 416, 372, 416, 397)
+
+[node name="Canteen_Student" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Canteen_Student"]
+polygon = PackedVector2Array(323, 299, 321, 235, 432, 235, 432, 299)
+
+[node name="Kitchen" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Kitchen"]
+polygon = PackedVector2Array(290, 280, 290, 246, 320, 246, 320, 280)
+
+[node name="Canteen_Teacher" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Canteen_Teacher"]
+polygon = PackedVector2Array(290, 324, 290, 282, 322, 281, 323, 324)
+
+[node name="Shop" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Shop"]
+polygon = PackedVector2Array(377, 204, 377, 176, 427, 176, 427, 204)
+
+[node name="Building_1" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Building_1"]
+polygon = PackedVector2Array(486, 326, 486, 176, 555, 176, 555, 327)
+
+[node name="Building_2" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Building_2"]
+polygon = PackedVector2Array(687, 288, 686, 176, 740, 176, 739, 288)
+
+[node name="Academic_Woods" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Academic_Woods"]
+polygon = PackedVector2Array(575, 217, 574, 176, 661, 177, 661, 218)
+
+[node name="Basketball_Court" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Basketball_Court"]
+polygon = PackedVector2Array(765, 268, 764, 190, 870, 190, 871, 269)
+
+[node name="Building_Old" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Building_Old"]
+polygon = PackedVector2Array(919, 279, 919, 168, 982, 168, 982, 280)
+
+[node name="Sports_Field" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Sports_Field"]
+polygon = PackedVector2Array(748, 316, 748, 475, 845, 475, 845, 457, 883, 458, 882, 475, 932, 475, 932, 452, 962, 454, 965, 340, 946, 340, 947, 317, 803, 317, 802, 356, 846, 340, 889, 340, 930, 359, 951, 385, 948, 412, 920, 438, 881, 449, 833, 447, 787, 422, 774, 397, 779, 376, 802, 357, 805, 316)
+
+[node name="Security_Gate" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Security_Gate"]
+polygon = PackedVector2Array(676, 511, 675, 486, 706, 486, 706, 511)
+
+[node name="Fountain" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Fountain"]
+polygon = PackedVector2Array(626, 360, 613, 353, 612, 334, 626, 322, 644, 324, 653, 338, 647, 355, 638, 360)
+
+[node name="Fitness_Area" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Fitness_Area"]
+polygon = PackedVector2Array(948, 338, 949, 317, 985, 317, 985, 350, 966, 338)
+
+[node name="Sandpit" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Sandpit"]
+polygon = PackedVector2Array(933, 473, 933, 453, 984, 456, 984, 474)
+
+[node name="Podium" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Podium"]
+polygon = PackedVector2Array(846, 475, 846, 458, 882, 459, 881, 475)
+
+[node name="Lounge" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Lounge"]
+polygon = PackedVector2Array(818, 494, 818, 476, 907, 476, 907, 494)
+
+[node name="Multi_Building" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Multi_Building"]
+polygon = PackedVector2Array(944, 508, 944, 475, 985, 475, 985, 509)
+
+[node name="Lecture_Hall" type="Area2D" parent="DetectionAreas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionAreas/Lecture_Hall"]
+polygon = PackedVector2Array(594, 257, 594, 232, 647, 232, 647, 257)

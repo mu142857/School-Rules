@@ -129,6 +129,17 @@ func get_buff_text() -> String:
 
 # === 数值调整按钮（开发用）===
 func create_dev_buttons():
+		# === 语言切换按钮 ===
+	add_label(dev_buttons, "--- 系统系统 ---")
+	add_button(dev_buttons, "切换语言 (Zh/En)", func():
+		if TranslationSystem.current_language == "zh":
+			TranslationSystem.set_language("en")
+		else:
+			TranslationSystem.set_language("zh")
+		print("当前语言已切换为: ", TranslationSystem.current_language)
+	)
+	
+	add_label(dev_buttons, "--- 数值 ---")
 	add_button(dev_buttons, "压力+10", func(): GameManager.pressure = min(100, GameManager.pressure + 10))
 	add_button(dev_buttons, "压力-10", func(): GameManager.pressure = max(0, GameManager.pressure - 10))
 	add_button(dev_buttons, "钱+50", func(): GameManager.money += 50)
