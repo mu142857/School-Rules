@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dugfumccv55u0"]
+
+[ext_resource type="Texture2D" uid="uid://bec83262vybtt" path="res://locations/academic building corridor/floor.png" id="1_loqaj"]
+[ext_resource type="Texture2D" uid="uid://dyld315yvk1qd" path="res://locations/academic building corridor/windowed_wall.png" id="2_475pi"]
+[ext_resource type="PackedScene" uid="uid://bfvh2ft77x4ne" path="res://characters/player/player.tscn" id="2_fmglo"]
+
+[node name="AcademicBuildingCorridor" type="Node2D"]
+
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2(203, 0)
+
+[node name="Floor1" type="Sprite2D" parent="Walls"]
+position = Vector2(195.34607, 250.46143)
+rotation = 2.0071287
+scale = Vector2(0.6, 0.6)
+skew = -0.43633232
+texture = ExtResource("1_loqaj")
+
+[node name="Floor2" type="Sprite2D" parent="Walls"]
+position = Vector2(635, -691)
+rotation = 2.0071287
+scale = Vector2(0.6, 0.6)
+skew = -0.43633232
+texture = ExtResource("1_loqaj")
+region_enabled = true
+region_rect = Rect2(0, 0, 1734, 595)
+
+[node name="Wall1" type="Sprite2D" parent="Walls"]
+position = Vector2(7, 130.00002)
+rotation = -1.134464
+scale = Vector2(0.6, 0.6)
+skew = 1.134464
+texture = ExtResource("2_475pi")
+
+[node name="Wall2" type="Sprite2D" parent="Walls"]
+position = Vector2(426, -769)
+rotation = -1.134464
+scale = Vector2(0.6, 0.6)
+skew = 1.134464
+texture = ExtResource("2_475pi")
+
+[node name="Player" parent="." instance=ExtResource("2_fmglo")]
+position = Vector2(281, 539)

@@ -190,6 +190,7 @@ offset_bottom = 360.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 0
+mouse_filter = 2
 texture = SubResource("GradientTexture2D_3l431")
 
 [node name="Filter" type="TextureRect" parent="RedScreenFrame"]
@@ -201,4 +202,5 @@ offset_right = 24.0
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("GradientTexture2D_rt7fk")

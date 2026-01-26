@@ -1,0 +1,185 @@
+[gd_scene load_steps=15 format=3 uid="uid://crjosdk1lulfo"]
+
+[ext_resource type="Texture2D" uid="uid://c0wk8f2yhs4n8" path="res://locations/academic building corridor/front_stairs.png" id="1_augpw"]
+[ext_resource type="Texture2D" uid="uid://d2r8h2yyuru1a" path="res://locations/academic building corridor/square_floor.png" id="2_1a854"]
+[ext_resource type="Texture2D" uid="uid://bh2hcraf5trtx" path="res://locations/academic building corridor/tiny_windowed_wall.png" id="2_enyv2"]
+[ext_resource type="Texture2D" uid="uid://d4c8v1hx4ocrd" path="res://locations/academic building corridor/back_stairs.png" id="3_enyv2"]
+[ext_resource type="Texture2D" uid="uid://dhuflkwo5n3dt" path="res://locations/academic building corridor/small_windowed_wall.png" id="4_1a854"]
+[ext_resource type="PackedScene" uid="uid://bfvh2ft77x4ne" path="res://characters/player/player.tscn" id="4_3q5em"]
+[ext_resource type="PackedScene" uid="uid://dcu0bdjv8e63j" path="res://locations/classroom 1/window.tscn" id="6_enyv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1a854"]
+size = Vector2(20, 437.68585)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enyv2"]
+size = Vector2(20, 437.68585)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q5em"]
+size = Vector2(20, 437.68585)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8t3n"]
+size = Vector2(20, 437.68585)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqwcx"]
+size = Vector2(320, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_es4l1"]
+size = Vector2(320, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5uwi"]
+size = Vector2(601, 20)
+
+[node name="Stairwell" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1000
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2(203, 0)
+
+[node name="Wall1" type="Sprite2D" parent="Walls"]
+position = Vector2(636.8309, -83.999985)
+scale = Vector2(0.5060233, 0.5021009)
+texture = ExtResource("4_1a854")
+
+[node name="Wall2" type="Sprite2D" parent="Walls"]
+position = Vector2(289, 35)
+rotation = -1.0471977
+scale = Vector2(0.50210077, 0.5021009)
+skew = 1.0471977
+texture = ExtResource("2_enyv2")
+
+[node name="SquareFloor" type="Sprite2D" parent="Walls"]
+position = Vector2(539.7321, 202.35149)
+scale = Vector2(0.85268474, 0.64954907)
+skew = 0.5235988
+texture = ExtResource("2_1a854")
+
+[node name="FrontStair" type="Sprite2D" parent="Walls"]
+position = Vector2(540.7321, 509.3515)
+scale = Vector2(0.47039866, 0.47039866)
+texture = ExtResource("1_augpw")
+
+[node name="BackStair" type="Sprite2D" parent="Walls"]
+z_index = 10
+z_as_relative = false
+position = Vector2(226.99998, 235)
+scale = Vector2(0.47039866, 0.47039866)
+texture = ExtResource("3_enyv2")
+
+[node name="Window1" parent="Walls" instance=ExtResource("6_enyv2")]
+position = Vector2(783, -98.00001)
+scale = Vector2(0.51, 0.51)
+
+[node name="Window2" parent="Walls" instance=ExtResource("6_enyv2")]
+position = Vector2(499, -97.00001)
+scale = Vector2(0.51, 0.51)
+
+[node name="Window3" parent="Walls" instance=ExtResource("6_enyv2")]
+position = Vector2(288, 24.00002)
+rotation = -1.0471976
+scale = Vector2(0.51, 0.51)
+skew = 1.0471976
+
+[node name="CollitionWall1" type="StaticBody2D" parent="Walls"]
+position = Vector2(1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/CollitionWall1"]
+position = Vector2(823.4215, 195.04053)
+rotation = 0.5235988
+shape = SubResource("RectangleShape2D_1a854")
+
+[node name="CollitionWall2" type="StaticBody2D" parent="Walls"]
+position = Vector2(1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/CollitionWall2"]
+position = Vector2(250, 212)
+rotation = 0.5235988
+shape = SubResource("RectangleShape2D_enyv2")
+
+[node name="CollitionWall3" type="StaticBody2D" parent="Walls"]
+position = Vector2(1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/CollitionWall3"]
+position = Vector2(677.00006, 597)
+rotation = 0.1784895
+shape = SubResource("RectangleShape2D_3q5em")
+
+[node name="CollitionWall4" type="StaticBody2D" parent="Walls"]
+position = Vector2(1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/CollitionWall4"]
+position = Vector2(411, 587)
+rotation = 0.1784895
+shape = SubResource("RectangleShape2D_h8t3n")
+
+[node name="CollitionWall5" type="StaticBody2D" parent="Walls"]
+position = Vector2(1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/CollitionWall5"]
+position = Vector2(521, 728)
+shape = SubResource("RectangleShape2D_yqwcx")
+
+[node name="CollitionWall6" type="StaticBody2D" parent="Walls"]
+position = Vector2(1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/CollitionWall6"]
+position = Vector2(287, 379)
+shape = SubResource("RectangleShape2D_es4l1")
+
+[node name="CollitionWall7" type="StaticBody2D" parent="Walls"]
+position = Vector2(233, -361)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/CollitionWall7"]
+position = Vector2(389, 386)
+shape = SubResource("RectangleShape2D_r5uwi")
+
+[node name="Light" type="Node2D" parent="."]
+
+[node name="TimeFilter" type="CanvasLayer" parent="Light"]
+layer = 10
+
+[node name="NightFilter" type="ColorRect" parent="Light/TimeFilter"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.78547436, 0.82814056, 0.9517719, 0.29411766)
+
+[node name="MorningFilter" type="ColorRect" parent="Light/TimeFilter"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.75889045, 0.31575328, 1.92523e-07, 0.19607843)
+
+[node name="Player" parent="." instance=ExtResource("4_3q5em")]
+position = Vector2(726, 716)
