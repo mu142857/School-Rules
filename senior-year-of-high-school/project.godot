@@ -23,6 +23,7 @@ TimeSystem="*res://autoload/time_system.gd"
 BuffSystem="*res://autoload/buff_system.gd"
 InventorySystem="*res://autoload/inventory_system.gd"
 TranslationSystem="*res://autoload/translation_system.gd"
+SceneChanger="*res://autoload/scene_changer.gd"
 
 [display]
 

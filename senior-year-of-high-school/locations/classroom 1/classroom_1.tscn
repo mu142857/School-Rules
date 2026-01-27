@@ -1,5 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://b4cvvu47ioyge"]
 
+[ext_resource type="Script" uid="uid://bboafvemopg2i" path="res://locations/classroom 1/classroom_1.gd" id="1_llryq"]
 [ext_resource type="Texture2D" uid="uid://c1uvukxc5ep5w" path="res://locations/classroom 1/floor.png" id="1_q36er"]
 [ext_resource type="Texture2D" uid="uid://bn2vdiv2llja7" path="res://locations/classroom 1/front wall.png" id="2_bs5q1"]
 [ext_resource type="Texture2D" uid="uid://cedxvu58ftbc5" path="res://locations/classroom 1/side wall.png" id="3_ndcrv"]
@@ -7,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://iffcd66nasy7" path="res://locations/classroom 1/desk group 4.png" id="4_8o0gr"]
 [ext_resource type="Texture2D" uid="uid://1srvjm6m3smb" path="res://locations/classroom 1/podium step.png" id="4_ac0k4"]
 [ext_resource type="Texture2D" uid="uid://b3h7ulx6jqpps" path="res://locations/classroom 1/podium.png" id="5_8ojc6"]
-[ext_resource type="PackedScene" uid="uid://bfvh2ft77x4ne" path="res://characters/player/player.tscn" id="5_ndcrv"]
 [ext_resource type="PackedScene" uid="uid://dj6tos8eh1g1h" path="res://locations/classroom 1/white_board.tscn" id="6_8ojc6"]
 [ext_resource type="PackedScene" uid="uid://chlkvmxp7x3la" path="res://locations/classroom 1/notice_board.tscn" id="7_8m7x0"]
 [ext_resource type="PackedScene" uid="uid://dmpxrgay02a61" path="res://locations/classroom 1/notification_paper.tscn" id="8_uo522"]
@@ -83,6 +83,7 @@ color_ramp = SubResource("GradientTexture1D_2p33c")
 
 [node name="Classroom1" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_llryq")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1000
@@ -813,5 +814,7 @@ process_material = SubResource("ParticleProcessMaterial_bwhww")
 
 [node name="HUD" parent="." instance=ExtResource("23_c0jqg")]
 
-[node name="Player" parent="." instance=ExtResource("5_ndcrv")]
-position = Vector2(884, 597)
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="FromCorridor" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(2016, -75)
