@@ -1,12 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://crjosdk1lulfo"]
+[gd_scene load_steps=17 format=3 uid="uid://crjosdk1lulfo"]
 
 [ext_resource type="Texture2D" uid="uid://c0wk8f2yhs4n8" path="res://locations/academic building corridor/front_stairs.png" id="1_augpw"]
 [ext_resource type="Texture2D" uid="uid://d2r8h2yyuru1a" path="res://locations/academic building corridor/square_floor.png" id="2_1a854"]
 [ext_resource type="Texture2D" uid="uid://bh2hcraf5trtx" path="res://locations/academic building corridor/tiny_windowed_wall.png" id="2_enyv2"]
 [ext_resource type="Texture2D" uid="uid://d4c8v1hx4ocrd" path="res://locations/academic building corridor/back_stairs.png" id="3_enyv2"]
-[ext_resource type="Texture2D" uid="uid://dhuflkwo5n3dt" path="res://locations/academic building corridor/small_windowed_wall.png" id="4_1a854"]
 [ext_resource type="PackedScene" uid="uid://bfvh2ft77x4ne" path="res://characters/player/player.tscn" id="4_3q5em"]
+[ext_resource type="PackedScene" uid="uid://dmpxrgay02a61" path="res://locations/classroom 1/notification_paper.tscn" id="6_3q5em"]
 [ext_resource type="PackedScene" uid="uid://dcu0bdjv8e63j" path="res://locations/classroom 1/window.tscn" id="6_enyv2"]
+
+[sub_resource type="Gradient" id="Gradient_3q5em"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h8t3n"]
+gradient = SubResource("Gradient_3q5em")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1a854"]
 size = Vector2(20, 437.68585)
@@ -47,51 +54,54 @@ color = Color(0, 0, 0, 1)
 position = Vector2(203, 0)
 
 [node name="Wall1" type="Sprite2D" parent="Walls"]
-position = Vector2(636.8309, -83.999985)
-scale = Vector2(0.5060233, 0.5021009)
-texture = ExtResource("4_1a854")
-
-[node name="Wall2" type="Sprite2D" parent="Walls"]
-position = Vector2(289, 35)
-rotation = -1.0471977
-scale = Vector2(0.50210077, 0.5021009)
-skew = 1.0471977
+position = Vector2(767.17755, -319.89383)
+scale = Vector2(1.0154827, 0.992)
 texture = ExtResource("2_enyv2")
 
+[node name="Wall2" type="Sprite2D" parent="Walls"]
+position = Vector2(313.58582, -13.589104)
+rotation = -1.0471977
+scale = Vector2(0.94099134, 1)
+skew = 1.0471977
+texture = ExtResource("2_enyv2")
+region_enabled = true
+region_rect = Rect2(901.34174, 0, 752.65826, 474.65387)
+
 [node name="SquareFloor" type="Sprite2D" parent="Walls"]
-position = Vector2(539.7321, 202.35149)
+position = Vector2(669.65967, 83.45766)
 scale = Vector2(0.85268474, 0.64954907)
 skew = 0.5235988
 texture = ExtResource("2_1a854")
 
 [node name="FrontStair" type="Sprite2D" parent="Walls"]
-position = Vector2(540.7321, 509.3515)
+position = Vector2(670.65967, 390.45764)
 scale = Vector2(0.47039866, 0.47039866)
 texture = ExtResource("1_augpw")
 
 [node name="BackStair" type="Sprite2D" parent="Walls"]
 z_index = 10
 z_as_relative = false
-position = Vector2(226.99998, 235)
+position = Vector2(356.92752, 116.106155)
 scale = Vector2(0.47039866, 0.47039866)
 texture = ExtResource("3_enyv2")
 
+[node name="Black" type="Sprite2D" parent="Walls"]
+position = Vector2(106.799385, 330.23514)
+rotation = -0.7854026
+scale = Vector2(6.621243, 6.9375)
+texture = SubResource("GradientTexture2D_h8t3n")
+
 [node name="Window1" parent="Walls" instance=ExtResource("6_enyv2")]
-position = Vector2(783, -98.00001)
-scale = Vector2(0.51, 0.51)
+position = Vector2(762.92755, -344.89383)
+scale = Vector2(1.02, 1.01)
 
-[node name="Window2" parent="Walls" instance=ExtResource("6_enyv2")]
-position = Vector2(499, -97.00001)
-scale = Vector2(0.51, 0.51)
-
-[node name="Window3" parent="Walls" instance=ExtResource("6_enyv2")]
-position = Vector2(288, 24.00002)
-rotation = -1.0471976
-scale = Vector2(0.51, 0.51)
-skew = 1.0471976
+[node name="NotificationPaper" parent="Walls" instance=ExtResource("6_3q5em")]
+position = Vector2(428, -184)
+rotation = -1.134464
+skew = 1.134464
 
 [node name="CollitionWall1" type="StaticBody2D" parent="Walls"]
-position = Vector2(1, 0)
+position = Vector2(130.92754, -118.89383)
 collision_layer = 2
 collision_mask = 2
 
@@ -101,7 +111,7 @@ rotation = 0.5235988
 shape = SubResource("RectangleShape2D_1a854")
 
 [node name="CollitionWall2" type="StaticBody2D" parent="Walls"]
-position = Vector2(1, 0)
+position = Vector2(130.92754, -118.89383)
 collision_layer = 2
 collision_mask = 2
 
@@ -111,7 +121,7 @@ rotation = 0.5235988
 shape = SubResource("RectangleShape2D_enyv2")
 
 [node name="CollitionWall3" type="StaticBody2D" parent="Walls"]
-position = Vector2(1, 0)
+position = Vector2(130.92754, -118.89383)
 collision_layer = 2
 collision_mask = 2
 
@@ -121,7 +131,7 @@ rotation = 0.1784895
 shape = SubResource("RectangleShape2D_3q5em")
 
 [node name="CollitionWall4" type="StaticBody2D" parent="Walls"]
-position = Vector2(1, 0)
+position = Vector2(130.92754, -118.89383)
 collision_layer = 2
 collision_mask = 2
 
@@ -131,7 +141,7 @@ rotation = 0.1784895
 shape = SubResource("RectangleShape2D_h8t3n")
 
 [node name="CollitionWall5" type="StaticBody2D" parent="Walls"]
-position = Vector2(1, 0)
+position = Vector2(130.92754, -118.89383)
 collision_layer = 2
 collision_mask = 2
 
@@ -140,7 +150,7 @@ position = Vector2(521, 728)
 shape = SubResource("RectangleShape2D_yqwcx")
 
 [node name="CollitionWall6" type="StaticBody2D" parent="Walls"]
-position = Vector2(1, 0)
+position = Vector2(130.92754, -118.89383)
 collision_layer = 2
 collision_mask = 2
 
@@ -149,7 +159,7 @@ position = Vector2(287, 379)
 shape = SubResource("RectangleShape2D_es4l1")
 
 [node name="CollitionWall7" type="StaticBody2D" parent="Walls"]
-position = Vector2(233, -361)
+position = Vector2(362.92755, -479.89383)
 collision_layer = 2
 collision_mask = 2
 
@@ -182,4 +192,4 @@ mouse_filter = 2
 color = Color(0.75889045, 0.31575328, 1.92523e-07, 0.19607843)
 
 [node name="Player" parent="." instance=ExtResource("4_3q5em")]
-position = Vector2(726, 716)
+position = Vector2(835, 568)
