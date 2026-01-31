@@ -813,6 +813,7 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_bwhww")
 
 [node name="HUD" parent="." instance=ExtResource("23_c0jqg")]
+visible = false
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 

@@ -10,32 +10,28 @@
 position = Vector2(203, 0)
 
 [node name="Floor1" type="Sprite2D" parent="Walls"]
-position = Vector2(195.34607, 250.46143)
+position = Vector2(296, 131)
 rotation = 2.0071287
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.75, 0.75)
 skew = -0.43633232
 texture = ExtResource("1_loqaj")
 
 [node name="Floor2" type="Sprite2D" parent="Walls"]
-position = Vector2(635, -691)
+position = Vector2(843.9999, -1045)
 rotation = 2.0071287
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.75, 0.75)
 skew = -0.43633232
 texture = ExtResource("1_loqaj")
-region_enabled = true
-region_rect = Rect2(0, 0, 1734, 595)
 
 [node name="Wall1" type="Sprite2D" parent="Walls"]
-position = Vector2(7, 130.00002)
+position = Vector2(145, -261.00003)
 rotation = -1.134464
-scale = Vector2(0.6, 0.6)
 skew = 1.134464
 texture = ExtResource("2_475pi")
 
 [node name="Wall2" type="Sprite2D" parent="Walls"]
-position = Vector2(426, -769)
+position = Vector2(842, -1756.0001)
 rotation = -1.134464
-scale = Vector2(0.6, 0.6)
 skew = 1.134464
 texture = ExtResource("2_475pi")
 
