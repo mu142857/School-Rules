@@ -1,21 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://8ivmdwpds1ue"]
+[gd_scene load_steps=7 format=3 uid="uid://8ivmdwpds1ue"]
 
 [ext_resource type="Script" uid="uid://bw07nptp5r25t" path="res://locations/classroom 1/chair.gd" id="1_58cd3"]
 [ext_resource type="Texture2D" uid="uid://318vfx5y0m2a" path="res://locations/classroom 1/chair.png" id="1_s6uhn"]
-[ext_resource type="Texture2D" uid="uid://cdy3nbx2ao34" path="res://characters/character_animations/B1_Legs.png" id="2_n6u8t"]
-[ext_resource type="Texture2D" uid="uid://b2ejtrk7iphwe" path="res://characters/character_animations/B1_Body_L.png" id="4_2coiy"]
 [ext_resource type="Shader" uid="uid://dpytmhh0fswe6" path="res://shared/adjust_colors.gdshader" id="4_pwe5q"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2coiy"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ltt0"]
 shader = ExtResource("4_pwe5q")
-shader_parameter/brightness = 0.05
-shader_parameter/contrast = 0.85
+shader_parameter/brightness = 0.1
+shader_parameter/contrast = 0.7
 shader_parameter/saturation = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nxsar"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6u8t"]
 shader = ExtResource("4_pwe5q")
-shader_parameter/brightness = 0.05
-shader_parameter/contrast = 0.85
+shader_parameter/brightness = 0.1
+shader_parameter/contrast = 0.7
 shader_parameter/saturation = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6uhn"]
@@ -24,20 +22,18 @@ shader_parameter/saturation = 1.0
 script = ExtResource("1_58cd3")
 
 [node name="Legs" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_2coiy")
+material = SubResource("ShaderMaterial_0ltt0")
 position = Vector2(18.800003, -97.2)
 scale = Vector2(0.55, 0.55)
-texture = ExtResource("2_n6u8t")
 
 [node name="Chair_Bottom" type="Sprite2D" parent="."]
 texture = ExtResource("1_s6uhn")
 offset = Vector2(0, -51)
 
 [node name="Body" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_nxsar")
+material = SubResource("ShaderMaterial_n6u8t")
 position = Vector2(22.800003, -107.2)
 scale = Vector2(0.55, 0.55)
-texture = ExtResource("4_2coiy")
 
 [node name="Interact_Area" type="Area2D" parent="."]
 
