@@ -8,6 +8,7 @@ const SPEED: float = 500.0
 @onready var ani2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
+	add_to_group("player")
 	state_machine.change_state(1)
 
 @warning_ignore("unused_parameter")

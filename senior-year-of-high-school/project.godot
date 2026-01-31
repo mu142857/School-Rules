@@ -24,6 +24,7 @@ BuffSystem="*res://autoload/buff_system.gd"
 InventorySystem="*res://autoload/inventory_system.gd"
 TranslationSystem="*res://autoload/translation_system.gd"
 SceneChanger="*res://autoload/scene_changer.gd"
+SeatManager="*res://autoload/seat_manager.gd"
 
 [display]
 
@@ -31,6 +32,10 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+player=""
 
 [input]
 

@@ -1,39 +1,44 @@
 [gd_scene load_steps=4 format=3 uid="uid://dugfumccv55u0"]
 
+[ext_resource type="Script" uid="uid://wf2qjh0m8qbm" path="res://locations/academic building corridor/academic_building_corridor.gd" id="1_csd11"]
 [ext_resource type="Texture2D" uid="uid://bec83262vybtt" path="res://locations/academic building corridor/floor.png" id="1_loqaj"]
 [ext_resource type="Texture2D" uid="uid://dyld315yvk1qd" path="res://locations/academic building corridor/windowed_wall.png" id="2_475pi"]
-[ext_resource type="PackedScene" uid="uid://bfvh2ft77x4ne" path="res://characters/player/player.tscn" id="2_fmglo"]
 
 [node name="AcademicBuildingCorridor" type="Node2D"]
+script = ExtResource("1_csd11")
 
 [node name="Walls" type="Node2D" parent="."]
 position = Vector2(203, 0)
 
 [node name="Floor1" type="Sprite2D" parent="Walls"]
-position = Vector2(296, 131)
-rotation = 2.0071287
+position = Vector2(343, 156.99998)
+rotation = 2.0943952
 scale = Vector2(0.75, 0.75)
-skew = -0.43633232
+skew = -0.5235988
 texture = ExtResource("1_loqaj")
 
 [node name="Floor2" type="Sprite2D" parent="Walls"]
-position = Vector2(843.9999, -1045)
-rotation = 2.0071287
+position = Vector2(996.00006, -964.0001)
+rotation = 2.0943952
 scale = Vector2(0.75, 0.75)
-skew = -0.43633232
+skew = -0.5235988
 texture = ExtResource("1_loqaj")
 
 [node name="Wall1" type="Sprite2D" parent="Walls"]
-position = Vector2(145, -261.00003)
-rotation = -1.134464
-skew = 1.134464
+position = Vector2(68.35748, 80.5674)
+rotation = -1.0471976
+scale = Vector2(0.6525281, 0.7336643)
+skew = 1.0471976
 texture = ExtResource("2_475pi")
 
 [node name="Wall2" type="Sprite2D" parent="Walls"]
-position = Vector2(842, -1756.0001)
-rotation = -1.134464
-skew = 1.134464
+position = Vector2(604.00006, -847.0001)
+rotation = -1.0471976
+scale = Vector2(0.6525281, 0.7336643)
+skew = 1.0471976
 texture = ExtResource("2_475pi")
 
-[node name="Player" parent="." instance=ExtResource("2_fmglo")]
-position = Vector2(281, 539)
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="FromCorridor" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(415, 622)

@@ -525,33 +525,43 @@ position = Vector2(-4, -14)
 
 [node name="Chair1" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(389, 127)
+seat_id = 1
 
 [node name="Chair2" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(524, 135)
+seat_id = 2
 
 [node name="Chair3" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(762, 132)
+seat_id = 3
 
 [node name="Chair4" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(892, 135)
+seat_id = 4
 
 [node name="Chair5" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(998, 139)
+seat_id = 5
 
 [node name="Chair6" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(1259, 138)
+seat_id = 6
 
 [node name="Chair7" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(1364, 142)
+seat_id = 7
 
 [node name="Chair8" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(1493, 139)
+seat_id = 8
 
 [node name="Chair9" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(1747, 141)
+seat_id = 9
 
 [node name="Chair10" parent="Furniture/StudentDesks/ChairLine1" instance=ExtResource("15_esjwd")]
 position = Vector2(1865, 139)
+seat_id = 10
 
 [node name="ChairLine2" type="Node2D" parent="Furniture/StudentDesks"]
 y_sort_enabled = true
@@ -559,33 +569,43 @@ position = Vector2(-60, 98)
 
 [node name="Chair1" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(381, 144)
+seat_id = 11
 
 [node name="Chair2" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(508, 128)
+seat_id = 12
 
 [node name="Chair3" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(750, 132)
+seat_id = 13
 
 [node name="Chair4" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(857, 135)
+seat_id = 14
 
 [node name="Chair5" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(988, 137)
+seat_id = 15
 
 [node name="Chair6" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(1255, 139)
+seat_id = 16
 
 [node name="Chair7" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(1380, 136)
+seat_id = 17
 
 [node name="Chair8" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(1493, 139)
+seat_id = 18
 
 [node name="Chair9" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(1743, 139)
+seat_id = 19
 
 [node name="Chair10" parent="Furniture/StudentDesks/ChairLine2" instance=ExtResource("15_esjwd")]
 position = Vector2(1875, 142)
+seat_id = 20
 
 [node name="ChairLine3" type="Node2D" parent="Furniture/StudentDesks"]
 y_sort_enabled = true
@@ -593,33 +613,43 @@ position = Vector2(-116, 202)
 
 [node name="Chair1" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(389, 127)
+seat_id = 21
 
 [node name="Chair2" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(524, 135)
+seat_id = 22
 
 [node name="Chair3" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(762, 132)
+seat_id = 23
 
 [node name="Chair4" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(892, 135)
+seat_id = 24
 
 [node name="Chair5" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(998, 139)
+seat_id = 25
 
 [node name="Chair6" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(1259, 138)
+seat_id = 26
 
 [node name="Chair7" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(1364, 142)
+seat_id = 27
 
 [node name="Chair8" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(1493, 139)
+seat_id = 28
 
 [node name="Chair9" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(1747, 141)
+seat_id = 29
 
 [node name="Chair10" parent="Furniture/StudentDesks/ChairLine3" instance=ExtResource("15_esjwd")]
 position = Vector2(1865, 139)
+seat_id = 30
 
 [node name="ChairLine4" type="Node2D" parent="Furniture/StudentDesks"]
 y_sort_enabled = true
@@ -627,33 +657,43 @@ position = Vector2(-160, 310)
 
 [node name="Chair1" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(381, 144)
+seat_id = 31
 
 [node name="Chair2" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(508, 128)
+seat_id = 32
 
 [node name="Chair3" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(750, 132)
+seat_id = 33
 
 [node name="Chair4" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(857, 135)
+seat_id = 34
 
 [node name="Chair5" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(988, 137)
+seat_id = 35
 
 [node name="Chair6" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(1255, 139)
+seat_id = 36
 
 [node name="Chair7" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(1380, 136)
+seat_id = 37
 
 [node name="Chair8" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(1493, 139)
+seat_id = 38
 
 [node name="Chair9" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(1743, 139)
+seat_id = 39
 
 [node name="Chair10" parent="Furniture/StudentDesks/ChairLine4" instance=ExtResource("15_esjwd")]
 position = Vector2(1875, 142)
+seat_id = 40
 
 [node name="ChairLine5" type="Node2D" parent="Furniture/StudentDesks"]
 y_sort_enabled = true
@@ -661,33 +701,43 @@ position = Vector2(-229, 438)
 
 [node name="Chair1" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(389, 127)
+seat_id = 41
 
 [node name="Chair2" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(524, 135)
+seat_id = 42
 
 [node name="Chair3" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(762, 132)
+seat_id = 43
 
 [node name="Chair4" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(892, 135)
+seat_id = 44
 
 [node name="Chair5" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(998, 139)
+seat_id = 45
 
 [node name="Chair6" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(1259, 138)
+seat_id = 46
 
 [node name="Chair7" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(1364, 142)
+seat_id = 47
 
 [node name="Chair8" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(1493, 139)
+seat_id = 48
 
 [node name="Chair9" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(1747, 141)
+seat_id = 49
 
 [node name="Chair10" parent="Furniture/StudentDesks/ChairLine5" instance=ExtResource("15_esjwd")]
 position = Vector2(1865, 139)
+seat_id = 50
 
 [node name="ChairLine6" type="Node2D" parent="Furniture/StudentDesks"]
 y_sort_enabled = true
@@ -695,33 +745,43 @@ position = Vector2(-274, 575)
 
 [node name="Chair1" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(381, 144)
+seat_id = 51
 
 [node name="Chair2" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(508, 128)
+seat_id = 52
 
 [node name="Chair3" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(750, 132)
+seat_id = 53
 
 [node name="Chair4" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(857, 135)
+seat_id = 54
 
 [node name="Chair5" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(988, 137)
+seat_id = 55
 
 [node name="Chair6" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(1255, 139)
+seat_id = 56
 
 [node name="Chair7" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(1380, 136)
+seat_id = 57
 
 [node name="Chair8" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(1493, 139)
+seat_id = 58
 
 [node name="Chair9" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(1743, 139)
+seat_id = 59
 
 [node name="Chair10" parent="Furniture/StudentDesks/ChairLine6" instance=ExtResource("15_esjwd")]
 position = Vector2(1875, 142)
+seat_id = 60
 
 [node name="Other" type="Node2D" parent="Furniture"]
 
@@ -733,6 +793,7 @@ script = ExtResource("22_2p33c")
 layer = 10
 
 [node name="NightFilter" type="ColorRect" parent="Light/TimeFilter"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -742,6 +803,7 @@ mouse_filter = 2
 color = Color(0.78547436, 0.82814056, 0.9517719, 0.29411766)
 
 [node name="MorningFilter" type="ColorRect" parent="Light/TimeFilter"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -813,7 +875,6 @@ lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_bwhww")
 
 [node name="HUD" parent="." instance=ExtResource("23_c0jqg")]
-visible = false
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 
