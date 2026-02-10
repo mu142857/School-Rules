@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://wf2qjh0m8qbm" path="res://locations/academic building corridor/academic_building_corridor.gd" id="1_csd11"]
 [ext_resource type="Texture2D" uid="uid://bec83262vybtt" path="res://locations/academic building corridor/floor.png" id="1_loqaj"]
-[ext_resource type="Texture2D" uid="uid://dyld315yvk1qd" path="res://locations/academic building corridor/windowed_wall.png" id="2_475pi"]
+[ext_resource type="Texture2D" uid="uid://csq4slio7qdyu" path="res://locations/academic building corridor/smaller_windowed_wall.png" id="3_csd11"]
 [ext_resource type="PackedScene" uid="uid://24oxvi7qubcl" path="res://locations/doors and portals/door.tscn" id="4_csd11"]
 
 [node name="AcademicBuildingCorridor" type="Node2D"]
@@ -20,25 +20,18 @@ skew = -0.5235988
 texture = ExtResource("1_loqaj")
 
 [node name="Floor2" type="Sprite2D" parent="Walls"]
-position = Vector2(996.00006, -964.0001)
+position = Vector2(991, -964.00006)
 rotation = 2.0943952
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.75, 0.74861693)
 skew = -0.5235988
 texture = ExtResource("1_loqaj")
 
 [node name="Wall1" type="Sprite2D" parent="Walls"]
-position = Vector2(68.35748, 80.5674)
+position = Vector2(173.11499, -168.6709)
 rotation = -1.0471976
-scale = Vector2(0.6525281, 0.7336643)
+scale = Vector2(0.9058715, 1.0185087)
 skew = 1.0471976
-texture = ExtResource("2_475pi")
-
-[node name="Wall2" type="Sprite2D" parent="Walls"]
-position = Vector2(604.00006, -847.0001)
-rotation = -1.0471976
-scale = Vector2(0.6525281, 0.7336643)
-skew = 1.0471976
-texture = ExtResource("2_475pi")
+texture = ExtResource("3_csd11")
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 
