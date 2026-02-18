@@ -1,0 +1,1159 @@
+[gd_scene load_steps=21 format=3 uid="uid://dugfumccv55u0"]
+
+[ext_resource type="Script" uid="uid://wf2qjh0m8qbm" path="res://locations/academic building corridor/academic_building_corridor.gd" id="1_l8euv"]
+[ext_resource type="Texture2D" uid="uid://bec83262vybtt" path="res://locations/academic building corridor/floor.png" id="2_xp3ce"]
+[ext_resource type="Texture2D" uid="uid://sjm16v34i7nx" path="res://locations/academic building corridor/smaller_wall.png" id="3_wexx4"]
+[ext_resource type="Texture2D" uid="uid://bwfxa17jd0k3r" path="res://locations/academic building corridor/no_shadow_wall.png" id="4_10g4j"]
+[ext_resource type="Texture2D" uid="uid://ds7mf3u7ypkj5" path="res://locations/academic building corridor/no_shadow_windowed_wall.png" id="5_dajvd"]
+[ext_resource type="PackedScene" uid="uid://cnt3pxxxplchd" path="res://locations/academic building corridor/window_with_light.tscn" id="6_0lg4r"]
+[ext_resource type="Texture2D" uid="uid://iqlqqfyqik6j" path="res://locations/academic building corridor/class sign.png" id="7_tgtci"]
+[ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="8_0wdqv"]
+[ext_resource type="PackedScene" uid="uid://24oxvi7qubcl" path="res://locations/doors and portals/door.tscn" id="9_id18x"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l8euv"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_b8ov5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sdx25"]
+gradient = SubResource("Gradient_b8ov5")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b8ov5"]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8ov5"]
+size = Vector2(2904.1843, 25.983582)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4s3q"]
+size = Vector2(3321.9746, 25.983582)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf4da"]
+size = Vector2(3321.9746, 25.983582)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdx25"]
+size = Vector2(134, 153)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji67s"]
+size = Vector2(148.05249, 164)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqdaf"]
+size = Vector2(1249, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p20y0"]
+size = Vector2(2426.5, 20)
+
+[node name="AcademicBuildingCorridorLeft" type="Node2D"]
+script = ExtResource("1_l8euv")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1000
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Walls" type="Node2D" parent="."]
+position = Vector2(203, 0)
+
+[node name="Floor_cnr_mid" type="Sprite2D" parent="Walls"]
+position = Vector2(-452.52078, 894.8841)
+scale = Vector2(0.68356705, 0.68356705)
+skew = 0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Floor_cnr_c" type="Sprite2D" parent="Walls"]
+position = Vector2(1914, 895)
+scale = Vector2(0.68356705, 0.68356705)
+skew = 0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Floor_cnr_b" type="Sprite2D" parent="Walls"]
+position = Vector2(731, 895)
+scale = Vector2(0.68356705, 0.68356705)
+skew = 0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Floor_cnr_a" type="Sprite2D" parent="Walls"]
+position = Vector2(-922.98047, 892.99994)
+scale = Vector2(0.7158398, 0.68356705)
+skew = 0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Floor_a" type="Sprite2D" parent="Walls"]
+position = Vector2(343, 156.99998)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.75)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Floor_b" type="Sprite2D" parent="Walls"]
+position = Vector2(991, -964.00006)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.74861693)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Floor_c" type="Sprite2D" parent="Walls"]
+position = Vector2(1639.9999, -2089)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.74861693)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Floor_d" type="Sprite2D" parent="Walls"]
+position = Vector2(2290.0002, -3214.0002)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.74861693)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Floor_d2" type="Sprite2D" parent="Walls"]
+position = Vector2(1562, -2723)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.74861693)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+region_enabled = true
+region_rect = Rect2(0, 0, 1082.8071, 595)
+
+[node name="Floor_d3" type="Sprite2D" parent="Walls"]
+position = Vector2(1119, -2723)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.74861693)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+region_enabled = true
+region_rect = Rect2(0, 0, 1082.8071, 595)
+
+[node name="Wall_cor#2" type="Sprite2D" parent="Walls"]
+position = Vector2(-45, 265.99997)
+rotation = -1.0471976
+scale = Vector2(0.75, 0.75)
+skew = 1.0471977
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 836.27356, 476)
+
+[node name="Floor_a2" type="Sprite2D" parent="Walls"]
+position = Vector2(-2396.0002, 2755)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.75)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Floor_b2" type="Sprite2D" parent="Walls"]
+position = Vector2(-1746.9999, 1631)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.74861693)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+
+[node name="Wall_cnr#2" type="Sprite2D" parent="Walls"]
+position = Vector2(-820.625, 542)
+scale = Vector2(0.7516627, 0.75)
+texture = ExtResource("4_10g4j")
+
+[node name="Wall_cnr#4_1" type="Sprite2D" parent="Walls"]
+position = Vector2(1853, -3250)
+scale = Vector2(0.7516627, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 369.6786, 476)
+
+[node name="Wall_cnr#4_2" type="Sprite2D" parent="Walls"]
+modulate = Color(0.9231732, 0.9231732, 0.9231732, 1)
+position = Vector2(1447.1592, -2542)
+scale = Vector2(0.75794536, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 369.6786, 476)
+
+[node name="Wall_cnr#4_3" type="Sprite2D" parent="Walls"]
+modulate = Color(0.98013884, 0.98013943, 0.9801391, 1)
+position = Vector2(1689, -3247)
+rotation = -0.08726646
+scale = Vector2(0.2, 0.75)
+skew = 0.08726646
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_4" type="Sprite2D" parent="Walls"]
+modulate = Color(0.96035177, 0.9603506, 0.9603508, 1)
+position = Vector2(1641.0001, -3239.9998)
+rotation = -0.17453292
+scale = Vector2(0.2, 0.75)
+skew = 0.17453292
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_5" type="Sprite2D" parent="Walls"]
+modulate = Color(0.94063586, 0.94063586, 0.9406357, 1)
+position = Vector2(1592.0001, -3229.0002)
+rotation = -0.2617994
+scale = Vector2(0.2, 0.75)
+skew = 0.2617994
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_6" type="Sprite2D" parent="Walls"]
+modulate = Color(0.9209947, 0.92099464, 0.9209944, 1)
+position = Vector2(1544.0001, -3213.0002)
+rotation = -0.34906584
+scale = Vector2(0.2, 0.75)
+skew = 0.34906584
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_7" type="Sprite2D" parent="Walls"]
+modulate = Color(0.89275575, 0.89275575, 0.8927557, 1)
+position = Vector2(1498, -3193)
+rotation = -0.43633232
+scale = Vector2(0.2, 0.75)
+skew = 0.43633232
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_8" type="Sprite2D" parent="Walls"]
+modulate = Color(0.8625217, 0.86252177, 0.8625217, 1)
+position = Vector2(1455, -3167)
+rotation = -0.61086524
+scale = Vector2(0.2, 0.75)
+skew = 0.61086524
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_9" type="Sprite2D" parent="Walls"]
+modulate = Color(0.83033514, 0.8303352, 0.830335, 1)
+position = Vector2(1418, -3134.0002)
+rotation = -0.83775806
+scale = Vector2(0.2, 0.75)
+skew = 0.83775806
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="WallUnit5" type="Node2D" parent="Walls"]
+position = Vector2(1824, -2728)
+
+[node name="WallAndWindow1" type="Node2D" parent="Walls/WallUnit5"]
+position = Vector2(-644, -195.25)
+scale = Vector2(0.75, 0.75)
+
+[node name="Wall_b2" type="Sprite2D" parent="Walls/WallUnit5/WallAndWindow1"]
+self_modulate = Color(0.8111278, 0.81112736, 0.8111274, 1)
+position = Vector2(156.00003, -15.666601)
+rotation = -1.0471976
+skew = 1.0471977
+texture = ExtResource("5_dajvd")
+region_enabled = true
+region_rect = Rect2(0, 0, 557.03345, 476)
+
+[node name="Window_b2_1" parent="Walls/WallUnit5/WallAndWindow1" instance=ExtResource("6_0lg4r")]
+position = Vector2(146.83295, -10.68866)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight1" type="Polygon2D" parent="Walls/WallUnit5/WallAndWindow1"]
+material = SubResource("CanvasItemMaterial_l8euv")
+position = Vector2(33, -289)
+polygon = PackedVector2Array(7, 501.3335, 29.666748, 522.667, 137.66675, 560.00024, 504.3335, 558.667, 714.6667, 188.00003, 222.66669, -5.333313, 5.333313, 368.00003)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.88, 0.70634663, 0.22879998, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.88, 0.70634663, 0.22879998, 0.39215687, 0.8784314, 0.7058824, 0.22745098, 0.39215687)
+
+[node name="Wall_cnr#4_16" type="Sprite2D" parent="Walls"]
+modulate = Color(0.83033514, 0.8303352, 0.830335, 1)
+position = Vector2(1186, -2732)
+rotation = -1.2217305
+scale = Vector2(0.2, 0.75)
+skew = 1.2217305
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_15" type="Sprite2D" parent="Walls"]
+modulate = Color(0.8625217, 0.86252177, 0.8625217, 1)
+position = Vector2(1182, -2685)
+rotation = 1.3962634
+scale = Vector2(0.2, 0.75)
+skew = -1.3962634
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_13" type="Sprite2D" parent="Walls"]
+modulate = Color(0.9209947, 0.92099464, 0.9209944, 1)
+position = Vector2(1190, -2640.0002)
+rotation = 1.3962634
+scale = Vector2(0.2, 0.75)
+skew = -1.3962634
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_12" type="Sprite2D" parent="Walls"]
+modulate = Color(0.94063586, 0.94063586, 0.9406357, 1)
+position = Vector2(1206, -2595)
+rotation = 1.0471976
+scale = Vector2(0.2, 0.75)
+skew = -1.0471976
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_11" type="Sprite2D" parent="Walls"]
+modulate = Color(0.96035177, 0.9603506, 0.9603508, 1)
+position = Vector2(1238, -2563.0002)
+rotation = 0.5235988
+scale = Vector2(0.2, 0.75)
+skew = -0.5235988
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cnr#4_10" type="Sprite2D" parent="Walls"]
+modulate = Color(0.98013884, 0.98013943, 0.9801391, 1)
+position = Vector2(1284, -2546.0002)
+rotation = 0.17453292
+scale = Vector2(0.2, 0.75)
+skew = -0.17453292
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(1284.3214, 0, 253.73938, 476)
+
+[node name="Wall_cor#4_1" type="Sprite2D" parent="Walls"]
+position = Vector2(1543.0604, -2471.254)
+rotation = -1.0471976
+scale = Vector2(0.29892823, 0.75)
+skew = 1.0471977
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(267.21146, 0, 567.708, 476)
+
+[node name="Wall_sa1" type="Sprite2D" parent="Walls"]
+position = Vector2(-2269, 1973.9998)
+rotation = -1.0471976
+scale = Vector2(0.75, 0.75)
+skew = 1.0471975
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(142.77637, 0, 1363.696, 476)
+
+[node name="Wall_sa2" type="Sprite2D" parent="Walls"]
+position = Vector2(-2687.0002, 2694.9998)
+rotation = -1.0471976
+scale = Vector2(0.75, 0.75)
+skew = 1.0471975
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(142.77637, 0, 1363.696, 476)
+
+[node name="Wall_sa3" type="Sprite2D" parent="Walls"]
+position = Vector2(-1727, 1034.9999)
+rotation = -1.0471976
+scale = Vector2(0.75, 0.75)
+skew = 1.0471976
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(126.998535, 0, 1527.0015, 476)
+
+[node name="WallUnit4" type="Node2D" parent="Walls"]
+position = Vector2(2626, -3237)
+
+[node name="WallAndWindow1" type="Node2D" parent="Walls/WallUnit4"]
+position = Vector2(-644, -195.25)
+scale = Vector2(0.75, 0.75)
+
+[node name="Wall_b2" type="Sprite2D" parent="Walls/WallUnit4/WallAndWindow1"]
+self_modulate = Color(0.94938904, 0.94938904, 0.94938904, 1)
+position = Vector2(285.49988, -238.68909)
+rotation = -1.0471976
+skew = 1.0471977
+texture = ExtResource("5_dajvd")
+region_rect = Rect2(0, 0, 1654, 476)
+
+[node name="Window_b2_1" parent="Walls/WallUnit4/WallAndWindow1" instance=ExtResource("6_0lg4r")]
+position = Vector2(146.83295, -10.68866)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="Window_b2_2" parent="Walls/WallUnit4/WallAndWindow1" instance=ExtResource("6_0lg4r")]
+position = Vector2(427.66666, -491.66666)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight1" type="Polygon2D" parent="Walls/WallUnit4/WallAndWindow1"]
+material = SubResource("CanvasItemMaterial_l8euv")
+position = Vector2(33, -289)
+polygon = PackedVector2Array(8, 555, 520, 696.00006, 718.6667, 366.6667, 714.6667, 188.00003, 222.66669, -5.333313, 5.333313, 368.00003)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0.39215687)
+
+[node name="WindowLight2" type="Polygon2D" parent="Walls/WallUnit4/WallAndWindow1"]
+material = SubResource("CanvasItemMaterial_l8euv")
+position = Vector2(314.33337, -767.6667)
+polygon = PackedVector2Array(8, 555, 520, 696.00006, 718.6667, 366.6667, 714.6667, 188.00003, 222.66669, -5.333313, 5.333313, 368.00003)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0.39215687)
+
+[node name="WallConor1" type="Node2D" parent="Walls/WallUnit4"]
+z_index = 1
+position = Vector2(-224.25, -552)
+
+[node name="Floor" type="Sprite2D" parent="Walls/WallUnit4/WallConor1"]
+position = Vector2(65.91033, -62.519913)
+scale = Vector2(0.88651836, 2.2906432)
+skew = 0.5235988
+texture = SubResource("GradientTexture2D_sdx25")
+
+[node name="Wall1" type="Sprite2D" parent="Walls/WallUnit4/WallConor1"]
+modulate = Color(0.89708984, 0.8970898, 0.89708984, 1)
+position = Vector2(103, -302)
+scale = Vector2(-0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="Wall2" type="Sprite2D" parent="Walls/WallUnit4/WallConor1"]
+position = Vector2(68.00002, 1.0000131)
+rotation = -1.0471976
+scale = Vector2(0.79294413, 0.75)
+skew = 1.0471975
+texture = ExtResource("3_wexx4")
+offset = Vector2(66.50293, -258.4801)
+region_enabled = true
+region_rect = Rect2(640.1057, 0, 186.89441, 476)
+
+[node name="Wall3" type="Sprite2D" parent="Walls/WallUnit4/WallConor1"]
+modulate = Color(0.90359825, 0.90359825, 0.9035982, 1)
+position = Vector2(29.40004, -177.0398)
+scale = Vector2(-0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="WallUnit3" type="Node2D" parent="Walls"]
+position = Vector2(1723, -1664)
+
+[node name="WallAndWindow1" type="Node2D" parent="Walls/WallUnit3"]
+position = Vector2(-644, -195.25)
+scale = Vector2(0.75, 0.75)
+
+[node name="Wall_b2" type="Sprite2D" parent="Walls/WallUnit3/WallAndWindow1"]
+position = Vector2(285.49988, -238.68909)
+rotation = -1.0471976
+skew = 1.0471977
+texture = ExtResource("5_dajvd")
+region_rect = Rect2(0, 0, 1654, 476)
+
+[node name="Window_b2_1" parent="Walls/WallUnit3/WallAndWindow1" instance=ExtResource("6_0lg4r")]
+position = Vector2(146.83295, -10.68866)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="Window_b2_2" parent="Walls/WallUnit3/WallAndWindow1" instance=ExtResource("6_0lg4r")]
+position = Vector2(427.66666, -491.66666)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight1" type="Polygon2D" parent="Walls/WallUnit3/WallAndWindow1"]
+material = SubResource("CanvasItemMaterial_l8euv")
+position = Vector2(33, -289)
+polygon = PackedVector2Array(8, 555, 520, 696.00006, 718.6667, 366.6667, 714.6667, 188.00003, 222.66669, -5.333313, 5.333313, 368.00003)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0.39215687)
+
+[node name="WindowLight2" type="Polygon2D" parent="Walls/WallUnit3/WallAndWindow1"]
+material = SubResource("CanvasItemMaterial_l8euv")
+position = Vector2(314.33337, -767.6667)
+polygon = PackedVector2Array(8, 555, 520, 696.00006, 718.6667, 366.6667, 714.6667, 188.00003, 222.66669, -5.333313, 5.333313, 368.00003)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0.39215687)
+
+[node name="WallUnit2" type="Node2D" parent="Walls"]
+position = Vector2(1236, -826)
+
+[node name="WallAndWindow1" type="Node2D" parent="Walls/WallUnit2"]
+position = Vector2(-644, -195.25)
+scale = Vector2(0.75, 0.75)
+
+[node name="Wall_b2" type="Sprite2D" parent="Walls/WallUnit2/WallAndWindow1"]
+position = Vector2(285.49988, -238.68909)
+rotation = -1.0471976
+skew = 1.0471977
+texture = ExtResource("5_dajvd")
+region_rect = Rect2(0, 0, 1654, 476)
+
+[node name="Window_b2_1" parent="Walls/WallUnit2/WallAndWindow1" instance=ExtResource("6_0lg4r")]
+position = Vector2(146.83295, -10.68866)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="Window_b2_2" parent="Walls/WallUnit2/WallAndWindow1" instance=ExtResource("6_0lg4r")]
+position = Vector2(427.66666, -491.66666)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight1" type="Polygon2D" parent="Walls/WallUnit2/WallAndWindow1"]
+material = SubResource("CanvasItemMaterial_l8euv")
+position = Vector2(33, -289)
+polygon = PackedVector2Array(8, 555, 520, 696.00006, 718.6667, 366.6667, 714.6667, 188.00003, 222.66669, -5.333313, 5.333313, 368.00003)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0.39215687)
+
+[node name="WindowLight2" type="Polygon2D" parent="Walls/WallUnit2/WallAndWindow1"]
+material = SubResource("CanvasItemMaterial_l8euv")
+position = Vector2(314.33337, -767.6667)
+polygon = PackedVector2Array(8, 555, 520, 696.00006, 718.6667, 366.6667, 714.6667, 188.00003, 222.66669, -5.333313, 5.333313, 368.00003)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0.39215687)
+
+[node name="WallConor1" type="Node2D" parent="Walls/WallUnit2"]
+z_index = 1
+position = Vector2(-224.25, -552)
+
+[node name="Floor" type="Sprite2D" parent="Walls/WallUnit2/WallConor1"]
+position = Vector2(65.91033, -62.519913)
+scale = Vector2(0.88651836, 2.2906432)
+skew = 0.5235988
+texture = SubResource("GradientTexture2D_sdx25")
+
+[node name="Wall1" type="Sprite2D" parent="Walls/WallUnit2/WallConor1"]
+modulate = Color(0.89708984, 0.8970898, 0.89708984, 1)
+position = Vector2(103, -302)
+scale = Vector2(-0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="Wall2" type="Sprite2D" parent="Walls/WallUnit2/WallConor1"]
+position = Vector2(68.00002, 1.0000131)
+rotation = -1.0471976
+scale = Vector2(0.79294413, 0.75)
+skew = 1.0471975
+texture = ExtResource("3_wexx4")
+offset = Vector2(66.50293, -258.4801)
+region_enabled = true
+region_rect = Rect2(640.1057, 0, 186.89441, 476)
+
+[node name="Wall3" type="Sprite2D" parent="Walls/WallUnit2/WallConor1"]
+modulate = Color(0.90359825, 0.90359825, 0.9035982, 1)
+position = Vector2(29.40004, -177.0398)
+scale = Vector2(-0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="WallUnit1" type="Node2D" parent="Walls"]
+position = Vector2(2, -3)
+
+[node name="WallAndWindow1" type="Node2D" parent="Walls/WallUnit1"]
+position = Vector2(28, 40)
+scale = Vector2(0.75, 0.75)
+
+[node name="Wall_b2" type="Sprite2D" parent="Walls/WallUnit1/WallAndWindow1"]
+position = Vector2(383.16656, -532.3558)
+rotation = -1.0471976
+skew = 1.0471977
+texture = ExtResource("5_dajvd")
+region_rect = Rect2(0, 0, 1654, 476)
+
+[node name="Window_b2_1" parent="Walls/WallUnit1/WallAndWindow1" instance=ExtResource("6_0lg4r")]
+position = Vector2(244.4996, -304.35532)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="Window_b2_2" parent="Walls/WallUnit1/WallAndWindow1" instance=ExtResource("6_0lg4r")]
+position = Vector2(525.3333, -785.3333)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight1" type="Polygon2D" parent="Walls/WallUnit1/WallAndWindow1"]
+material = SubResource("CanvasItemMaterial_l8euv")
+position = Vector2(130.66667, -582.6667)
+polygon = PackedVector2Array(8, 555, 520, 696.00006, 718.6667, 366.6667, 714.6667, 188.00003, 222.66669, -5.333313, 5.333313, 368.00003)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0.39215687)
+
+[node name="WindowLight2" type="Polygon2D" parent="Walls/WallUnit1/WallAndWindow1"]
+material = SubResource("CanvasItemMaterial_l8euv")
+position = Vector2(412.00003, -1061.3334)
+polygon = PackedVector2Array(8, 555, 520, 696.00006, 718.6667, 366.6667, 714.6667, 188.00003, 222.66669, -5.333313, 5.333313, 368.00003)
+uv = PackedVector2Array(8, 555, 586, 719, 970, 714, 1071, 497, 107.367615, 118, 8, 327)
+vertex_colors = PackedColorArray(0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0, 0.88, 0.70634663, 0.22879998, 0.15686275, 0.88, 0.70634663, 0.22879998, 0.39215687)
+
+[node name="WallConor1" type="Node2D" parent="Walls/WallUnit1"]
+z_index = 1
+position = Vector2(521, -537)
+
+[node name="Floor" type="Sprite2D" parent="Walls/WallUnit1/WallConor1"]
+position = Vector2(65.91033, -62.519913)
+scale = Vector2(0.88651836, 2.2906432)
+skew = 0.5235988
+texture = SubResource("GradientTexture2D_sdx25")
+
+[node name="Wall1" type="Sprite2D" parent="Walls/WallUnit1/WallConor1"]
+modulate = Color(0.89708984, 0.8970898, 0.89708984, 1)
+position = Vector2(103, -302)
+scale = Vector2(-0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="Wall2" type="Sprite2D" parent="Walls/WallUnit1/WallConor1"]
+position = Vector2(68.00002, 1.0000131)
+rotation = -1.0471976
+scale = Vector2(0.79294413, 0.75)
+skew = 1.0471975
+texture = ExtResource("3_wexx4")
+offset = Vector2(66.50293, -258.4801)
+region_enabled = true
+region_rect = Rect2(640.1057, 0, 186.89441, 476)
+
+[node name="Wall3" type="Sprite2D" parent="Walls/WallUnit1/WallConor1"]
+modulate = Color(0.90359825, 0.90359825, 0.9035982, 1)
+position = Vector2(29.40004, -177.0398)
+scale = Vector2(-0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="FrontWalls" type="Node2D" parent="."]
+position = Vector2(-382, 890.00006)
+scale = Vector2(0.75, 0.75)
+
+[node name="Wall_cnr1" type="Sprite2D" parent="FrontWalls"]
+modulate = Color(1, 1, 1, 0.78431374)
+z_index = 1
+position = Vector2(-57.333355, 242.66663)
+texture = ExtResource("3_wexx4")
+offset = Vector2(2.666687, -242.66663)
+region_enabled = true
+region_rect = Rect2(0, 0, 1535.3008, 476)
+
+[node name="Wall_cnr2" type="Sprite2D" parent="FrontWalls"]
+modulate = Color(1, 1, 1, 0.78431374)
+z_index = 1
+position = Vector2(2345.0574, 242.66669)
+scale = Vector2(2.3534484, 1)
+texture = ExtResource("3_wexx4")
+offset = Vector2(2.666687, -242.66663)
+region_enabled = true
+region_rect = Rect2(133.84204, 0, 1392.675, 476)
+
+[node name="Wall_a2" type="Sprite2D" parent="FrontWalls"]
+z_index = 10
+position = Vector2(-2477.1223, 2871.7556)
+rotation = -1.0471976
+scale = Vector2(1.4774611, 1)
+skew = 1.0471975
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(0, 0, 214.04971, 476)
+
+[node name="WallUnit1" type="Node2D" parent="FrontWalls"]
+position = Vector2(-2129.3333, 2248)
+
+[node name="WallConor" type="Node2D" parent="FrontWalls/WallUnit1"]
+z_index = 1
+position = Vector2(209.33333, -240)
+scale = Vector2(1.3333334, 1.3333334)
+
+[node name="Floor" type="Sprite2D" parent="FrontWalls/WallUnit1/WallConor"]
+position = Vector2(67.29604, -62.519913)
+scale = Vector2(0.9298218, 2.2906432)
+skew = 0.5235988
+texture = SubResource("GradientTexture2D_sdx25")
+
+[node name="Wall1" type="Sprite2D" parent="FrontWalls/WallUnit1/WallConor"]
+modulate = Color(0.89708984, 0.8970898, 0.89708984, 1)
+position = Vector2(103.99994, -304)
+scale = Vector2(0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="Wall2" type="Sprite2D" parent="FrontWalls/WallUnit1/WallConor"]
+position = Vector2(10.968933, -0.025186002)
+rotation = -1.0471976
+scale = Vector2(0.79294413, 0.75)
+skew = 1.0471975
+texture = ExtResource("3_wexx4")
+offset = Vector2(66.50293, -258.4801)
+region_enabled = true
+region_rect = Rect2(640.1057, 0, 186.89441, 476)
+
+[node name="Wall3" type="Sprite2D" parent="FrontWalls/WallUnit1/WallConor"]
+modulate = Color(0.90359825, 0.90359825, 0.9035982, 1)
+position = Vector2(29.40004, -177.0398)
+scale = Vector2(0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="Wall_b2" type="Sprite2D" parent="FrontWalls/WallUnit1"]
+z_index = 10
+position = Vector2(5.5000763, 2.6441193)
+rotation = -1.0471976
+skew = 1.0471977
+texture = ExtResource("5_dajvd")
+region_rect = Rect2(0, 0, 1654, 476)
+
+[node name="Window_b2_1" parent="FrontWalls/WallUnit1" instance=ExtResource("6_0lg4r")]
+z_index = 11
+position = Vector2(-133.1669, 230.64462)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight1" type="Polygon2D" parent="FrontWalls/WallUnit1"]
+material = SubResource("CanvasItemMaterial_b8ov5")
+position = Vector2(-60, -113.333336)
+scale = Vector2(-1, 1)
+polygon = PackedVector2Array(181.33325, 625.33325, 654.6665, 738.66675, 650.6665, 580, 426.6665, 193.33325, -36, 68, -32, 257.33325)
+vertex_colors = PackedColorArray(0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0.39215687)
+
+[node name="Window_b2_3" parent="FrontWalls/WallUnit1" instance=ExtResource("6_0lg4r")]
+z_index = 11
+position = Vector2(148.1666, -252.022)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight2" type="Polygon2D" parent="FrontWalls/WallUnit1"]
+material = SubResource("CanvasItemMaterial_b8ov5")
+position = Vector2(222.66669, -595.99994)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(181.33325, 625.33325, 654.6665, 738.66675, 650.6665, 580, 426.6665, 193.33325, -36, 68, -32, 257.33325)
+vertex_colors = PackedColorArray(0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0.39215687)
+
+[node name="WallUnit2" type="Node2D" parent="FrontWalls"]
+position = Vector2(-1476, 1122.6666)
+
+[node name="WallConor" type="Node2D" parent="FrontWalls/WallUnit2"]
+z_index = 1
+position = Vector2(204.00005, -240)
+scale = Vector2(1.3333334, 1.3333334)
+
+[node name="Floor" type="Sprite2D" parent="FrontWalls/WallUnit2/WallConor"]
+position = Vector2(67.29604, -62.519913)
+scale = Vector2(0.9298218, 2.2906432)
+skew = 0.5235988
+texture = SubResource("GradientTexture2D_sdx25")
+
+[node name="Wall1" type="Sprite2D" parent="FrontWalls/WallUnit2/WallConor"]
+modulate = Color(0.89708984, 0.8970898, 0.89708984, 1)
+position = Vector2(103.99994, -304)
+scale = Vector2(0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="Wall2" type="Sprite2D" parent="FrontWalls/WallUnit2/WallConor"]
+position = Vector2(10.968933, -0.025186002)
+rotation = -1.0471976
+scale = Vector2(0.79294413, 0.75)
+skew = 1.0471975
+texture = ExtResource("3_wexx4")
+offset = Vector2(66.50293, -258.4801)
+region_enabled = true
+region_rect = Rect2(640.1057, 0, 186.89441, 476)
+
+[node name="Wall3" type="Sprite2D" parent="FrontWalls/WallUnit2/WallConor"]
+modulate = Color(0.90359825, 0.90359825, 0.9035982, 1)
+position = Vector2(29.40004, -177.0398)
+scale = Vector2(0.4, 0.75)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(-1.3540955, 0, 147.29819, 476)
+
+[node name="Wall_b2" type="Sprite2D" parent="FrontWalls/WallUnit2"]
+z_index = 10
+position = Vector2(5.5000763, 2.6441193)
+rotation = -1.0471976
+skew = 1.0471977
+texture = ExtResource("5_dajvd")
+region_rect = Rect2(0, 0, 1654, 476)
+
+[node name="Window_b2_1" parent="FrontWalls/WallUnit2" instance=ExtResource("6_0lg4r")]
+z_index = 11
+position = Vector2(-133.1669, 230.64462)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight1" type="Polygon2D" parent="FrontWalls/WallUnit2"]
+material = SubResource("CanvasItemMaterial_b8ov5")
+position = Vector2(-60, -113.33325)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(181.33325, 625.33325, 654.6665, 738.66675, 650.6665, 580, 426.6665, 193.33325, -36, 68, -32, 257.33325)
+vertex_colors = PackedColorArray(0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0.39215687)
+
+[node name="Window_b2_3" parent="FrontWalls/WallUnit2" instance=ExtResource("6_0lg4r")]
+z_index = 11
+position = Vector2(148.1666, -252.022)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight2" type="Polygon2D" parent="FrontWalls/WallUnit2"]
+material = SubResource("CanvasItemMaterial_b8ov5")
+position = Vector2(224.00002, -597.33325)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(181.33325, 625.33325, 654.6665, 738.66675, 650.6665, 580, 426.6665, 193.33325, -36, 68, -32, 257.33325)
+vertex_colors = PackedColorArray(0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0.39215687)
+
+[node name="WallUnit3" type="Node2D" parent="FrontWalls"]
+position = Vector2(-822.6666, -5.333412)
+
+[node name="Wall_b2" type="Sprite2D" parent="FrontWalls/WallUnit3"]
+z_index = 10
+position = Vector2(-135.99992, 244.00002)
+rotation = -1.0471976
+skew = 1.0471977
+texture = ExtResource("5_dajvd")
+region_enabled = true
+region_rect = Rect2(0, 0, 549.8262, 476)
+
+[node name="Window_b2_1" parent="FrontWalls/WallUnit3" instance=ExtResource("6_0lg4r")]
+z_index = 11
+position = Vector2(-133.1669, 230.64462)
+rotation = -1.0471977
+scale = Vector2(1.053333, 0.78666663)
+skew = 1.0471977
+
+[node name="WindowLight1" type="Polygon2D" parent="FrontWalls/WallUnit3"]
+material = SubResource("CanvasItemMaterial_b8ov5")
+position = Vector2(-60, -113.33325)
+rotation = 3.1415925
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(181.33325, 625.33325, 654.6665, 738.66675, 650.6665, 580, 426.6665, 193.33325, -36, 68, -32, 257.33325)
+vertex_colors = PackedColorArray(0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0, 0.8784314, 0.7058824, 0.22745098, 0.15686275, 0.8784314, 0.7058824, 0.22745098, 0.39215687)
+
+[node name="Wall_b1" type="Sprite2D" parent="FrontWalls"]
+position = Vector2(1477.3334, -1112)
+rotation = -1.0471976
+skew = 1.0471977
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(126.998535, 0, 1527.0015, 476)
+
+[node name="Wall_cnr3" type="Sprite2D" parent="FrontWalls"]
+position = Vector2(1926.6667, -464.00012)
+texture = ExtResource("3_wexx4")
+
+[node name="Wall_cnr4" type="Sprite2D" parent="FrontWalls"]
+position = Vector2(3360.75, -462.66678)
+scale = Vector2(1.2478542, 1)
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(216.5122, 0, 1437.4878, 476)
+
+[node name="Class" type="Node2D" parent="."]
+position = Vector2(203, 0)
+
+[node name="Class1" type="Node2D" parent="Class"]
+position = Vector2(-2861, 3176)
+
+[node name="ClassSign1" type="Sprite2D" parent="Class/Class1"]
+position = Vector2(71, -355.5)
+texture = ExtResource("7_tgtci")
+
+[node name="Label" type="Node2D" parent="Class/Class1/ClassSign1"]
+rotation = -0.17453292
+skew = 0.17453292
+
+[node name="Label" type="Label" parent="Class/Class1/ClassSign1/Label"]
+offset_left = -12.185197
+offset_top = -40.11577
+offset_right = 11.814803
+offset_bottom = 44.88423
+theme_override_colors/font_color = Color(0.2804877, 0.45203578, 0.43037343, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_0wdqv")
+theme_override_font_sizes/font_size = 18
+text = "高
+三
+(1)
+班"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Door" parent="Class/Class1" instance=ExtResource("9_id18x")]
+modulate = Color(0.871141, 0.8711411, 0.8711411, 1)
+position = Vector2(0, 0.00024414063)
+rotation = -1.0471976
+scale = Vector2(1.3, 1.3)
+skew = 1.0471976
+
+[node name="Class2" type="Node2D" parent="Class"]
+position = Vector2(-2535, 2613)
+
+[node name="ClassSign1" type="Sprite2D" parent="Class/Class2"]
+position = Vector2(71, -355.5)
+texture = ExtResource("7_tgtci")
+
+[node name="Label" type="Node2D" parent="Class/Class2/ClassSign1"]
+rotation = -0.17453292
+skew = 0.17453292
+
+[node name="Label" type="Label" parent="Class/Class2/ClassSign1/Label"]
+offset_left = -12.185197
+offset_top = -40.11577
+offset_right = 11.814803
+offset_bottom = 44.88423
+theme_override_colors/font_color = Color(0.2804877, 0.45203578, 0.43037343, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_0wdqv")
+theme_override_font_sizes/font_size = 18
+text = "高
+三
+(2)
+班"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Door" parent="Class/Class2" instance=ExtResource("9_id18x")]
+modulate = Color(0.871141, 0.8711411, 0.8711411, 1)
+position = Vector2(0, 0.00024414063)
+rotation = -1.0471976
+scale = Vector2(1.3, 1.3)
+skew = 1.0471976
+
+[node name="Class3" type="Node2D" parent="Class"]
+position = Vector2(-2210, 2052)
+
+[node name="ClassSign1" type="Sprite2D" parent="Class/Class3"]
+position = Vector2(71, -355.5)
+texture = ExtResource("7_tgtci")
+
+[node name="Label" type="Node2D" parent="Class/Class3/ClassSign1"]
+rotation = -0.17453292
+skew = 0.17453292
+
+[node name="Label" type="Label" parent="Class/Class3/ClassSign1/Label"]
+offset_left = -12.185197
+offset_top = -40.11577
+offset_right = 11.814803
+offset_bottom = 44.88423
+theme_override_colors/font_color = Color(0.2804877, 0.45203578, 0.43037343, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_0wdqv")
+theme_override_font_sizes/font_size = 18
+text = "高
+三
+(3)
+班"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Door" parent="Class/Class3" instance=ExtResource("9_id18x")]
+modulate = Color(0.871141, 0.8711411, 0.8711411, 1)
+position = Vector2(0, 0.00024414063)
+rotation = -1.0471976
+scale = Vector2(1.3, 1.3)
+skew = 1.0471976
+
+[node name="Class4" type="Node2D" parent="Class"]
+position = Vector2(-1884, 1489)
+
+[node name="ClassSign1" type="Sprite2D" parent="Class/Class4"]
+position = Vector2(71, -355.5)
+texture = ExtResource("7_tgtci")
+
+[node name="Label" type="Node2D" parent="Class/Class4/ClassSign1"]
+rotation = -0.17453292
+skew = 0.17453292
+
+[node name="Label" type="Label" parent="Class/Class4/ClassSign1/Label"]
+offset_left = -12.185197
+offset_top = -40.11577
+offset_right = 11.814803
+offset_bottom = 44.88423
+theme_override_colors/font_color = Color(0.2804877, 0.45203578, 0.43037343, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_0wdqv")
+theme_override_font_sizes/font_size = 18
+text = "高
+三
+(4)
+班"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Door" parent="Class/Class4" instance=ExtResource("9_id18x")]
+modulate = Color(0.871141, 0.8711411, 0.8711411, 1)
+position = Vector2(0, 0.00024414063)
+rotation = -1.0471976
+scale = Vector2(1.3, 1.3)
+skew = 1.0471976
+
+[node name="Class5" type="Node2D" parent="Class"]
+position = Vector2(-1587, 972)
+
+[node name="ClassSign1" type="Sprite2D" parent="Class/Class5"]
+position = Vector2(71, -355.5)
+texture = ExtResource("7_tgtci")
+
+[node name="Label" type="Node2D" parent="Class/Class5/ClassSign1"]
+rotation = -0.17453292
+skew = 0.17453292
+
+[node name="Label" type="Label" parent="Class/Class5/ClassSign1/Label"]
+offset_left = -12.185197
+offset_top = -40.11577
+offset_right = 11.814803
+offset_bottom = 44.88423
+theme_override_colors/font_color = Color(0.2804877, 0.45203578, 0.43037343, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("8_0wdqv")
+theme_override_font_sizes/font_size = 18
+text = "高
+三
+(5)
+班"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Door" parent="Class/Class5" instance=ExtResource("9_id18x")]
+modulate = Color(0.871141, 0.8711411, 0.8711411, 1)
+position = Vector2(0, 0.00024414063)
+rotation = -1.0471976
+scale = Vector2(1.3, 1.3)
+skew = 1.0471976
+
+[node name="StairwellDoor" type="Node2D" parent="Class"]
+position = Vector2(302, 393)
+
+[node name="Door" parent="Class/StairwellDoor" instance=ExtResource("9_id18x")]
+self_modulate = Color(0.70380783, 0.70380783, 0.70380783, 1)
+position = Vector2(-333.00003, 28.00003)
+rotation = -1.0471976
+scale = Vector2(1.3, 1.3)
+skew = 1.0471976
+door_type = 2
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="FromCorridor" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(415, 622)
+
+[node name="Door" parent="." instance=ExtResource("9_id18x")]
+visible = false
+position = Vector2(637, 387.00006)
+rotation = -1.0471976
+scale = Vector2(1.3710816, 1.3730675)
+skew = 1.0471976
+
+[node name="Collisions" type="Node2D" parent="."]
+z_index = 11
+
+[node name="StaticBody2D1" type="StaticBody2D" parent="Collisions"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D1"]
+position = Vector2(-1712.2052, 2328.9553)
+rotation = -1.0471976
+shape = SubResource("RectangleShape2D_b8ov5")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Collisions"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D4"]
+position = Vector2(-2080, 2152)
+rotation = -1.0471976
+shape = SubResource("RectangleShape2D_s4s3q")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Collisions"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D7"]
+position = Vector2(820, -728.00006)
+rotation = -1.0471976
+shape = SubResource("RectangleShape2D_rf4da")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Collisions"]
+collision_layer = 2
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Collisions/StaticBody2D2"]
+position = Vector2(-1756, 2474)
+shape = SubResource("RectangleShape2D_sdx25")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions/StaticBody2D2"]
+position = Vector2(-1715.4869, 2374.6804)
+rotation = -1.0471976
+shape = SubResource("RectangleShape2D_ji67s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions/StaticBody2D2"]
+position = Vector2(-1680, 2347)
+shape = SubResource("RectangleShape2D_sdx25")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Collisions"]
+collision_layer = 2
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Collisions/StaticBody2D3"]
+position = Vector2(-1268, 1630)
+shape = SubResource("RectangleShape2D_sdx25")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collisions/StaticBody2D3"]
+position = Vector2(-1227.4869, 1530.6804)
+rotation = -1.0471976
+shape = SubResource("RectangleShape2D_ji67s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collisions/StaticBody2D3"]
+position = Vector2(-1192, 1503)
+shape = SubResource("RectangleShape2D_sdx25")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Collisions"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D5"]
+position = Vector2(-624, 710)
+shape = SubResource("RectangleShape2D_cqdaf")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Collisions"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collisions/StaticBody2D6"]
+position = Vector2(215.75, 1078)
+shape = SubResource("RectangleShape2D_p20y0")
+
+[node name="BlackRects" type="Node2D" parent="."]
+
+[node name="ColorRect1" type="ColorRect" parent="BlackRects"]
+z_index = 1
+offset_left = -2523.6335
+offset_top = 3712.815
+offset_right = 530.19556
+offset_bottom = 4711.7666
+rotation = -1.0471976
+color = Color(0, 0, 0, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="BlackRects"]
+z_index = 100
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(1462, -2377, 1421, -2396, 1397, -2437, 1381, -2530, 1380, -2886, 1397, -2931, 1501, -3115, 1264, -3118, 826, -2331, 1559, -2355, 1512, -2363)

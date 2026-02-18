@@ -179,7 +179,7 @@ script = ExtResource("4_dirf7")
 sprite_frames = SubResource("SpriteFrames_6t23p")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.7388348
+frame_progress = 0.08550989
 offset = Vector2(10, -124)
 
 [node name="ScreenFrame" parent="AnimatedSprite2D" instance=ExtResource("3_rpf03")]
