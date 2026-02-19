@@ -146,6 +146,13 @@ scale = Vector2(0.75, 0.75)
 skew = -0.5235988
 texture = ExtResource("2_xp3ce")
 
+[node name="Floor_a3" type="Sprite2D" parent="BackWalls/VFloor"]
+position = Vector2(-3045.0002, 3880)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.75)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+
 [node name="Floor_b2" type="Sprite2D" parent="BackWalls/VFloor"]
 position = Vector2(-1746.9999, 1631)
 rotation = 2.0943952
@@ -380,9 +387,9 @@ region_enabled = true
 region_rect = Rect2(142.77637, 0, 1363.696, 476)
 
 [node name="Wall_sa2" type="Sprite2D" parent="BackWalls"]
-position = Vector2(-2687.0002, 2694.9998)
+position = Vector2(-3013.731, 3260.914)
 rotation = -1.0471976
-scale = Vector2(0.75, 0.75)
+scale = Vector2(1.7088579, 0.75)
 skew = 1.0471975
 texture = ExtResource("3_wexx4")
 region_enabled = true
@@ -692,13 +699,13 @@ region_rect = Rect2(133.84204, 0, 1392.675, 476)
 
 [node name="Wall_a2" type="Sprite2D" parent="FrontWalls"]
 z_index = 10
-position = Vector2(-2477.1223, 2871.7556)
+position = Vector2(-2912, 3616)
 rotation = -1.0471976
 scale = Vector2(1.4774611, 1)
 skew = 1.0471975
 texture = ExtResource("3_wexx4")
 region_enabled = true
-region_rect = Rect2(0, 0, 214.04971, 476)
+region_rect = Rect2(136.3809, 0, 1394.82, 476)
 
 [node name="WallUnit1" type="Node2D" parent="FrontWalls"]
 position = Vector2(-2129.3333, 2248)
