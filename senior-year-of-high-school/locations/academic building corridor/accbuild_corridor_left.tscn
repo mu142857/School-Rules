@@ -1240,10 +1240,10 @@ shape = SubResource("RectangleShape2D_p20y0")
 
 [node name="ColorRect1" type="ColorRect" parent="BlackRects"]
 z_index = 1
-offset_left = -2526.0225
-offset_top = 3711.4358
-offset_right = 527.80664
-offset_bottom = 4713.146
+offset_left = -3104.4067
+offset_top = 4713.2266
+offset_right = 1106.1909
+offset_bottom = 5940.558
 rotation = -1.0471976
 color = Color(0, 0, 0, 1)
 
