@@ -121,6 +121,13 @@ scale = Vector2(0.75, 0.74861693)
 skew = -0.5235988
 texture = ExtResource("2_xp3ce")
 
+[node name="Floor_e" type="Sprite2D" parent="BackWalls/VFloor"]
+position = Vector2(2941.0002, -4338)
+rotation = 2.0943952
+scale = Vector2(0.75, 0.74861693)
+skew = -0.5235988
+texture = ExtResource("2_xp3ce")
+
 [node name="Floor_d2" type="Sprite2D" parent="BackWalls/VFloor"]
 position = Vector2(1562, -2723)
 rotation = 2.0943952
@@ -159,6 +166,16 @@ rotation = 2.0943952
 scale = Vector2(0.75, 0.74861693)
 skew = -0.5235988
 texture = ExtResource("2_xp3ce")
+
+[node name="Wall_b5" type="Sprite2D" parent="BackWalls"]
+self_modulate = Color(0.9372549, 0.9372549, 0.9372549, 0.78431374)
+position = Vector2(2720.0002, -3747.0002)
+rotation = -1.0471976
+scale = Vector2(0.75, 0.75)
+skew = 1.0471977
+texture = ExtResource("3_wexx4")
+region_enabled = true
+region_rect = Rect2(2.347229, 0, 1531.2878, 476)
 
 [node name="StairWell#2" type="Node2D" parent="BackWalls"]
 
