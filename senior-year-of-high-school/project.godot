@@ -25,6 +25,7 @@ InventorySystem="*res://autoload/inventory_system.gd"
 TranslationSystem="*res://autoload/translation_system.gd"
 SceneChanger="*res://autoload/scene_changer.gd"
 SeatManager="*res://autoload/seat_manager.gd"
+PauseMenu="*res://ui/pause_menu.tscn"
 
 [display]
 

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7e62h8css3ij"]
+
+[ext_resource type="Texture2D" uid="uid://cdnulwym1wrfj" path="res://ui/icons/button.png" id="1_avurv"]
+[ext_resource type="Texture2D" uid="uid://b24f7dvhjyddp" path="res://ui/icons/button_touching.png" id="2_npydk"]
+[ext_resource type="Texture2D" uid="uid://do13co2n43dx1" path="res://ui/icons/button_touched.png" id="3_6ap7o"]
+[ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="4_j3kxr"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 10000
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7490196, 0.9019608, 0.8352941, 0.78431374)
+
+[node name="UseButton" type="TextureButton" parent="."]
+offset_left = 119.0
+offset_top = 303.0
+offset_right = 191.0
+offset_bottom = 338.0
+texture_normal = ExtResource("1_avurv")
+texture_pressed = ExtResource("2_npydk")
+texture_hover = ExtResource("3_6ap7o")
+
+[node name="Label" type="Label" parent="UseButton"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 66.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.31969476, 0.39963734, 0.45817375, 1)
+theme_override_fonts/font = ExtResource("4_j3kxr")
+theme_override_font_sizes/font_size = 25
+text = "使用"
+horizontal_alignment = 1
+vertical_alignment = 1
