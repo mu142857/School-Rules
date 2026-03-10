@@ -1,39 +1,241 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7e62h8css3ij"]
+[gd_scene load_steps=17 format=3 uid="uid://c7e62h8css3ij"]
 
+[ext_resource type="Script" uid="uid://c4cq0cgubltly" path="res://ui/pause_menu.gd" id="1_6ap7o"]
 [ext_resource type="Texture2D" uid="uid://cdnulwym1wrfj" path="res://ui/icons/button.png" id="1_avurv"]
+[ext_resource type="Texture2D" uid="uid://djgau6vmimpk1" path="res://locations/classroom 1/player idle and walk.png" id="1_npydk"]
 [ext_resource type="Texture2D" uid="uid://b24f7dvhjyddp" path="res://ui/icons/button_touching.png" id="2_npydk"]
 [ext_resource type="Texture2D" uid="uid://do13co2n43dx1" path="res://ui/icons/button_touched.png" id="3_6ap7o"]
 [ext_resource type="FontFile" uid="uid://ddsbots1qimd3" path="res://shared/PixelFont.ttf" id="4_j3kxr"]
 
+[sub_resource type="Gradient" id="Gradient_npydk"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ap7o"]
+gradient = SubResource("Gradient_npydk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_7me3l"]
+offsets = PackedFloat32Array(0, 0.54)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j3kxr"]
+gradient = SubResource("Gradient_7me3l")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_vspa1"]
+offsets = PackedFloat32Array(0.48, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vovkw"]
+gradient = SubResource("Gradient_vspa1")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_wuisp"]
+offsets = PackedFloat32Array(0, 0.52666664)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jyvtb"]
+gradient = SubResource("Gradient_wuisp")
+
+[sub_resource type="Gradient" id="Gradient_y3qud"]
+offsets = PackedFloat32Array(0.48666668, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fijdv"]
+gradient = SubResource("Gradient_y3qud")
+
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 layer = 10000
+script = ExtResource("1_6ap7o")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.7490196, 0.9019608, 0.8352941, 0.78431374)
+color = Color(0.06963669, 0.13492721, 0.29381257, 0.78431374)
 
-[node name="UseButton" type="TextureButton" parent="."]
-offset_left = 119.0
-offset_top = 303.0
-offset_right = 191.0
-offset_bottom = 338.0
+[node name="CharacterShadow" type="Sprite2D" parent="."]
+position = Vector2(255.5, 558.60315)
+scale = Vector2(6.390625, 1.5625)
+texture = SubResource("GradientTexture2D_6ap7o")
+
+[node name="CharacterPreview" type="Sprite2D" parent="."]
+position = Vector2(260.5, 347.60315)
+scale = Vector2(1.8015873, 1.8015872)
+texture = ExtResource("1_npydk")
+region_enabled = true
+region_rect = Rect2(1559.8398, 0, 189.24829, 256)
+
+[node name="InfoVBox" type="VBoxContainer" parent="."]
+offset_left = 385.0
+offset_top = 301.0
+offset_right = 910.0
+offset_bottom = 470.0
+
+[node name="NameLabel" type="Label" parent="InfoVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_j3kxr")
+theme_override_font_sizes/font_size = 60
+text = "林嘉木"
+vertical_alignment = 1
+
+[node name="DaysElapsedLabel" type="Label" parent="InfoVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_j3kxr")
+theme_override_font_sizes/font_size = 35
+text = "开学第 XX 天"
+vertical_alignment = 1
+
+[node name="DaysGaokaoLabel" type="Label" parent="InfoVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_j3kxr")
+theme_override_font_sizes/font_size = 35
+text = "距高考还剩 XX 天"
+vertical_alignment = 1
+
+[node name="Buttons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ReturnButton" type="TextureButton" parent="Buttons"]
+self_modulate = Color(0.5073144, 0.5073145, 0.50731426, 1)
+layout_mode = 0
+offset_left = 994.0
+offset_top = 49.0
+offset_right = 1066.0
+offset_bottom = 84.0
+scale = Vector2(2.8, 2.8)
 texture_normal = ExtResource("1_avurv")
 texture_pressed = ExtResource("2_npydk")
 texture_hover = ExtResource("3_6ap7o")
 
-[node name="Label" type="Label" parent="UseButton"]
+[node name="Label" type="Label" parent="Buttons/ReturnButton"]
 layout_mode = 0
-offset_top = 3.0
-offset_right = 66.0
-offset_bottom = 33.0
-theme_override_colors/font_color = Color(0.31969476, 0.39963734, 0.45817375, 1)
+offset_left = 7.5
+offset_top = 4.6428576
+offset_right = 207.5
+offset_bottom = 104.64286
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("4_j3kxr")
-theme_override_font_sizes/font_size = 25
-text = "使用"
+theme_override_font_sizes/font_size = 100
+text = "返回"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="Buttons"]
+self_modulate = Color(0.5073144, 0.5073145, 0.50731426, 1)
+layout_mode = 0
+offset_left = 785.0
+offset_top = 560.0
+offset_right = 857.0
+offset_bottom = 595.0
+scale = Vector2(2.8, 2.8)
+texture_normal = ExtResource("1_avurv")
+texture_pressed = ExtResource("2_npydk")
+texture_hover = ExtResource("3_6ap7o")
+
+[node name="Label" type="Label" parent="Buttons/SettingsButton"]
+layout_mode = 0
+offset_left = 7.5
+offset_top = 4.6428576
+offset_right = 207.5
+offset_bottom = 104.64286
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.8117647, 0.8666667, 0.8235294, 1)
+theme_override_fonts/font = ExtResource("4_j3kxr")
+theme_override_font_sizes/font_size = 100
+text = "设置"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="Buttons"]
+self_modulate = Color(0.5073144, 0.5073145, 0.50731426, 1)
+layout_mode = 0
+offset_left = 1015.0
+offset_top = 560.0
+offset_right = 1087.0
+offset_bottom = 595.0
+scale = Vector2(2.8, 2.8)
+texture_normal = ExtResource("1_avurv")
+texture_pressed = ExtResource("2_npydk")
+texture_hover = ExtResource("3_6ap7o")
+
+[node name="Label" type="Label" parent="Buttons/QuitButton"]
+layout_mode = 0
+offset_left = 7.5
+offset_top = 4.6428576
+offset_right = 207.5
+offset_bottom = 104.64286
+scale = Vector2(0.25, 0.25)
+theme_override_colors/font_color = Color(0.93145096, 0.584585, 0.5175844, 1)
+theme_override_fonts/font = ExtResource("4_j3kxr")
+theme_override_font_sizes/font_size = 100
+text = "退出"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlackScreenFrame" type="Node" parent="."]
+
+[node name="TextureRectUp" type="TextureRect" parent="BlackScreenFrame"]
+offset_right = 1280.0
+offset_bottom = 64.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_j3kxr")
+
+[node name="TextureRectDown" type="TextureRect" parent="BlackScreenFrame"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -64.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_vovkw")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRectLeft" type="TextureRect" parent="BlackScreenFrame"]
+offset_right = 64.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_jyvtb")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRectRight" type="TextureRect" parent="BlackScreenFrame"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -360.0
+offset_bottom = 360.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_fijdv")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Buttons/ReturnButton" to="." method="_on_return_button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/ReturnButton" to="." method="_on_return_button_mouse_exited"]
+[connection signal="pressed" from="Buttons/ReturnButton" to="." method="_on_return_pressed"]
+[connection signal="mouse_entered" from="Buttons/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/SettingsButton" to="." method="_on_settings_button_mouse_exited"]
+[connection signal="pressed" from="Buttons/SettingsButton" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Buttons/QuitButton" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/QuitButton" to="." method="_on_quit_button_mouse_exited"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_pressed"]

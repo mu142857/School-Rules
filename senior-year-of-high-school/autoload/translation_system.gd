@@ -152,6 +152,13 @@ var translations: Dictionary = {
 	"UI_USE": {"zh": "食用", "en": "Eat"},
 	"UI_READ": {"zh": "阅读", "en": "Read"},
 	"UI_PLAY": {"zh": "打球", "en": "Play"},
+	
+# === 暂停界面 ===
+	"PAUSE_DAYS_START": {"zh": "开学第 %d 天", "en": "Day %d of Semester"},
+	"PAUSE_DAYS_GAOKAO": {"zh": "距高考还剩 %d 天", "en": "%d Days to Gaokao"},
+	"UI_RETURN": {"zh": "返回", "en": "Back"},
+	"UI_SETTINGS": {"zh": "设置", "en": "Settings"},
+	"UI_QUIT": {"zh": "退出", "en": "Quit"}
 }
 
 func t(key: String) -> String:
