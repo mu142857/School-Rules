@@ -1,6 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d02oa32nflrsw"]
+[gd_scene load_steps=10 format=3 uid="uid://d02oa32nflrsw"]
 
 [ext_resource type="Texture2D" uid="uid://wl7h6jwp3u2r" path="res://locations/playground/tree.png" id="1_mhqnm"]
+[ext_resource type="Shader" uid="uid://bccihvccb0gcx" path="res://locations/item shaders/tree_swing.tres" id="1_up18h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7aj3"]
+shader = ExtResource("1_up18h")
+shader_parameter/WindStrength = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_up18h"]
 atlas = ExtResource("1_mhqnm")
@@ -35,11 +40,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 8.0
+"speed": 5.0
 }]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_up18h"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
 
 [node name="tree" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_u7aj3")
 sprite_frames = SubResource("SpriteFrames_as888")
 frame_progress = 0.0077450806
+offset = Vector2(4, -239)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_up18h")
