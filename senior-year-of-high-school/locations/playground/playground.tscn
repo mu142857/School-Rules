@@ -9,14 +9,14 @@
 script = ExtResource("1_y01pv")
 
 [node name="Playground" type="Sprite2D" parent="."]
-position = Vector2(1.4551915e-11, 0)
+position = Vector2(0.9998779, 4)
 scale = Vector2(5.2, 5.2)
 skew = 0.5235988
 texture = ExtResource("1_lo8kc")
-offset = Vector2(1129.7999, 615.4)
+offset = Vector2(901.08655, 614.5118)
 
 [node name="Podium" type="Sprite2D" parent="."]
-position = Vector2(5315, -166.44995)
+position = Vector2(5236, -158)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("2_lo8kc")
 
