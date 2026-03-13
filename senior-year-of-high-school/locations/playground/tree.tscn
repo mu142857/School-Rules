@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d02oa32nflrsw"]
+[gd_scene load_steps=16 format=3 uid="uid://d02oa32nflrsw"]
 
 [ext_resource type="Texture2D" uid="uid://wl7h6jwp3u2r" path="res://locations/playground/tree.png" id="1_mhqnm"]
 [ext_resource type="Shader" uid="uid://bccihvccb0gcx" path="res://locations/item shaders/tree_swing.tres" id="1_up18h"]
+[ext_resource type="Texture2D" uid="uid://ckdf0vye7y451" path="res://locations/playground/tree_leaves.png" id="3_u7aj3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u7aj3"]
 shader = ExtResource("1_up18h")
@@ -43,9 +44,37 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lnjql"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_u7aj3"]
+offsets = PackedFloat32Array(0, 0.26181102, 0.7480315, 1)
+colors = PackedColorArray(0.361409, 0.96466345, 0.99999994, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.8600024, 0.8209988, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lnjql"]
+gradient = SubResource("Gradient_u7aj3")
+
+[sub_resource type="Gradient" id="Gradient_0oc1q"]
+offsets = PackedFloat32Array(0, 0.13582677, 0.86811024, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.78431374, 1, 1, 1, 0.78431374, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_as888"]
+gradient = SubResource("Gradient_0oc1q")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_up18h"]
 particle_flag_disable_z = true
+emission_shape_scale = Vector3(100, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 50, 1)
+angle_min = 1.0728835e-05
+angle_max = 360.00003
 gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_as888")
+color_initial_ramp = SubResource("GradientTexture1D_lnjql")
+anim_offset_max = 1.0
 
 [node name="tree" type="Node2D"]
 
@@ -56,4 +85,13 @@ frame_progress = 0.0077450806
 offset = Vector2(4, -239)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_lnjql")
+position = Vector2(0, -362)
+amount = 5
+texture = ExtResource("3_u7aj3")
+lifetime = 2.5
+explosiveness = 0.2
 process_material = SubResource("ParticleProcessMaterial_up18h")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, -249)
