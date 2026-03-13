@@ -21,7 +21,7 @@ operator = 2
 op_type = 0
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_aflx8"]
-default_input_values = [0, 0.0, 1, 1.5]
+default_input_values = [0, 0.0, 1, 2.0]
 operator = 2
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_vpver"]
@@ -107,7 +107,7 @@ void vertex() {
 
 
 // FloatOp:17
-	float n_in17p1 = 1.50000;
+	float n_in17p1 = 2.00000;
 	float n_out17p0 = n_out11p0 * n_in17p1;
 
 

@@ -1,3 +1,37 @@
-[gd_scene format=3 uid="uid://byjhnpr4k4q43"]
+[gd_scene load_steps=5 format=3 uid="uid://byjhnpr4k4q43"]
+
+[ext_resource type="Texture2D" uid="uid://bgedo70k0vrgs" path="res://locations/playground/playground.png" id="1_lo8kc"]
+[ext_resource type="Script" uid="uid://dqf3wg0qq3cry" path="res://locations/playground/playground.gd" id="1_y01pv"]
+[ext_resource type="Texture2D" uid="uid://g8q4eoq8wl6l" path="res://locations/playground/podium.png" id="2_lo8kc"]
+[ext_resource type="Texture2D" uid="uid://cmlnovbenxu6j" path="res://locations/playground/spectator stands.png" id="4_y01pv"]
 
 [node name="Playground" type="Node2D"]
+script = ExtResource("1_y01pv")
+
+[node name="Playground" type="Sprite2D" parent="."]
+position = Vector2(1.4551915e-11, 0)
+scale = Vector2(5.2, 5.2)
+skew = 0.5235988
+texture = ExtResource("1_lo8kc")
+offset = Vector2(1129.7999, 615.4)
+
+[node name="Podium" type="Sprite2D" parent="."]
+position = Vector2(5315, -166.44995)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_lo8kc")
+
+[node name="SpectatorStandsLeft" type="Sprite2D" parent="."]
+position = Vector2(2195.6501, 102.80005)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("4_y01pv")
+
+[node name="SpectatorStandsRight" type="Sprite2D" parent="."]
+position = Vector2(8407.649, 102.80004)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("4_y01pv")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+position = Vector2(2398, 5464)
+
+[node name="FromCorridor" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(2, 2)

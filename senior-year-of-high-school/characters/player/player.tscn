@@ -221,7 +221,3 @@ shape = SubResource("RectangleShape2D_tory2")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -250)
 zoom = Vector2(0.8, 0.8)
-limit_left = 0
-limit_top = -360
-limit_right = 2075
-limit_bottom = 970
