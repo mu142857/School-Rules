@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b4wafsprvx1yd"]
+[gd_scene load_steps=13 format=4 uid="uid://b4wafsprvx1yd"]
 
 [ext_resource type="Texture2D" uid="uid://cp0xyha6yyo71" path="res://locations/central_area/tile_map.png" id="1_je8qs"]
 [ext_resource type="Script" uid="uid://dhguvqra7gpmc" path="res://locations/central_area/central_area.gd" id="1_knefu"]
@@ -45,6 +45,13 @@ texture_region_size = Vector2i(256, 256)
 tile_size = Vector2i(256, 256)
 sources/0 = SubResource("TileSetAtlasSource_fd8o5")
 
+[sub_resource type="Gradient" id="Gradient_vwrhn"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.26293266, 0.2629324, 0.26293245, 0.39215687)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7hh4k"]
+gradient = SubResource("Gradient_vwrhn")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knefu"]
 size = Vector2(50.37892, 8982.17)
 
@@ -62,6 +69,12 @@ tile_set = SubResource("TileSet_k0hcj")
 position = Vector2(2043, -2126)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_k0hcj")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(2634.8418, -3253.7637)
+scale = Vector2(79.23829, 9.173957)
+skew = 0.5235988
+texture = SubResource("GradientTexture2D_7hh4k")
 
 [node name="AcademicBuilding1" type="Sprite2D" parent="."]
 position = Vector2(361.50003, -5355)
